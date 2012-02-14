@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module codename="br.unifei.rmaalmeida.toolchainSDCC">
+    <module_version install_time="1304355643497" last="true" origin="installer" specification_version="1.0.2">
+        <file crc="302441687" name="config/Modules/br-unifei-rmaalmeida-toolchainSDCC.xml"/>
+        <file crc="2743652229" name="modules/br-unifei-rmaalmeida-toolchainSDCC.jar"/>
+    </module_version>
+</module>

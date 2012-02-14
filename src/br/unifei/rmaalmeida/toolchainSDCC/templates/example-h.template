@@ -1,0 +1,13 @@
+/*
+   File:   %<%NAME%>%.%<%EXTENSION%>%
+   Author: %<%USER%>%
+
+   Created on %<%DATE%>%, %<%TIME%>%
+ */
+
+#ifndef %<%NAME%>%_%<%EXTENSION%>%
+    #define %<%NAME%>%_%<%EXTENSION%>%
+
+
+
+#endif // %<%NAME%>%_%<%EXTENSION%>%
