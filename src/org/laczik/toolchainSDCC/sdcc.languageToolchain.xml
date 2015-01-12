@@ -61,7 +61,7 @@
       <mp:makeRule mp:id="link" mp:target="${FINAL_IMAGE_NAME}" mp:prerequisites="${CURRENT_OBJECT_FILES}" mp:runtimepropertiesclass="org.laczik.toolchainSDCC.CompilerProperties">
             <mp:textEmitter mp:text="${MKDIR} ${FINAL_TARGET_DIR} ${NEWLINE}"/>
             <mp:textEmitter mp:text="${MP_CC} "/>
-            <mp:textEmitter mp:text=" --debug-ralloc -Wl-c -Wl-m "/>
+            <mp:textEmitter mp:text=" -Wl-c -Wl-m "/>
             <mp:optionEmitter mp:idref="sdcc" mp:separator=" "/>
             <mp:textEmitter mp:text=" -m${PROCESSOR_FAMILY}"/>
             <mp:textEmitter mp:text=" -p${PROCESSOR_NAME}"/>

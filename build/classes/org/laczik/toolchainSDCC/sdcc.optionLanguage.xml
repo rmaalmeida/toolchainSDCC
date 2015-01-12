@@ -25,6 +25,7 @@
     <opt:booleanOption opt:id="no-c-code-in-asm"         opt:name="Hide C code from ASM" opt:desc="Hides your ugly and inefficient c-code from the asm file, so you can always blame the compiler :)" opt:trueemission="--no-c-code-in-asm"/>
     <opt:booleanOption opt:id="verbose"                  opt:name="Verbose actions" opt:desc="Shows the various actions the compiler is performing. " opt:trueemission="--verbose"/>
     <opt:booleanOption opt:id="V-show-commands-compiler" opt:name="Verbose commands" opt:desc="Shows the actual commands the compiler is executing." opt:trueemission="-V"/>
+    <opt:stringListOption opt:id="define-macros"         opt:name="Define macros"             opt:emissionseparator=" -D"  opt:emissionprefix="-D" opt:expr="[A-Za-z_][A-Za-z_0-9]*(=.+)?"/>
   </opt:optionCategory>
 
   <opt:optionCategory opt:id="pic14" opt:name="PIC14 exclusive options">
@@ -33,7 +34,8 @@
   </opt:optionCategory>
 
   <opt:optionCategory opt:id="pic16" opt:name="PIC16 exclusive options">
-    <opt:enumOption opt:id="pstack-model"               opt:name="Stack-size" opt:desc="Defines the stack model to be used." opt:textdefault="small" opt:emissionprefix="--pstack-model=" opt:emitswhendefault="true">
+    <opt:booleanOption opt:id="debug-ralloc"            opt:name=" Force register allocator to dump *.d ?les with debugging information." opt:desc="output debugging information" opt:trueemission="--debug-ralloc" opt:booldefault="false"/>
+    <opt:enumOption opt:id="pstack-model"               opt:name="Stack-size" opt:desc="Defines the stack model to be used." opt:textdefault="" opt:emissionprefix="--pstack-model=" opt:emitswhendefault="false">
       <opt:selection opt:text="small"                   opt:name="Small" opt:desc="Selects small stack model. 8 bit stack and frame pointers. Supports 256 bytes stack size."/>
       <opt:selection opt:text="large"                   opt:name="Large" opt:desc="Selects large stack model. 16 bit stack and frame pointers. Supports 65536 bytes stack size."/>
     </opt:enumOption>

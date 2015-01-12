@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="org.laczik.toolchainSDCC/1">
-    <module_version install_time="1421101839579" last="true" origin="installer" specification_version="1.0.4">
+    <module_version install_time="1421103463466" last="true" origin="installer" specification_version="1.0.5">
         <file crc="1529467185" name="config/Modules/org-laczik-toolchainSDCC.xml"/>
-        <file crc="503320611" name="modules/org-laczik-toolchainSDCC.jar"/>
+        <file crc="56880376" name="modules/org-laczik-toolchainSDCC.jar"/>
     </module_version>
 </module>
