@@ -4,4 +4,4 @@ To change this template, choose Tools | Templates
 and open the template in the editor.
 -->
 <!DOCTYPE helpsetref PUBLIC "-//NetBeans//DTD JavaHelp Help Set Reference 1.0//EN" "http://www.netbeans.org/dtds/helpsetref-1_0.dtd">
-<helpsetref url="nbdocs:/br/unifei/rmaalmeida/toolchainSDCC/docs/toolchainSDCC-hs.xml"/>
+<helpsetref url="nbdocs:/org.laczik.toolchainSDCC/docs/toolchainSDCC-hs.xml"/>

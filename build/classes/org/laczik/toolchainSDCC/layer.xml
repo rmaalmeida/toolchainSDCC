@@ -21,18 +21,18 @@
                 <attr name="text/x-c/text/x-h" boolvalue="true"/>  special attribute to be checked in CCFSrcFileIterator.initialize
             </file>-->
                 <file name="main.c" url="templates/main-c.template">
-                    <attr name="SystemFileSystem.localizingBundle" stringvalue="br.unifei.rmaalmeida.toolchainSDCC.Bundle"/>
+                    <attr name="SystemFileSystem.localizingBundle" stringvalue="org.laczik.toolchainSDCC.Bundle"/>
                     <attr name="position" intvalue="300"/>
                     <attr name="template" boolvalue="true"/>
-                    <attr name="templateWizardURL" urlvalue="nbresloc:/br/unifei/rmaalmeida/toolchainSDCC/resources/main-c.html"/>
+                    <attr name="templateWizardURL" urlvalue="nbresloc:/org.laczik.toolchainSDCC/resources/main-c.html"/>
                     <attr name="templateWizardIterator" newvalue="com.microchip.mplab.nbide.embedded.editor.filecreation.CCFSrcFileIterator"/>
                     <attr name="templateCategory" stringvalue="c-types"/>
                 </file>
                 <file name="example.h" url="templates/example-h.template">
-                    <attr name="SystemFileSystem.localizingBundle" stringvalue="br.unifei.rmaalmeida.toolchainSDCC.Bundle"/>
+                    <attr name="SystemFileSystem.localizingBundle" stringvalue="org.laczik.toolchainSDCC.Bundle"/>
                     <attr name="position" intvalue="300"/>
                     <attr name="template" boolvalue="true"/>
-                    <attr name="templateWizardURL" urlvalue="nbresloc:/br/unifei/rmaalmeida/toolchainSDCC/resources/example-h.html"/>
+                    <attr name="templateWizardURL" urlvalue="nbresloc:/org.laczik.toolchainSDCC/resources/example-h.html"/>
                     <attr name="templateWizardIterator" newvalue="com.microchip.mplab.nbide.embedded.editor.filecreation.CCFSrcFileIterator"/>
                     <attr name="templateCategory" stringvalue="c-types"/>
                 </file>

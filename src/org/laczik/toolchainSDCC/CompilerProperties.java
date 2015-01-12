@@ -1,6 +1,6 @@
 /*
     SDCC Toolchain allows MPLABX to compile with SDCC+GPUtils for pic 16/18
-    Copyright (C) 2011  Rodrigo Maximiano Antunes de Almeida
+    Copyright (C) 2011 RMA de Almeida and 2015 ZJ Laczik
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -15,7 +15,7 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-package br.unifei.rmaalmeida.toolchainSDCC;
+package org.laczik.toolchainSDCC;
 
 import com.microchip.mplab.nbide.embedded.makeproject.api.configurations.MakeConfiguration;
 import com.microchip.mplab.nbide.embedded.makeproject.api.configurations.MakeConfigurationBook;
@@ -23,7 +23,7 @@ import java.util.Properties;
 
 /**
  *
- * @author rmaalmeida
+ * @author rmaalmeida and zjlaczik
  */
 public class CompilerProperties {
     public CompilerProperties(MakeConfigurationBook projectDescriptor,

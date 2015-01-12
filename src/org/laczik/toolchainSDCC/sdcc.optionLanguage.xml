@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
     SDCC Toolchain allows MPLABX to compile with SDCC+GPUtils for pic 16/18
-    Copyright (C) 2011  Rodrigo Maximiano Antunes de Almeida
+    Copyright (C) 2011 RMA de Almeida and 2015 ZJ Laczik
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -17,7 +17,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
  <opt:optionLanguage xmlns:opt="http://crownking/opt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://crownking/opt opt/optionLanguage.xsd" opt:id="sdcc" opt:name="SDCC C Compiler for 8-bit Devices">
-  <opt:versionFactory opt:class="br.unifei.rmaalmeida.toolchainSDCC.SDCCVersionFactory"/>
+  <opt:versionFactory opt:class="org.laczik.toolchainSDCC.SDCCVersionFactory"/>
 
   <opt:optionCategory opt:id="general" opt:name="General">
     <opt:booleanOption opt:id="use-non-free"             opt:name="Use non free libraries/header" opt:desc="Search / include non-free licensed libraries and header files, located under the non-free directory." opt:trueemission="--use-non-free"/>

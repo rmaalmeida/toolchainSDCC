@@ -1,6 +1,6 @@
 /*
     SDCC Toolchain allows MPLABX to compile with SDCC+GPUtils for pic 16/18
-    Copyright (C) 2011  Rodrigo Maximiano Antunes de Almeida
+    Copyright (C) 2011 RMA de Almeida and 2015 ZJ Laczik
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -15,12 +15,20 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-package br.unifei.rmaalmeida.toolchainSDCC;
-
+package org.laczik.toolchainSDCC;
+import com.microchip.crownking.opt.Version;
 /**
  *
- * @author rmaalmeida
+ * @author rmaalmeida and zjlaczik
  */
-public class SDCCtoolchain {
-
+public class SDCCVersionFactory implements Version.Factory  {
+    /**
+     * <p>This factory interface enables a client to instantiate extensions to
+     * the <code>Version</code> class without having to know the name of the
+     * particular extending class.
+     */
+    @Override
+    public SDCCVersion create(String s) {
+        return new SDCCVersion(s);
+    }
 }

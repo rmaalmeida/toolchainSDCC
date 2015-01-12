@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
     SDCC Toolchain allows MPLABX to compile with SDCC+GPUtils for pic 16/18
-    Copyright (C) 2011  Rodrigo Maximiano Antunes de Almeida
+    Copyright (C) 2011 RMA de Almeida and 2015 ZJ Laczik
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -23,10 +23,10 @@
                       mp:id="SDCCToolchain"
                       mp:name="SDCC Toolchain"
                       mp:hostplatforms="windows,linux,mac,none"
-                      mp:class="br.unifei.rmaalmeida.toolchainSDCC.SDCCtoolchain">
+                      mp:class="org.laczik.toolchainSDCC.SDCCtoolchain">
 
-  <mp:versionProvider mp:class="br.unifei.rmaalmeida.toolchainSDCC.SDCCVersionProvider"/>
-  <opt:versionFactory opt:class="br.unifei.rmaalmeida.toolchainSDCC.SDCCVersionFactory"/>
+  <mp:versionProvider mp:class="org.laczik.toolchainSDCC.SDCCVersionProvider"/>
+  <opt:versionFactory opt:class="org.laczik.toolchainSDCC.SDCCVersionFactory"/>
   
   <mp:configurationObject mp:id="sdcc" opt:src="sdcc.optionLanguage.xml" mp:idref="sdcc"/>
 
@@ -41,7 +41,7 @@
           <mp:buildStep mp:idref="compile"/>
           <mp:buildStep mp:idref="link"/>
       </mp:build>
-      <mp:makeRule mp:id="compile" mp:prerequisites=".*[cC]$" mp:runtimepropertiesclass="br.unifei.rmaalmeida.toolchainSDCC.CompilerProperties">
+      <mp:makeRule mp:id="compile" mp:prerequisites=".*[cC]$" mp:runtimepropertiesclass="org.laczik.toolchainSDCC.CompilerProperties">
 	  <!-- this following line makes sure the directory where we will compile exists -->
             <mp:textEmitter mp:text="${MKDIR} ${CURRENT_OBJECT_DIR} ${NEWLINE}"/>
 	  <!-- this following line erases the dependency files created in the last compiler -->
@@ -58,7 +58,7 @@
             <mp:textEmitter mp:text="${NEWLINE}"/>
       </mp:makeRule>
 
-      <mp:makeRule mp:id="link" mp:target="${FINAL_IMAGE_NAME}" mp:prerequisites="${CURRENT_OBJECT_FILES}" mp:runtimepropertiesclass="br.unifei.rmaalmeida.toolchainSDCC.CompilerProperties">
+      <mp:makeRule mp:id="link" mp:target="${FINAL_IMAGE_NAME}" mp:prerequisites="${CURRENT_OBJECT_FILES}" mp:runtimepropertiesclass="org.laczik.toolchainSDCC.CompilerProperties">
             <mp:textEmitter mp:text="${MKDIR} ${FINAL_TARGET_DIR} ${NEWLINE}"/>
             <mp:textEmitter mp:text="${MP_CC} "/>
             <mp:textEmitter mp:text=" --debug-ralloc -Wl-c -Wl-m "/>
@@ -78,7 +78,7 @@
   <mp:logicalFolder mp:id="LinkerScript"/>
 
   <mp:defaultLocation mp:hostplatform="windows" mp:dir="C:/*/SDCC/bin/"/>
-  <mp:defaultLocation mp:hostplatform="linux" mp:dir="/usr/local/bin"/>
+  <mp:defaultLocation mp:hostplatform="linux" mp:dir="/usr/bin"/>
   <mp:defaultLocation mp:hostplatform="mac" mp:dir="/*SDCC/bin"/>
 
 
@@ -86,6 +86,11 @@
   
   <mp:deviceSupport>
       <mp:family mp:family="16x">
+            <mp:device mp:name="PIC10F320" mp:support="beta"/>
+            <mp:device mp:name="PIC10LF320" mp:support="beta"/>
+            <mp:device mp:name="PIC10F322" mp:support="beta"/>
+            <mp:device mp:name="PIC10LF322" mp:support="beta"/>
+
             <mp:device mp:name="PIC16C432" mp:support="beta"/>
             <mp:device mp:name="PIC16C433" mp:support="beta"/>
             <mp:device mp:name="PIC16C554" mp:support="beta"/>

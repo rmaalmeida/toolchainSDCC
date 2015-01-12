@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package br.unifei.rmaalmeida.toolchainSDCC;
+package org.laczik.toolchainSDCC;
 
 import com.microchip.mplab.nbide.embedded.spi.FilenameSuffixProvider;
 import org.netbeans.api.project.Project;
