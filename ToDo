@@ -1,0 +1,15 @@
+Add all supported devices
+
+Remove or make optional options that are not always required
+
+Add options, in particular
+  stack location
+  asm  and linker warning options
+  include path
+  library path
+  library list
+  ... and probably many more
+
+Add script (?) to pass memory and flash usage info to mplabx_ide
+
+Sign package automatically

@@ -2,5 +2,5 @@ Manifest-Version: 1.0
 OpenIDE-Module: org.laczik.toolchainSDCC/1
 OpenIDE-Module-Layer: org/laczik/toolchainSDCC/layer.xml
 OpenIDE-Module-Localizing-Bundle: org/laczik/toolchainSDCC/Bundle.properties
-OpenIDE-Module-Specification-Version: 1.0.3
+OpenIDE-Module-Specification-Version: 1.0.4
 
