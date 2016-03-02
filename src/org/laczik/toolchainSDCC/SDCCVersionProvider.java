@@ -23,40 +23,28 @@ import java.io.File;
 import java.io.IOException;
 import java.util.regex.Matcher;
 
-/**
- *
- * @author MPLABX_team
- */
 public class SDCCVersionProvider implements VersionProvider
 {
     @Override
     public String getVersion(String directory)
     {
-         return new SDCCImpl().getVersion(
-            directory + File.separator + "sdcc");
-    }
-    public static class SDCCImpl implements VersionProvider
-    {
-        @Override
-        public String getVersion(String path)
-        {
-            try
-            {
-                if (path == null || path.length() == 0)
-                    return "";
-
-                Matcher m = LanguageToolSupport.findInOutput(
-                    path, "--version", "\\d+\\.\\d+\\.\\d+", true);
-                if (m == null) {
-                    return "";
-                }
-                return m.group(0);
-            }
-            catch (IOException ex)
-            {
-            }
-
+        if (directory == null || directory.isEmpty())
             return "";
+        
+        String pathToCompiler = directory + File.separator + "sdcc";
+
+        try
+        {
+            Matcher m = LanguageToolSupport.findInOutput(pathToCompiler, new String [] {"--version"}, "\\d+\\.\\d+\\.\\d+", true, false);
+            if (m == null) {
+                return "";
+            }
+            return m.group(0);
         }
+        catch (IOException ex)
+        {
+        }
+
+        return "";
     }
 }

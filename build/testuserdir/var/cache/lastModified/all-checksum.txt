@@ -1,0 +1,17 @@
+C:\Program Files (x86)\Microchip\MPLABX\v3.20\mplab_ide\platform=1451412044000
+cluster.C:/Projekter/hayes/toolchainSDCC/build/cluster=1456617215181
+cluster.C:/Program Files (x86)/Microchip/MPLABX/v3.20/mplab_ide/cnd=1451412032000
+cluster.C:/Program Files (x86)/Microchip/MPLABX/v3.20/mplab_ide/dlight=1451412034000
+cluster.C:/Program Files (x86)/Microchip/MPLABX/v3.20/mplab_ide/harness=1451412034000
+cluster.C:/Program Files (x86)/Microchip/MPLABX/v3.20/mplab_ide/ide=1451412040000
+cluster.C:/Program Files (x86)/Microchip/MPLABX/v3.20/mplab_ide/mdbcore=1451412042000
+cluster.C:/Program Files (x86)/Microchip/MPLABX/v3.20/mplab_ide/mplablibs=1451412042000
+cluster.C:/Program Files (x86)/Microchip/MPLABX/v3.20/mplab_ide/mplab_ide=1451412006000
+cluster.C:/Program Files (x86)/Microchip/MPLABX/v3.20/mplab_ide/nb=1451412042000
+cluster.C:/Program Files (x86)/Microchip/MPLABX/v3.20/mplab_ide/platform=1451412044000
+user=1456617215181
+crc=7
+locale=da_DK
+branding=null
+java.version=1.8.0_71
+java.vm.version=25.71-b15

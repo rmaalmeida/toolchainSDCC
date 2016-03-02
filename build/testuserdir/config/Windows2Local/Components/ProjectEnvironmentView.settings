@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE properties PUBLIC "-//com.microchip.mplab//ProjectEnvironmentView//EN" "http://www.netbeans.org/dtds/properties-1_0.dtd">
+<properties>
+    <property name="version" value="1.0"/>
+    <property name="fontsize" value="-1"/>
+    <property name="datasheetpath" value="C:/Users/Patrick/MPLABXProjects/plugintest/plugintest.X"/>
+</properties>

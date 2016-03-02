@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Microchip: MPLABX Software</title>
+    <link>
+    </link>
+    <description>Recently Released MPLABX IDE and Compilers from Microchip Technology Inc.</description>
+    <language>en-us</language>
+    <lastBuildDate>2/27/2016 11:02:31 PM</lastBuildDate>
+    <webMaster>webcorrections@Microchip.com</webMaster>
+    <ttl>30</ttl>
+    <item>
+      <title>MPLAB X IDE Windows</title>
+      <description>MPLAB X IDE Windows</description>
+      <link>http://ww1.microchip.com/downloads/en/DeviceDoc/MPLABX-v3.25-windows-installer.exe</link>
+      <pubDate>2/19/2016 9:37:16 PM</pubDate>
+    </item>
+    <item>
+      <title>MPLAB X IDE OSX</title>
+      <description>MPLAB X IDE OSX</description>
+      <link>http://ww1.microchip.com/downloads/en/DeviceDoc/MPLABX-v3.25-osx-installer.dmg</link>
+      <pubDate>2/19/2016 9:37:16 PM</pubDate>
+    </item>
+    <item>
+      <title>MPLAB X IDE Linux</title>
+      <description>MPLAB X IDE Linux</description>
+      <link>http://ww1.microchip.com/downloads/en/DeviceDoc/MPLABX-v3.25-linux-installer.tar</link>
+      <pubDate>2/19/2016 8:55:25 PM</pubDate>
+    </item>
+    <item>
+      <title>MPLAB XC8 C-Compiler Linux</title>
+      <description>MPLAB XC8 C-Compiler Linux</description>
+      <link>http://ww1.microchip.com/downloads/en/DeviceDoc/xc8-v1.36-full-install-linux-installer.run</link>
+      <pubDate>2/1/2016 5:41:00 PM</pubDate>
+    </item>
+    <item>
+      <title>MPLAB XC8 C-Compiler Windows</title>
+      <description>MPLAB XC8 C-Compiler Windows</description>
+      <link>http://ww1.microchip.com/downloads/en/DeviceDoc/xc8-v1.36-full-install-windows-installer.exe</link>
+      <pubDate>1/25/2016 4:17:00 PM</pubDate>
+    </item>
+    <item>
+      <title>MPLAB XC8 C-Compiler OSX</title>
+      <description>MPLAB XC8 C-Compiler OSX</description>
+      <link>http://ww1.microchip.com/downloads/en/DeviceDoc/xc8-v1.36-full-install-osx-installer-2.dmg</link>
+      <pubDate>1/25/2016 4:15:00 PM</pubDate>
+    </item>
+    <item>
+      <title>MPLAB XC16 C-Compiler Linux</title>
+      <description>MPLAB XC16 C-Compiler Linux</description>
+      <link>http://ww1.microchip.com/downloads/en/DeviceDoc/xc16-v1.25-full-install-linux-installer.run</link>
+      <pubDate>7/28/2015 3:26:15 PM</pubDate>
+    </item>
+    <item>
+      <title>MPLAB XC16 C-Compiler Windows</title>
+      <description>MPLAB XC16 C-Compiler Windows</description>
+      <link>http://ww1.microchip.com/downloads/en/DeviceDoc/xc16-v1.25-full-install-windows-installer.exe</link>
+      <pubDate>7/28/2015 3:26:15 PM</pubDate>
+    </item>
+    <item>
+      <title>MPLAB XC16 C-Compiler OSX</title>
+      <description>MPLAB XC16 C-Compiler OSX</description>
+      <link>http://ww1.microchip.com/downloads/en/DeviceDoc/xc16-v1.25-full-install-osx-installer.dmg</link>
+      <pubDate>7/28/2015 3:20:17 PM</pubDate>
+    </item>
+    <item>
+      <title>MPLAB X IDE OSX v3.06</title>
+      <description>MPLAB X IDE OSX v3.06</description>
+      <link>http://ww1.microchip.com/downloads/en/DeviceDoc/MPLABX-v3.06-osx-installer.dmg</link>
+      <pubDate>7/9/2015 5:16:00 PM</pubDate>
+    </item>
+    <item>
+      <title>MPLAB X IDE Linux v3.06</title>
+      <description>MPLAB X IDE Linux v3.06</description>
+      <link>http://ww1.microchip.com/downloads/en/DeviceDoc/MPLABX-v3.06-linux-installer.tar</link>
+      <pubDate>7/9/2015 5:15:00 PM</pubDate>
+    </item>
+    <item>
+      <title>MPLAB X IDE Windows v3.06</title>
+      <description>MPLAB X IDE Windows v3.06</description>
+      <link>http://ww1.microchip.com/downloads/en/DeviceDoc/MPLABX-v3.06-windows-installer.exe</link>
+      <pubDate>7/9/2015 5:15:00 PM</pubDate>
+    </item>
+    <item>
+      <title>MPLAB XC32 C-Compiler OSX</title>
+      <description>MPLAB XC32 C-Compiler OSX</description>
+      <link>http://ww1.microchip.com/downloads/en/DeviceDoc/xc32-v1.40-full-install-osx-installer.dmg</link>
+      <pubDate>6/17/2015 8:56:00 PM</pubDate>
+    </item>
+    <item>
+      <title>MPLAB XC32 C-Compiler Linux</title>
+      <description>MPLAB XC32 C-Compiler Linux</description>
+      <link>http://ww1.microchip.com/downloads/en/DeviceDoc/xc32-v1.40-full-install-linux-installer.run</link>
+      <pubDate>6/17/2015 8:55:00 PM</pubDate>
+    </item>
+    <item>
+      <title>MPLAB XC32 C-Compiler Windows</title>
+      <description>MPLAB XC32 C-Compiler Windows</description>
+      <link>http://ww1.microchip.com/downloads/en/DeviceDoc/xc32-v1.40-full-install-windows-installer.exe</link>
+      <pubDate>6/17/2015 8:55:00 PM</pubDate>
+    </item>
+  </channel>
+</rss>

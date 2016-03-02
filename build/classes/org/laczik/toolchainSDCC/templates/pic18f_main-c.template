@@ -1,0 +1,27 @@
+/*
+   File:   %<%NAME%>%.%<%EXTENSION%>%
+   Author: %<%USER%>%
+
+   Created on %<%DATE%>%, %<%TIME%>%
+ */
+
+#include <pic18fregs.h>
+
+void main(void)
+{
+    //Infinite loop
+    for(;;)
+    {
+
+    }
+}
+
+void highInterrupt(void) __interrupt(1)
+{
+
+}
+
+void lowInterrupt(void) __interrupt(2)
+{
+
+}

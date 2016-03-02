@@ -1,0 +1,682 @@
+-------------------------------------------------------------------------------
+>Log Session: Sunday, February 28, 2016 12:53:36 AM CET
+>System Info: 
+  Product Version         = NetBeans Platform 8.0.1 (Build 20151229-unknown-revn)
+  Operating System        = Windows 10 version 10.0 running on x86
+  Java; VM; Vendor        = 1.8.0_71; Java HotSpot(TM) Server VM 25.71-b15; Oracle Corporation
+  Runtime                 = Java(TM) SE Runtime Environment 1.8.0_71-b15
+  Java Home               = C:\Program Files (x86)\Java\jdk1.8.0_71\jre
+  System Locale; Encoding = da_DK; Cp1252
+  Home Directory          = C:\Users\Patrick
+  Current Directory       = C:\Projekter\hayes\toolchainSDCC
+  User Directory          = C:\Projekter\hayes\toolchainSDCC\build\testuserdir
+  Cache Directory         = C:\Projekter\hayes\toolchainSDCC\build\testuserdir\var\cache
+  Installation            = C:\Projekter\hayes\toolchainSDCC\build\cluster
+                            C:\Program Files (x86)\Microchip\MPLABX\v3.20\mplab_ide\cnd
+                            C:\Program Files (x86)\Microchip\MPLABX\v3.20\mplab_ide\dlight
+                            C:\Program Files (x86)\Microchip\MPLABX\v3.20\mplab_ide\harness
+                            C:\Program Files (x86)\Microchip\MPLABX\v3.20\mplab_ide\ide
+                            C:\Program Files (x86)\Microchip\MPLABX\v3.20\mplab_ide\mdbcore
+                            C:\Program Files (x86)\Microchip\MPLABX\v3.20\mplab_ide\mplablibs
+                            C:\Program Files (x86)\Microchip\MPLABX\v3.20\mplab_ide\mplab_ide
+                            C:\Program Files (x86)\Microchip\MPLABX\v3.20\mplab_ide\nb
+                            C:\Program Files (x86)\Microchip\MPLABX\v3.20\mplab_ide\platform
+                            C:\Program Files (x86)\Microchip\MPLABX\v3.20\mplab_ide\platform
+  Boot & Ext. Classpath   = C:\Program Files (x86)\Java\jdk1.8.0_71\jre\lib\resources.jar;C:\Program Files (x86)\Java\jdk1.8.0_71\jre\lib\rt.jar;C:\Program Files (x86)\Java\jdk1.8.0_71\jre\lib\sunrsasign.jar;C:\Program Files (x86)\Java\jdk1.8.0_71\jre\lib\jsse.jar;C:\Program Files (x86)\Java\jdk1.8.0_71\jre\lib\jce.jar;C:\Program Files (x86)\Java\jdk1.8.0_71\jre\lib\charsets.jar;C:\Program Files (x86)\Java\jdk1.8.0_71\jre\lib\jfr.jar;C:\Program Files (x86)\Java\jdk1.8.0_71\jre\classes;C:\Program Files (x86)\Java\jdk1.8.0_71\jre\lib\ext\access-bridge-32.jar;C:\Program Files (x86)\Java\jdk1.8.0_71\jre\lib\ext\cldrdata.jar;C:\Program Files (x86)\Java\jdk1.8.0_71\jre\lib\ext\dnsns.jar;C:\Program Files (x86)\Java\jdk1.8.0_71\jre\lib\ext\jaccess.jar;C:\Program Files (x86)\Java\jdk1.8.0_71\jre\lib\ext\jfxrt.jar;C:\Program Files (x86)\Java\jdk1.8.0_71\jre\lib\ext\localedata.jar;C:\Program Files (x86)\Java\jdk1.8.0_71\jre\lib\ext\nashorn.jar;C:\Program Files (x86)\Java\jdk1.8.0_71\jre\lib\ext\sunec.jar;C:\Program Files (x86)\Java\jdk1.8.0_71\jre\lib\ext\sunjce_provider.jar;C:\Program Files (x86)\Java\jdk1.8.0_71\jre\lib\ext\sunmscapi.jar;C:\Program Files (x86)\Java\jdk1.8.0_71\jre\lib\ext\sunpkcs11.jar;C:\Program Files (x86)\Java\jdk1.8.0_71\jre\lib\ext\zipfs.jar
+  Application Classpath   = C:\Program Files (x86)\Microchip\MPLABX\v3.20\mplab_ide\platform\lib\boot.jar;C:\Program Files (x86)\Microchip\MPLABX\v3.20\mplab_ide\platform\lib\org-openide-modules.jar;C:\Program Files (x86)\Microchip\MPLABX\v3.20\mplab_ide\platform\lib\org-openide-util-lookup.jar;C:\Program Files (x86)\Microchip\MPLABX\v3.20\mplab_ide\platform\lib\org-openide-util.jar;C:\Program Files (x86)\Microchip\MPLABX\v3.20\mplab_ide\platform\lib\locale\boot_zh_CN.jar;C:\Program Files (x86)\Microchip\MPLABX\v3.20\mplab_ide\platform\lib\locale\org-openide-modules_zh_CN.jar;C:\Program Files (x86)\Microchip\MPLABX\v3.20\mplab_ide\platform\lib\locale\org-openide-util-lookup_zh_CN.jar;C:\Program Files (x86)\Microchip\MPLABX\v3.20\mplab_ide\platform\lib\locale\org-openide-util_zh_CN.jar;C:\Program Files (x86)\Java\jdk1.8.0_71\lib\dt.jar;C:\Program Files (x86)\Java\jdk1.8.0_71\lib\tools.jar
+  Startup Classpath       = C:\Program Files (x86)\Microchip\MPLABX\v3.20\mplab_ide\platform\core\core.jar;C:\Program Files (x86)\Microchip\MPLABX\v3.20\mplab_ide\platform\core\org-openide-filesystems.jar;C:\Program Files (x86)\Microchip\MPLABX\v3.20\mplab_ide\platform\core\locale\core_zh_CN.jar;C:\Program Files (x86)\Microchip\MPLABX\v3.20\mplab_ide\platform\core\locale\org-openide-filesystems_zh_CN.jar;C:\Program Files (x86)\Microchip\MPLABX\v3.20\mplab_ide\mplab_ide\core\locale\core_mplab.jar;C:\Program Files (x86)\Microchip\MPLABX\v3.20\mplab_ide\nb\core\org-netbeans-upgrader.jar;C:\Program Files (x86)\Microchip\MPLABX\v3.20\mplab_ide\nb\core\locale\core_nb.jar;C:\Program Files (x86)\Microchip\MPLABX\v3.20\mplab_ide\nb\core\locale\core_nb_zh_CN.jar;C:\Program Files (x86)\Microchip\MPLABX\v3.20\mplab_ide\nb\core\locale\org-netbeans-upgrader_zh_CN.jar
+-------------------------------------------------------------------------------
+WARNING [org.netbeans.core.modules]: had to upgrade dependencies for module com.microchip.mplab.mdbcore.registerview: added = [module org.openide.awt] removed = []; details: [SaveCookie extends Savable. To compile you need to include openide.awt on classpath.]
+WARNING [org.netbeans.core.modules]: had to upgrade dependencies for module com.microchip.mplab.mdbcore.symbolview: added = [module org.openide.awt] removed = []; details: [SaveCookie extends Savable. To compile you need to include openide.awt on classpath.]
+WARNING [org.netbeans.core.startup.NbEvents]: The extension C:\Program Files (x86)\Microchip\MPLABX\v3.20\mplab_ide\mdbcore\modules\ext\mdbcs.jar may be multiply loaded by modules: [C:\Program Files (x86)\Microchip\MPLABX\v3.20\mplab_ide\mdbcore\modules\com-microchip-mplab-mdbcore-symbolview.jar, C:\Program Files (x86)\Microchip\MPLABX\v3.20\mplab_ide\mdbcore\modules\com-microchip-mplab-mdbcore-translator.jar]; see: http://www.netbeans.org/download/dev/javadoc/org-openide-modules/org/openide/modules/doc-files/classpath.html#class-path
+WARNING [org.netbeans.core.modules]: had to upgrade dependencies for module com.microchip.mplab.nbide.platformToolPICkit3: added = [module org.openide.awt] removed = []; details: [SaveCookie extends Savable. To compile you need to include openide.awt on classpath.]
+WARNING [org.netbeans.core.modules]: had to upgrade dependencies for module com.microchip.mplab.nbide.toolchainASM30: added = [module org.openide.awt] removed = []; details: [SaveCookie extends Savable. To compile you need to include openide.awt on classpath.]
+WARNING [org.netbeans.core.modules]: had to upgrade dependencies for module com.microchip.mplab.nbide.toolchainC18: added = [module org.openide.awt] removed = []; details: [SaveCookie extends Savable. To compile you need to include openide.awt on classpath.]
+WARNING [org.netbeans.core.modules]: had to upgrade dependencies for module com.microchip.mplab.nbide.toolchainC30: added = [module org.openide.awt] removed = []; details: [SaveCookie extends Savable. To compile you need to include openide.awt on classpath.]
+WARNING [org.netbeans.core.modules]: had to upgrade dependencies for module com.microchip.mplab.nbide.toolchainC32: added = [module org.openide.awt] removed = []; details: [SaveCookie extends Savable. To compile you need to include openide.awt on classpath.]
+WARNING [org.netbeans.core.modules]: had to upgrade dependencies for module com.microchip.mplab.nbide.toolchainGeneric: added = [module org.openide.awt] removed = []; details: [SaveCookie extends Savable. To compile you need to include openide.awt on classpath.]
+WARNING [org.netbeans.core.modules]: had to upgrade dependencies for module com.microchip.mplab.nbide.toolchainhitech: added = [module org.openide.awt] removed = []; details: [SaveCookie extends Savable. To compile you need to include openide.awt on classpath.]
+WARNING [org.netbeans.core.modules]: had to upgrade dependencies for module com.microchip.mplab.nbide.toolchainMPASMWIN: added = [module org.openide.awt] removed = []; details: [SaveCookie extends Savable. To compile you need to include openide.awt on classpath.]
+WARNING [org.netbeans.core.modules]: had to upgrade dependencies for module com.microchip.mplab.nbide.toolchainXC16: added = [module org.openide.awt] removed = []; details: [SaveCookie extends Savable. To compile you need to include openide.awt on classpath.]
+WARNING [org.netbeans.core.modules]: had to upgrade dependencies for module com.microchip.mplab.nbide.toolchainXC32: added = [module org.openide.awt] removed = []; details: [SaveCookie extends Savable. To compile you need to include openide.awt on classpath.]
+WARNING [org.netbeans.core.modules]: had to upgrade dependencies for module com.microchip.mplab.nbide.toolchainXC8: added = [module org.openide.awt] removed = []; details: [SaveCookie extends Savable. To compile you need to include openide.awt on classpath.]
+WARNING [org.netbeans.modules.netbinox]: Cannot compute install area. No common prefix between C:\Program Files (x86)\Microchip\MPLABX\v3.20\mplab_ide\platform and C:\Projekter\hayes\toolchainSDCC\build\cluster
+INFO [org.netbeans.modules.netbinox]: Install area set to file:/C:/Program Files (x86)/Microchip/MPLABX/v3.20/mplab_ide/
+WARNING [org.netbeans.core.modules]: the modules [com.microchip.mplab.debugger.mdb, com.microchip.mplab.nbide.embedded, com.microchip.mplab.nbide.embedded.makeproject, com.microchip.mplab.nbide.welcome] use org.jdesktop.layout which is deprecated: Use javax.swing.GroupLayout instead. (In form editor: select Form ... in Inspector; change Layout Generation Style to Standard Java 6 code.)
+WARNING [org.netbeans.core.modules]: the modules [org.netbeans.modules.xml.text] use org.netbeans.modules.editor.deprecated.pre65formatting which is deprecated.
+WARNING [org.netbeans.core.modules]: the modules [org.netbeans.modules.ide.kit, org.netbeans.modules.xml.text] use org.netbeans.modules.editor.structure which is deprecated.
+WARNING [org.netbeans.core.modules]: the modules [com.microchip.mplab.nbide.embedded.makeproject] use org.openidex.util which is deprecated: Module o.openidex.util is deprecated, use module api.search instead.
+WARNING [org.netbeans.core.projects.cache]: Inefficient to include an empty layer in a module: jar:file:/C:/Program%20Files%20(x86)/Microchip/MPLABX/v3.20/mplab_ide/mdbcore/modules/com-microchip-mplab-mdbcore-assemblies.jar!/com/microchip/mplab/mdbcore/assemblies/layer.xml
+WARNING [org.netbeans.core.projects.cache]: Inefficient to include an empty layer in a module: jar:file:/C:/Program%20Files%20(x86)/Microchip/MPLABX/v3.20/mplab_ide/mdbcore/modules/com-microchip-mplab-mdbcore-ConfigBitsChecker.jar!/com/microchip/mplab/mdbcore/ConfigBitsChecker/layer.xml
+WARNING [org.netbeans.core.projects.cache]: Inefficient to include an empty layer in a module: jar:file:/C:/Program%20Files%20(x86)/Microchip/MPLABX/v3.20/mplab_ide/mdbcore/modules/com-microchip-mplab-mdbcore-ControlPointMediator.jar!/com/microchip/mplab/mdbcore/ControlPointMediator/layer.xml
+WARNING [org.netbeans.core.projects.cache]: Inefficient to include an empty layer in a module: jar:file:/C:/Program%20Files%20(x86)/Microchip/MPLABX/v3.20/mplab_ide/mdbcore/modules/com-microchip-mplab-mdbcore-TargetMemoryTransferMgr.jar!/com/microchip/mplab/mdbcore/TargetMemoryTransferMgr/layer.xml
+WARNING [org.netbeans.core.projects.cache]: Inefficient to include an empty layer in a module: jar:file:/C:/Program%20Files%20(x86)/Microchip/MPLABX/v3.20/mplab_ide/mdbcore/modules/com-microchip-mplab-mdbcore-loader.jar!/com/microchip/mplab/mdbcore/loader/layer.xml
+WARNING [org.netbeans.core.projects.cache]: Inefficient to include an empty layer in a module: jar:file:/C:/Program%20Files%20(x86)/Microchip/MPLABX/v3.20/mplab_ide/mdbcore/modules/com-microchip-mplab-mdbcore-ToolExecMediator.jar!/com/microchip/mplab/mdbcore/ToolExecMediator/layer.xml
+WARNING [org.netbeans.core.projects.cache]: Inefficient to include an empty layer in a module: jar:file:/C:/Program%20Files%20(x86)/Microchip/MPLABX/v3.20/mplab_ide/mdbcore/modules/com-microchip-mplab-mdbcore-PeripheralsAndSFRs.jar!/com/microchip/mplab/mdbcore/PeripheralsAndSFRs/layer.xml
+WARNING [org.netbeans.core.projects.cache]: layer jar:file:/C:/Program%20Files%20(x86)/Microchip/MPLABX/v3.20/mplab_ide/mplab_ide/modules/com-microchip-mplab-nbide-welcome.jar!/com/microchip/mplab/nbide/welcome/resources/layer.xml contains duplicate files named StartPages/LearnAndDiscover/DemosAndTutorials/DifferencesFromMPLAB8
+WARNING [org.netbeans.core.projects.cache]: layer jar:file:/C:/Program%20Files%20(x86)/Microchip/MPLABX/v3.20/mplab_ide/mplab_ide/modules/com-microchip-mplab-nbide-welcome.jar!/com/microchip/mplab/nbide/welcome/resources/layer.xml contains duplicate attributes SystemFileSystem.localizingBundle for StartPages/LearnAndDiscover/DemosAndTutorials/DifferencesFromMPLAB8
+WARNING [org.netbeans.core.projects.cache]: layer jar:file:/C:/Program%20Files%20(x86)/Microchip/MPLABX/v3.20/mplab_ide/mplab_ide/modules/com-microchip-mplab-nbide-welcome.jar!/com/microchip/mplab/nbide/welcome/resources/layer.xml contains duplicate attributes displaytype for StartPages/LearnAndDiscover/DemosAndTutorials/DifferencesFromMPLAB8
+WARNING [org.netbeans.core.projects.cache]: layer jar:file:/C:/Program%20Files%20(x86)/Microchip/MPLABX/v3.20/mplab_ide/mplab_ide/modules/com-microchip-mplab-nbide-welcome.jar!/com/microchip/mplab/nbide/welcome/resources/layer.xml contains duplicate attributes iconpath for StartPages/LearnAndDiscover/DemosAndTutorials/DifferencesFromMPLAB8
+WARNING [org.netbeans.core.projects.cache]: layer jar:file:/C:/Program%20Files%20(x86)/Microchip/MPLABX/v3.20/mplab_ide/mplab_ide/modules/com-microchip-mplab-nbide-welcome.jar!/com/microchip/mplab/nbide/welcome/resources/layer.xml contains duplicate attributes linktype for StartPages/LearnAndDiscover/DemosAndTutorials/DifferencesFromMPLAB8
+WARNING [org.netbeans.core.projects.cache]: layer jar:file:/C:/Program%20Files%20(x86)/Microchip/MPLABX/v3.20/mplab_ide/mplab_ide/modules/com-microchip-mplab-nbide-welcome.jar!/com/microchip/mplab/nbide/welcome/resources/layer.xml contains duplicate attributes urlref for StartPages/LearnAndDiscover/DemosAndTutorials/DifferencesFromMPLAB8
+WARNING [org.netbeans.core.projects.cache]: layer jar:file:/C:/Program%20Files%20(x86)/Microchip/MPLABX/v3.20/mplab_ide/mplab_ide/modules/com-microchip-mplab-nbide-welcome.jar!/com/microchip/mplab/nbide/welcome/resources/layer.xml contains duplicate attributes position for StartPages/LearnAndDiscover/DemosAndTutorials/DifferencesFromMPLAB8
+WARNING [org.netbeans.core.projects.cache]: Inefficient to include an empty layer in a module: jar:file:/C:/Program%20Files%20(x86)/Microchip/MPLABX/v3.20/mplab_ide/mplab_ide/modules/com-microchip-mplab-nbide-platformToolPICkit3.jar!/com/microchip/mplab/nbide/platformToolPICkit3/layer.xml
+WARNING [org.netbeans.core.projects.cache]: Inefficient to include an empty layer in a module: jar:file:/C:/Program%20Files%20(x86)/Microchip/MPLABX/v3.20/mplab_ide/mdbcore/modules/com-microchip-mplab-mdbcore-sqtpenv.jar!/com/microchip/mplab/mdbcore/sqtpenv/layer.xml
+WARNING [org.netbeans.core.projects.cache]: Inefficient to include an empty layer in a module: jar:file:/C:/Program%20Files%20(x86)/Microchip/MPLABX/v3.20/mplab_ide/mdbcore/modules/com-microchip-mplab-mdbcore-pkoblicdbgr.jar!/com/microchip/mplab/mdbcore/pkoblicdbgr/layer.xml
+WARNING [org.netbeans.core.projects.cache]: layer jar:file:/C:/Program%20Files%20(x86)/Microchip/MPLABX/v3.20/mplab_ide/mplab_ide/modules/com-microchip-mplab-debugger-mdb.jar!/com/microchip/mplab/debugger/mdb/resources/layer.xml contains duplicate folders named Editors/AnnotationTypes
+WARNING [org.openide.filesystems.Ordering]: Not all children in Services/MIMEResolver/ marked with the position attribute: [com-microchip-mplab-nbide-simdisplays-stimulus-sclsupport-SclDataObject-Extension.xml, DisasmResolver.xml], but some are: [org-openide-loaders-DataLoaderPool$InstanceLoaderSystem-Extension.xml, org-netbeans-core-startup-layers-SystemFileSystem-Extension.xml, org-netbeans-modules-image-ImageDataObject-serialVersionUID-Extension.xml, org-netbeans-modules-image-ImageDataObject-IMAGE_ICON_BASE-Extension.xml, org-netbeans-modules-image-ImageDataObject-openSupport-Extension.xml, org-netbeans-modules-image-ImageDataObject-printSupport-Extension.xml, org-netbeans-modules-properties-PropertiesDataObject-Extension.xml, org-netbeans-modules-languages-manifest-MfDataObject-Extension.xml, org-netbeans-modules-cnd-loaders-CMakeDataObject-Registration.xml, org-netbeans-modules-cnd-script-loaders-ShellDataObject-Registration.xml, org-netbeans-modules-cnd-makefile-loaders-MakefileDataObject-Registration.xml, org-netbeans-core-ide-ServiceTabProcessor-Extension.xml, org-netbeans-modules-css-editor-CssProjectSupport-Extension.xml, org-netbeans-modules-languages-diff-DiffDataObject-Extension.xml, org-netbeans-modules-javascript2-editor-JsLanguage-createMultiViewEditorElement-Extension.xml, org-netbeans-modules-javascript2-editor-JsonLanguage-createMultiViewEditorElement-Extension.xml, org-netbeans-modules-db-sql-loader-SQLDataObject-Extension.xml, org-netbeans-modules-cnd-source-CDataObject-Registration.xml, org-netbeans-modules-cnd-loaders-CMakeIncludeDataObject-Registration.xml, org-netbeans-modules-cnd-source-CCDataObject-Registration.xml, org-netbeans-modules-cnd-source-HDataObject-Registration.xml, org-netbeans-modules-cnd-loaders-QtProjectDataObject-Registration.xml, org-netbeans-modules-cnd-source-FortranDataObject-Registration.xml, org-netbeans-modules-languages-yaml-YamlLanguage-Extension.xml, org-netbeans-modules-html-HtmlDataObject-Registration.xml, org-netbeans-modules-editor-settings-storage-SettingsProvider-Registration.xml, org-netbeans-modules-url-URLDataObject-Extension.xml, org-netbeans-modules-pdf-PDFDataObject-Extension.xml, org-netbeans-modules-xsl-XSLDataObject-Namespace.xml, com-microchip-mplab-nbide-embedded-asm-core-dataobjects-AsmDataObject-Registration.xml, com-microchip-mplab-nbide-embedded-asm-core-dataobjects-AsmDisDataObject-Registration.xml, com-microchip-mplab-nbide-embedded-asm-core-dataobjects-AsmIncDataObject-Registration.xml, org-netbeans-modules-cnd-source-CCDataObject-serialVersionUID-Registration.xml, org-netbeans-modules-cnd-loaders-ExeObject-Registration.xml, org-netbeans-lib-editor-codetemplates-storage-CodeTemplatesStorage-Namespace.xml, org-netbeans-modules-editor-macros-storage-MacrosStorage-Namespace.xml, org-netbeans-modules-css-prep-editor-less-LessCslLanguage-Extension.xml, org-netbeans-modules-css-prep-editor-scss-ScssCslLanguage-Extension.xml, org-netbeans-modules-xml-XMLDataObject-MIME_PLAIN_XML-Registration.xml, org-netbeans-modules-xml-DTDDataObject-Extension.xml, org-netbeans-modules-xml-EntityDataObject-Extension.xml, org-netbeans-modules-xml-XMLDataObject-MIME_XSD_XML-Registration.xml, org-netbeans-libs-freemarker-FreemarkerFactory-Registration.xml, org-netbeans-modules-xml-XMLDataObject-Registration.xml]
+WARNING [org.netbeans.modules.openide.filesystems.declmime.MIMEResolverImpl]: Ineffective registration of resolver Services/MIMEResolver/DisasmResolver.xml use @MIMEResolver.Registration! See bug #191777.
+WARNING [org.openide.filesystems.Ordering]: Found same position 5.160 for both Services/JavaHelp/toolchainASM30-helpset.xml and Services/JavaHelp/toolchainC30-helpset.xml
+WARNING [org.openide.filesystems.Ordering]: Found same position 5.100 for both Services/JavaHelp/toolchainCommon-helpset.xml and Services/JavaHelp/toolchainXC8-helpset.xml
+WARNING [org.openide.filesystems.Ordering]: Not all children in Services/MIMEResolver/ marked with the position attribute: [DisasmResolver.xml, com-microchip-mplab-nbide-simdisplays-stimulus-sclsupport-SclDataObject-Extension.xml], but some are: [org-openide-loaders-DataLoaderPool$InstanceLoaderSystem-Extension.xml, org-netbeans-core-startup-layers-SystemFileSystem-Extension.xml, org-netbeans-modules-image-ImageDataObject-serialVersionUID-Extension.xml, org-netbeans-modules-image-ImageDataObject-IMAGE_ICON_BASE-Extension.xml, org-netbeans-modules-image-ImageDataObject-openSupport-Extension.xml, org-netbeans-modules-image-ImageDataObject-printSupport-Extension.xml, org-netbeans-modules-properties-PropertiesDataObject-Extension.xml, org-netbeans-modules-languages-manifest-MfDataObject-Extension.xml, org-netbeans-modules-cnd-loaders-CMakeDataObject-Registration.xml, org-netbeans-modules-cnd-script-loaders-ShellDataObject-Registration.xml, org-netbeans-modules-cnd-makefile-loaders-MakefileDataObject-Registration.xml, org-netbeans-core-ide-ServiceTabProcessor-Extension.xml, org-netbeans-modules-css-editor-CssProjectSupport-Extension.xml, org-netbeans-modules-languages-diff-DiffDataObject-Extension.xml, org-netbeans-modules-javascript2-editor-JsLanguage-createMultiViewEditorElement-Extension.xml, org-netbeans-modules-javascript2-editor-JsonLanguage-createMultiViewEditorElement-Extension.xml, org-netbeans-modules-db-sql-loader-SQLDataObject-Extension.xml, org-netbeans-modules-cnd-source-CDataObject-Registration.xml, org-netbeans-modules-cnd-loaders-CMakeIncludeDataObject-Registration.xml, org-netbeans-modules-cnd-source-CCDataObject-Registration.xml, org-netbeans-modules-cnd-source-HDataObject-Registration.xml, org-netbeans-modules-cnd-loaders-QtProjectDataObject-Registration.xml, org-netbeans-modules-cnd-source-FortranDataObject-Registration.xml, org-netbeans-modules-languages-yaml-YamlLanguage-Extension.xml, org-netbeans-modules-html-HtmlDataObject-Registration.xml, org-netbeans-modules-editor-settings-storage-SettingsProvider-Registration.xml, org-netbeans-modules-url-URLDataObject-Extension.xml, org-netbeans-modules-pdf-PDFDataObject-Extension.xml, org-netbeans-modules-xsl-XSLDataObject-Namespace.xml, com-microchip-mplab-nbide-embedded-asm-core-dataobjects-AsmDataObject-Registration.xml, com-microchip-mplab-nbide-embedded-asm-core-dataobjects-AsmDisDataObject-Registration.xml, com-microchip-mplab-nbide-embedded-asm-core-dataobjects-AsmIncDataObject-Registration.xml, org-netbeans-modules-cnd-source-CCDataObject-serialVersionUID-Registration.xml, org-netbeans-modules-cnd-loaders-ExeObject-Registration.xml, org-netbeans-lib-editor-codetemplates-storage-CodeTemplatesStorage-Namespace.xml, org-netbeans-modules-editor-macros-storage-MacrosStorage-Namespace.xml, org-netbeans-modules-css-prep-editor-less-LessCslLanguage-Extension.xml, org-netbeans-modules-css-prep-editor-scss-ScssCslLanguage-Extension.xml, org-netbeans-modules-xml-XMLDataObject-MIME_PLAIN_XML-Registration.xml, org-netbeans-modules-xml-DTDDataObject-Extension.xml, org-netbeans-modules-xml-EntityDataObject-Extension.xml, org-netbeans-modules-xml-XMLDataObject-MIME_XSD_XML-Registration.xml, org-netbeans-libs-freemarker-FreemarkerFactory-Registration.xml, org-netbeans-modules-xml-XMLDataObject-Registration.xml]
+INFO [org.netbeans.core.startup.NbEvents]: Turning on modules:
+	org.openide.util.lookup [8.25.1 20151229-unknown-revn]
+	org.openide.util [8.39.1 20151229-unknown-revn]
+	org.openide.modules [7.43.1 20151229-unknown-revn]
+	org.netbeans.api.annotations.common/1 [1.24.1 20151229-unknown-revn]
+	org.openide.filesystems [8.12.1 20151229-unknown-revn]
+	org.openide.awt [7.62.1 20151229-unknown-revn]
+	org.netbeans.api.progress/1 [1.38.1 20151229-unknown-revn]
+	org.openide.dialogs [7.38.1 20151229-unknown-revn]
+	org.netbeans.modules.queries/1 [1.39.1 20151229-unknown-revn]
+	org.openide.nodes [7.39.1 20151229-unknown-revn]
+	org.openide.windows [6.71.1 20151229-unknown-revn]
+	org.netbeans.swing.tabcontrol [1.51.1 20151229-unknown-revn]
+	org.netbeans.swing.outline [1.30.1 20151229-unknown-revn]
+	org.openide.explorer [6.57.1 20151229-unknown-revn]
+	org.netbeans.modules.editor.mimelookup/1 [1.36.1 20151229-unknown-revn]
+	org.openide.text [6.62.2 20151229-unknown-revn]
+	org.openide.actions [6.35.1 20151229-unknown-revn]
+	org.openide.loaders [7.57.2 20151229-unknown-revn]
+	org.netbeans.modules.projectapi/1 [1.60.2 20151229-unknown-revn]
+	org.netbeans.modules.projectuiapi/1 [1.78.1.8 8 20151229-unknown-revn]
+	org.openide.io [1.45.1 20151229-unknown-revn]
+	org.netbeans.api.search [1.17.1 20151229-unknown-revn]
+	org.netbeans.bootstrap/1 [2.69.1 20151229-unknown-revn]
+	org.netbeans.core.startup/1 [1.55.1 20151229-unknown-revn]
+	org.netbeans.modules.sendopts/2 [2.31.1 20151229-unknown-revn]
+	org.netbeans.modules.utilities/1 [1.56.1 20151229-unknown-revn]
+	org.netbeans.modules.utilities.project/1 [1.34.1 20151229-unknown-revn]
+	org.openidex.util/3 [3.43.1 20151229-unknown-revn]
+	org.openide.execution [1.36.1 20151229-unknown-revn]
+	org.netbeans.upgrader [4.31.1 20151229-unknown-revn]
+	org.netbeans.swing.plaf [1.37.1 20151229-unknown-revn]
+	org.netbeans.swing.dirchooser [1.25.1 20151229-unknown-revn]
+	org.netbeans.spi.viewmodel/2 [1.46.1 20151229-unknown-revn]
+	org.netbeans.spi.tasklist/1 [1.30.1.1 1 20151229-unknown-revn]
+	org.netbeans.spi.quicksearch [1.23.1 20151229-unknown-revn]
+	org.netbeans.spi.palette/1 [1.42.1 20151229-unknown-revn]
+	org.netbeans.spi.navigator/1 [1.33.1 20151229-unknown-revn]
+	org.netbeans.modules.editor.settings/1 [1.53.1 20151229-unknown-revn]
+	org.netbeans.modules.editor.util/1 [1.58.1 20151229-unknown-revn]
+	org.netbeans.modules.lexer/2 [1.59.1.1 1 20151229-unknown-revn]
+	org.netbeans.modules.editor.lib2/1 [1.85.1.43 43 20151229-unknown-revn]
+	org.netbeans.modules.keyring [1.20.1 20151229-unknown-revn]
+	org.netbeans.modules.sampler [1.10.1 20151229-unknown-revn]
+	org.netbeans.core/2 [3.46.1 20151229-unknown-revn]
+	org.netbeans.modules.options.api/1 [1.41.1 20151229-unknown-revn]
+	org.netbeans.modules.options.keymap [1.31.1 20151229-unknown-revn]
+	org.netbeans.modules.editor.settings.storage/1 [1.45.1 20151229-unknown-revn]
+	org.netbeans.modules.editor.fold/1 [1.40.1 20151229-unknown-revn]
+	org.netbeans.modules.editor.indent/2 [1.37.1 20151229-unknown-revn]
+	org.netbeans.modules.editor.lib/3 [3.49.1.22.43 22 20151229-unknown-revn]
+	org.netbeans.spi.editor.hints/0 [1.35.1.7.43 7 20151229-unknown-revn]
+	org.netbeans.modules.editor.tools.storage [1.4.1 20151229-unknown-revn]
+	org.netbeans.modules.editor.fold.nbui [1.7.1.43 20151229-unknown-revn]
+	org.netbeans.modules.editor/3 [1.79.1.5.22.43 5 20151229-unknown-revn]
+	org.netbeans.modules.options.editor/1 [1.51.1 20151229-unknown-revn]
+	org.netbeans.spi.editor.hints.projects [1.7.1.1.7 1 20151229-unknown-revn]
+	org.netbeans.api.debugger/1 [1.46.2 20151229-unknown-revn]
+	org.netbeans.spi.debugger.ui/1 [2.46.1 20151229-unknown-revn]
+	org.netbeans.core.multiview/1 [1.40.1 20151229-unknown-revn]
+	org.netbeans.api.xml/1 [1.39.1 20151229-unknown-revn]
+	org.netbeans.modules.xml.core/2 [1.39.1.4 4 20151229-unknown-revn]
+	org.netbeans.modules.xml.xam/1 [1.28.1.1 1 20151229-unknown-revn]
+	org.apache.xml.resolver [1.28.1.12 12 20151229-unknown-revn]
+	org.netbeans.modules.xml.retriever/1 [1.27.1 20151229-unknown-revn]
+	org.netbeans.modules.xml.schema.model/1 [1.28.1.1 1 20151229-unknown-revn]
+	org.netbeans.modules.xml.axi [1.27.1 20151229-unknown-revn]
+	org.netbeans.modules.editor.bracesmatching/0 [1.34.1.43 20151229-unknown-revn]
+	org.netbeans.modules.editor.deprecated.pre65formatting/0 [1.23.1.1.5.22.43 1 20151229-unknown-revn]
+	org.netbeans.modules.editor.errorstripe.api/1 [2.29.1.1 1 20151229-unknown-revn]
+	org.netbeans.api.java.classpath/1 [1.42.1 20151229-unknown-revn]
+	org.netbeans.modules.editor.errorstripe/2 [2.30.1.1.1 1 20151229-unknown-revn]
+	org.netbeans.modules.diff/1 [1.47.1.42.1 42 20151229-unknown-revn]
+	org.netbeans.modules.editor.guards/1 [1.26.1 20151229-unknown-revn]
+	org.netbeans.modules.project.indexingbridge [1.13.1 20151229-unknown-revn]
+	org.netbeans.modules.masterfs/2 [2.48.2 20151229-unknown-revn]
+	org.netbeans.libs.lucene/3 [3.16.1 20151229-unknown-revn]
+	org.netbeans.modules.parsing.lucene/2 [2.28.1.1 1 20151229-unknown-revn]
+	org.netbeans.modules.parsing.api/1 [1.78.3.8 8 20151229-unknown-revn]
+	org.netbeans.modules.refactoring.api [1.40.1.1 1 20151229-unknown-revn]
+	org.netbeans.modules.editor.completion/1 [1.40.1.2 2 20151229-unknown-revn]
+	org.netbeans.modules.editor.codetemplates/1 [1.38.1.1 1 20151229-unknown-revn]
+	org.netbeans.modules.editor.breadcrumbs/0 [1.12.1 20151229-unknown-revn]
+	org.netbeans.core.ui/1 [1.41.1 20151229-unknown-revn]
+	org.netbeans.modules.jumpto/1 [1.42.1.1 1 20151229-unknown-revn]
+	org.netbeans.modules.editor.actions/1 [1.26.1.43 20151229-unknown-revn]
+	org.netbeans.modules.csl.api/2 [2.47.1.2.1.1.8 2 20151229-unknown-revn]
+	org.netbeans.modules.editor.structure/1 [1.43.1.1 1 20151229-unknown-revn]
+	org.netbeans.modules.xml.lexer [1.26.1 20151229-unknown-revn]
+	org.netbeans.modules.xml.text/2 [1.44.1 20151229-unknown-revn]
+	org.netbeans.modules.xml [1.27.1 20151229-unknown-revn]
+	org.netbeans.modules.servletapi/1 [1.36.1 20151229-unknown-revn]
+	org.netbeans.modules.httpserver/2 [2.32.1.42 42 20151229-unknown-revn]
+	org.netbeans.modules.xsl/1 [1.39.1 20151229-unknown-revn]
+	org.netbeans.modules.xml.xdm/1 [1.29.1.1 1 20151229-unknown-revn]
+	org.netbeans.libs.xerces/1 [1.35.1.281 281 20151229-unknown-revn]
+	org.netbeans.modules.xml.tax/2 [1.39.1.281 20151229-unknown-revn]
+	org.netbeans.modules.xml.tools/2 [1.39.1 20151229-unknown-revn]
+	org.netbeans.modules.xml.schema.completion [1.26.1 20151229-unknown-revn]
+	org.netbeans.modules.xml.catalog/2 [1.37.1.4 4 20151229-unknown-revn]
+	org.netbeans.libs.json_simple/1 [0.9.1 20151229-unknown-revn]
+	org.netbeans.modules.web.webkit.debugging [1.36.1 20151229-unknown-revn]
+	org.netbeans.modules.web.common [1.70.1 20151229-unknown-revn]
+	org.netbeans.modules.web.indent [1.16.1 20151229-unknown-revn]
+	org.netbeans.modules.extexecution/2 [1.42.1 20151229-unknown-revn]
+	org.netbeans.modules.extbrowser/1 [1.48.1 20151229-unknown-revn]
+	org.netbeans.modules.settings/1 [1.45.1 20151229-unknown-revn]
+	org.netbeans.core.windows/2 [2.77.1 20151229-unknown-revn]
+	org.netbeans.modules.web.browser.api [1.40.1 20151229-unknown-revn]
+	org.netbeans.modules.versioning.core/1 [1.21.1.1.42 1 20151229-unknown-revn]
+	org.netbeans.modules.versioning/1 [1.43.1.1 1 20151229-unknown-revn]
+	org.netbeans.modules.favorites/1 [1.40.1 20151229-unknown-revn]
+	org.netbeans.modules.spellchecker.apimodule [1.21.1 20151229-unknown-revn]
+	org.netbeans.modules.versioning.util [1.60.1.42.1 20151229-unknown-revn]
+	org.netbeans.modules.team.commons [1.42.1 20151229-unknown-revn]
+	org.netbeans.modules.versioning.ui/1 [1.18.1.42.1 20151229-unknown-revn]
+	org.netbeans.modules.autoupdate.services [1.47.2 20151229-unknown-revn]
+	org.netbeans.modules.autoupdate.ui [1.41.1 20151229-unknown-revn]
+	org.netbeans.modules.versioning.system.cvss.installer [1.12.1 20151229-unknown-revn]
+	org.netbeans.modules.versioning.masterfs [1.10.1 20151229-unknown-revn]
+	org.netbeans.modules.versioning.indexingbridge/0 [1.21.1 20151229-unknown-revn]
+	org.netbeans.modules.javahelp/1 [2.37.1 20151229-unknown-revn]
+	org.netbeans.modules.usersguide/1 [1.45.1 20151229-unknown-revn]
+	org.netbeans.lib.terminalemulator [1.31.2 20151229-unknown-revn]
+	org.netbeans.modules.terminal [1.19.1 20151229-unknown-revn]
+	org.netbeans.modules.templates/1 [1.3.1 20151229-unknown-revn]
+	org.netbeans.libs.swingx/1 [1.24.1 20151229-unknown-revn]
+	org.netbeans.modules.team.ide [1.9.1 20151229-unknown-revn]
+	org.netbeans.modules.tasklist.ui/1 [1.27.1.1.1 1 20151229-unknown-revn]
+	org.netbeans.modules.tasklist.todo/1 [1.27.1.1 1 20151229-unknown-revn]
+	org.netbeans.modules.tasklist.projectint/1 [1.25.1 20151229-unknown-revn]
+	org.netbeans.modules.tasklist.kit [1.25.1 20151229-unknown-revn]
+	org.netbeans.libs.ini4j/1 [1.27.1 20151229-unknown-revn]
+	org.netbeans.libs.svnClientAdapter/1 [1.36.1 20151229-unknown-revn]
+	org.netbeans.modules.subversion [1.37.1.42.1 20151229-unknown-revn]
+	org.netbeans.modules.editor.plain.lib/1 [1.30.1 20151229-unknown-revn]
+	org.netbeans.modules.spellchecker [1.31.1.1.7 1 20151229-unknown-revn]
+	org.netbeans.modules.spellchecker.kit [1.22.1 20151229-unknown-revn]
+	org.netbeans.modules.spellchecker.dictionary_en [1.19.1 20151229-unknown-revn]
+	org.netbeans.modules.properties/1 [1.50.1 20151229-unknown-revn]
+	org.netbeans.modules.properties.syntax/1 [1.46.1 20151229-unknown-revn]
+	org.netbeans.modules.spellchecker.bindings.properties [1.18.1 20151229-unknown-revn]
+	org.netbeans.modules.html.lexer/1 [1.35.1 20151229-unknown-revn]
+	org.netbeans.modules.spellchecker.bindings.htmlxml [1.23.1 20151229-unknown-revn]
+	org.netbeans.modules.dlight.libs.common [1.32.2.1 1 20151229-unknown-revn]
+	com.jcraft.jsch [0.1.49 0.1.49]
+	org.netbeans.libs.jna/1 [1.38.1 20151229-unknown-revn]
+	org.netbeans.modules.dlight.nativeexecution [1.34.2.1 1 20151229-unknown-revn]
+	org.netbeans.modules.dlight.remote [1.25.9.1 1 20151229-unknown-revn]
+	org.netbeans.modules.dlight.remote.impl [1.23.2.1 1 20151229-unknown-revn]
+	org.netbeans.modules.remotefs.versioning [1.11.1.1 1 20151229-unknown-revn]
+	org.netbeans.core.execution/1 [1.37.1 20151229-unknown-revn]
+	org.netbeans.modules.projectui [1.53.1.8 20151229-unknown-revn]
+	org.netbeans.modules.project.libraries/1 [1.47.1 20151229-unknown-revn]
+	org.netbeans.modules.project.ant/1 [1.60.1 20151229-unknown-revn]
+	org.netbeans.modules.progress.ui [1.29.2 20151229-unknown-revn]
+	org.netbeans.modules.print.editor [7.23.1 20151229-unknown-revn]
+	org.netbeans.modules.print [7.22.1 20151229-unknown-revn]
+	org.netbeans.modules.parsing.ui [1.10.1 20151229-unknown-revn]
+	org.netbeans.core.ide/1 [1.37.1 20151229-unknown-revn]
+	org.netbeans.modules.notifications [1.4.1 20151229-unknown-revn]
+	org.netbeans.libs.osgi [1.18.1 20151229-unknown-revn]
+	org.netbeans.core.netigso [1.27.1 20151229-unknown-revn]
+	org.netbeans.modules.netbinox [1.36.1 20151229-unknown-revn]
+	org.netbeans.insane/1 [1.26.1.1 1 20151229-unknown-revn]
+	org.netbeans.libs.junit4 [1.14 20151229-unknown-revn]
+	org.netbeans.modules.nbjunit/1 [1.84.1 20151229-unknown-revn]
+	org.eclipse.mylyn.commons.net [3.10.0 3.10.0.20131018-1210]
+	org.eclipse.mylyn.tasks.core [3.10.0 3.10.0.20131010-2023]
+	org.eclipse.core.jobs [3.5.101 3.5.101.v20120113-1953]
+	org.eclipse.mylyn.wikitext.core [1.9.0 1.9.0.20131007-2055]
+	org.netbeans.modules.bugtracking [1.102.2 20151229-unknown-revn]
+	org.eclipse.equinox.common [3.6.0 3.6.0.v20110523]
+	org.eclipse.core.runtime [3.7.0 3.7.0.v20110110]
+	org.netbeans.modules.mylyn.util [1.28.1 20151229-unknown-revn]
+	org.netbeans.modules.mercurial [1.38.2.42.1 20151229-unknown-revn]
+	org.netbeans.modules.masterfs.windows [1.13.1 20151229-unknown-revn]
+	org.netbeans.modules.masterfs.nio2 [1.12.1 20151229-unknown-revn]
+	org.netbeans.modules.bugtracking.commons [1.3.1 20151229-unknown-revn]
+	org.netbeans.modules.localtasks [1.21.1 20151229-unknown-revn]
+	org.netbeans.modules.localhistory [1.30.1 20151229-unknown-revn]
+	org.netbeans.modules.lexer.nbbridge/1 [1.28.1.1 20151229-unknown-revn]
+	org.netbeans.libs.bytelist/1 [0.24.1.1 1 20151229-unknown-revn]
+	org.netbeans.libs.jvyamlb/1 [0.26.1 20151229-unknown-revn]
+	org.netbeans.modules.languages.yaml [2.28.1 20151229-unknown-revn]
+	org.netbeans.modules.languages.manifest [1.28.1 20151229-unknown-revn]
+	org.netbeans.modules.languages.diff [1.29.1 20151229-unknown-revn]
+	org.netbeans.modules.keyring.fallback [1.4.1 20151229-unknown-revn]
+	org.netbeans.modules.keyring.impl [1.20.1 20151229-unknown-revn]
+	org.netbeans.modules.jemmy/3 [3.24.1 20151229-unknown-revn]
+	org.netbeans.api.visual [2.43.1 20151229-unknown-revn]
+	org.netbeans.core.output2/1 [1.37.1 20151229-unknown-revn]
+	org.netbeans.modules.jellytools.platform/3 [3.25.1 20151229-unknown-revn]
+	org.netbeans.modules.html.editor.lib/3 [3.27.1 20151229-unknown-revn]
+	org.netbeans.libs.antlr3.runtime [1.18.1.1 1 20151229-unknown-revn]
+	org.netbeans.modules.css.lib/1 [1.72.1 20151229-unknown-revn]
+	org.netbeans.modules.css.model [1.27.1 20151229-unknown-revn]
+	org.netbeans.modules.css.editor/1 [1.62.1 20151229-unknown-revn]
+	org.netbeans.modules.html/1 [1.56.1 20151229-unknown-revn]
+	org.netbeans.modules.html.editor/2 [2.49.1 20151229-unknown-revn]
+	org.netbeans.libs.nashorn/1 [1.16.1 20151229-unknown-revn]
+	org.netbeans.modules.javascript2.editor/1 [0.44.2 20151229-unknown-revn]
+	org.netbeans.modules.javascript2.requirejs [0.1.1 20151229-unknown-revn]
+	org.netbeans.modules.javascript2.prototypejs [0.1.1 20151229-unknown-revn]
+	org.netbeans.modules.javascript2.knockout [1.4.1 20151229-unknown-revn]
+	org.netbeans.modules.javascript2.extjs [1.4.1 20151229-unknown-revn]
+	org.netbeans.modules.javascript2.jquery [1.4.1 20151229-unknown-revn]
+	org.netbeans.modules.javascript2.kit/1 [0.9.1 20151229-unknown-revn]
+	org.netbeans.modules.image/1 [1.44.1 20151229-unknown-revn]
+	org.netbeans.core.multitabs/1 [1.8.1.1 1 20151229-unknown-revn]
+	org.netbeans.modules.editor.bookmarks/1 [1.33.1 20151229-unknown-revn]
+	org.netbeans.modules.dlight.terminal [1.19.1.1 1 20151229-unknown-revn]
+	org.netbeans.core.multitabs.project [1.6.1.1.1 1 20151229-unknown-revn]
+	org.netbeans.modules.editor.search [1.19.1.0.43 0 20151229-unknown-revn]
+	org.apache.commons.logging [1.1.1 1.1.1]
+	org.netbeans.modules.html.parser/1 [1.29.1.1 1 20151229-unknown-revn]
+	org.netbeans.modules.html.validation/1 [1.26.1 20151229-unknown-revn]
+	org.netbeans.modules.css.visual/3 [3.27.1 20151229-unknown-revn]
+	org.netbeans.modules.editor.kit [1.29.1 20151229-unknown-revn]
+	org.netbeans.modules.autoupdate.cli [1.9.1 20151229-unknown-revn]
+	org.netbeans.libs.felix [2.12.1 20151229-unknown-revn]
+	org.netbeans.modules.core.kit [1.26.1 20151229-unknown-revn]
+	org.netbeans.modules.defaults/1 [1.28.1 20151229-unknown-revn]
+	org.netbeans.modules.editor.macros/0 [1.27.1.1.22 1 20151229-unknown-revn]
+	org.netbeans.modules.editor.plain/2 [1.31.1 20151229-unknown-revn]
+	org.netbeans.modules.ide.kit [1.29.1 20151229-unknown-revn]
+	org.netbeans.modules.gsf.testrunner/1 [1.43.1 20151229-unknown-revn]
+	org.netbeans.libs.commons_net/2 [2.17.1.33 33 20151229-unknown-revn]
+	org.netbeans.modules.hudson [2.7.1 20151229-unknown-revn]
+	org.netbeans.modules.hudson.ui [1.6.1 20151229-unknown-revn]
+	org.netbeans.modules.hudson.tasklist [1.13.1 20151229-unknown-revn]
+	org.netbeans.modules.hudson.subversion [1.25.1 20151229-unknown-revn]
+	org.netbeans.modules.hudson.mercurial [1.25.1 20151229-unknown-revn]
+	org.netbeans.modules.hudson.git [1.14.1 20151229-unknown-revn]
+	org.netbeans.modules.html.knockout [1.6.1 20151229-unknown-revn]
+	org.netbeans.modules.html.custom [1.2.1 20151229-unknown-revn]
+	org.netbeans.core.browser/1 [1.24.1.1 1 20151229-unknown-revn]
+	org.netbeans.modules.html.angular [1.7.2 20151229-unknown-revn]
+	org.eclipse.jgit [3.4.1 3.4.1.201406201815-r]
+	org.netbeans.libs.jna.platform/1 [1.8.1 20151229-unknown-revn]
+	org.netbeans.libs.jsch.agentproxy/1 [0.9.1 20151229-unknown-revn]
+	org.netbeans.libs.git/1 [1.27.1 20151229-unknown-revn]
+	org.netbeans.modules.git [1.16.1.1 20151229-unknown-revn]
+	org.apache.commons.io [1.4 1.4]
+	org.netbeans.modules.extexecution.impl [1.21.1 20151229-unknown-revn]
+	org.netbeans.modules.editor.mimelookup.impl/1 [1.27.1 20151229-unknown-revn]
+	org.netbeans.modules.editor.indent.project/0 [1.18.1 20151229-unknown-revn]
+	org.netbeans.modules.editor.global.format/1 [1.11.1.1 1 20151229-unknown-revn]
+	org.netbeans.modules.dlight.kit [1.22.1.1 1 20151229-unknown-revn]
+	org.netbeans.modules.db.metadata.model/1 [1.7.1 20151229-unknown-revn]
+	org.netbeans.modules.db/1 [1.61.1.30 30 20151229-unknown-revn]
+	org.netbeans.modules.dbapi [1.30.1.30 20151229-unknown-revn]
+	org.netbeans.modules.derby [1.36.1 20151229-unknown-revn]
+	org.netbeans.modules.deadlock.detector [1.2.1 20151229-unknown-revn]
+	org.netbeans.modules.db.sql.visualeditor/1 [2.27.1.30 20151229-unknown-revn]
+	org.netbeans.modules.db.dataview [1.25.1 20151229-unknown-revn]
+	org.netbeans.modules.db.core [1.32.1 20151229-unknown-revn]
+	org.netbeans.modules.db.sql.editor [1.32.1.30 20151229-unknown-revn]
+	org.netbeans.modules.db.mysql [0.24.1.2 2 20151229-unknown-revn]
+	org.netbeans.modules.db.drivers [1.26.1 20151229-unknown-revn]
+	org.netbeans.modules.db.kit [1.27.1 20151229-unknown-revn]
+	org.netbeans.modules.css.prep [1.21.2 20151229-unknown-revn]
+	org.netbeans.modules.code.analysis/0 [1.21.2 20151229-unknown-revn]
+	org.netbeans.modules.cnd.utils [1.43.11.2 2 20151229-unknown-revn]
+	org.netbeans.modules.cnd.api.remote/1 [1.22.4.1 1 20151229-unknown-revn]
+	org.netbeans.modules.cnd.lexer/1 [1.30.4.1 1 20151229-unknown-revn]
+	org.netbeans.modules.cnd.source [1.19.2.1 1 20151229-unknown-revn]
+	org.netbeans.modules.cnd.api.project/1 [1.31.8.1 1 20151229-unknown-revn]
+	org.netbeans.modules.cnd.toolchain [1.29.4.1 1 20151229-unknown-revn]
+	org.netbeans.modules.cnd/1 [1.33.2.1 1 20151229-unknown-revn]
+	org.netbeans.modules.cnd.makeproject/2 [2.48.11.1 1 20151229-unknown-revn]
+	org.netbeans.modules.cnd.api.model/1 [1.31.14.1 1 20151229-unknown-revn]
+	org.netbeans.modules.cnd.modelutil/1 [1.31.12.1 1 20151229-unknown-revn]
+	org.netbeans.modules.cnd.testrunner [1.20.1.1 1 20151229-unknown-revn]
+	org.netbeans.modules.cnd.script [1.18.1.1 1 20151229-unknown-revn]
+	org.netbeans.modules.cnd.spellchecker.bindings/1 [1.27.1.1 1 20151229-unknown-revn]
+	org.netbeans.modules.cnd.model.services/1 [1.42.16.1 1 20151229-unknown-revn]
+	org.netbeans.modules.cnd.simpleunit [1.18.2.1.1 1 20151229-unknown-revn]
+	org.netbeans.modules.cnd.search [1.10.2 20151229-unknown-revn]
+	org.netbeans.modules.cnd.repository.api/1 [1.28.1.1 1 20151229-unknown-revn]
+	org.netbeans.modules.cnd.repository [1.27.1.1 1 20151229-unknown-revn]
+	org.netbeans.modules.cnd.remote [1.24.3.1 1 20151229-unknown-revn]
+	org.netbeans.modules.cnd.discovery [1.42.5.1 1 20151229-unknown-revn]
+	org.netbeans.modules.cnd.remote.projectui [1.12.2.1 1 20151229-unknown-revn]
+	org.netbeans.modules.cnd.editor/1 [1.27.3.1 1 20151229-unknown-revn]
+	org.netbeans.modules.cnd.refactoring/1 [1.26.2.1 1 20151229-unknown-revn]
+	org.netbeans.modules.cnd.qnavigator/1 [1.28.1.1 1 20151229-unknown-revn]
+	org.netbeans.modules.cnd.callgraph [1.29.2.1 1 20151229-unknown-revn]
+	org.netbeans.modules.cnd.navigation [1.32.2.1 1 20151229-unknown-revn]
+	org.netbeans.modules.cnd.indexing [1.9.1.1 1 20151229-unknown-revn]
+	org.netbeans.modules.cnd.antlr [2.34.3.1 1 20151229-unknown-revn]
+	org.netbeans.modules.cnd.apt [1.39.4.1 1 20151229-unknown-revn]
+	org.netbeans.modules.cnd.modelimpl/1 [1.48.4.1 1 20151229-unknown-revn]
+	org.netbeans.modules.cnd.dwarfdump [1.31.2.1 1 20151229-unknown-revn]
+	org.netbeans.modules.cnd.analysis.api [1.0.7 20151229-unknown-revn]
+	org.netbeans.modules.cnd.highlight [1.28.3.1.1 1 20151229-unknown-revn]
+	org.netbeans.modules.cnd.modelui [1.30.1.1 1 20151229-unknown-revn]
+	org.netbeans.modules.cnd.modeldiscovery [1.27.1.1 1 20151229-unknown-revn]
+	org.netbeans.modules.cnd.makeproject.source.bridge [1.22.2.1 1 20151229-unknown-revn]
+	org.netbeans.modules.cnd.gotodeclaration [1.28.2.1 1 20151229-unknown-revn]
+	org.netbeans.modules.cnd.folding [1.27.1.1 1 20151229-unknown-revn]
+	org.netbeans.modules.cnd.dwarfdiscovery [1.29.1.1 1 20151229-unknown-revn]
+	org.netbeans.modules.cnd.debugger.common2/3 [3.25.10.3 3 20151229-unknown-revn]
+	org.netbeans.modules.cnd.completion/1 [1.30.3.1 1 20151229-unknown-revn]
+	org.netbeans.modules.cnd.cncppunit [1.19.1.1.1 1 20151229-unknown-revn]
+	org.netbeans.modules.cnd.classview/1 [1.27.1.1 1 20151229-unknown-revn]
+	org.netbeans.modules.cnd.analysis.impl [1.0.1 20151229-unknown-revn]
+	org.eclipse.mylyn.bugzilla.core [3.10.0 3.10.0.20131024-1218]
+	org.apache.commons.httpclient [3.1.0 3.1.0]
+	org.netbeans.modules.bugzilla [1.72.2 20151229-unknown-revn]
+	org.netbeans.lib.uihandler [1.41.1 20151229-unknown-revn]
+	org.netbeans.modules.bugzilla.exceptionreporter [1.20.1 20151229-unknown-revn]
+	org.netbeans.modules.bugtracking.bridge [1.41.1 20151229-unknown-revn]
+	org.netbeans.modules.autoupdate.pluginimporter [1.16.1 20151229-unknown-revn]
+	org.netbeans.libs.testng/1 [1.11.1 20151229-unknown-revn]
+	org.netbeans.libs.svnClientAdapter.svnkit/1 [1.21.1 20151229-unknown-revn]
+	org.netbeans.libs.svnClientAdapter.javahl/1 [1.20.1 20151229-unknown-revn]
+	org.netbeans.libs.javafx [2.4.1 20151229-unknown-revn]
+	org.netbeans.libs.freemarker/1 [2.30.1.238 238 20151229-unknown-revn]
+	org.netbeans.core.network [1.6.1 20151229-unknown-revn]
+	org.netbeans.core.nativeaccess/1 [1.27.1 20151229-unknown-revn]
+	org.netbeans.core.io.ui/1 [1.26.1 20151229-unknown-revn]
+	org.netbeans.core.browser.webview/1 [1.11.1.1.1 1 20151229-unknown-revn]
+	com.microchip.mplab.open.util.pathretrieval [1.0 151229]
+	com.microchip.mplab.logger [1.0 151229]
+	com.microchip.mplab.libs.crownking [1.0 151229]
+	com.microchip.mplab.mdbcore.MessageMediator [1.0 151229]
+	com.microchip.mplab.libs.Utils [1.0 151229]
+	com.microchip.mplab.util.observers [1.0 151229]
+	com.microchip.mplab.mdbcore.assemblies [1.0 151229]
+	com.microchip.mplab.mdbcore.memory [1.0 151229]
+	com.microchip.mplab.open.util.binaryconversion [1.0 151229]
+	com.microchip.mplab.mdbcore.ConfigBitsChecker [1.0 151229]
+	com.microchip.mplab.mdbcore.common.debug [1.5 151229]
+	com.microchip.mplab.mdbcore.objectfileparsing [1.2 151229]
+	com.microchip.mplab.mdbcore.program [1.1.6 151229]
+	com.microchip.mplab.mdbcore.translator [1.3.8 151229]
+	com.microchip.mplab.mdbcore.registerview [1.2 151229]
+	com.microchip.mplab.open.util [1.0 151229]
+	com.microchip.mplab.comm [1.0 151229]
+	com.microchip.mplab.mdbcore.platformtool [1.0 151229]
+	com.microchip.mplab.libs.MPLABDocumentLocator [1.0 151229]
+	com.microchip.mplab.mdbcore.symbolview [1.5.5 151229]
+	com.microchip.mplab.mdbcore.ControlPointMediator [1.2 151229]
+	com.microchip.mplab.mdbcore.TargetMemoryTransferMgr [1.0 151229]
+	com.microchip.mplab.open.util.circularfilebuffer [1.0 151229]
+	com.microchip.mplab.mdbcore.OptSupport [1.0 151229]
+	com.microchip.mplab.mdbcore.FreezeMediator [1.0 151229]
+	com.microchip.mplab.mdbcore.usedmemoryutil [1.0 151229]
+	com.microchip.mplab.open.hid [1.0 151229]
+	com.microchip.mplab.mdbcore.loader [1.1 151229]
+	com.microchip.mplab.mdbcore.disasm [1.0 151229]
+	com.microchip.mplab.mdbcore.debugger [1.1 151229]
+	com.microchip.mplab.mdbcore.ToolExecMediator [1.0 151229]
+	com.microchip.mplab.mdbcore.PeripheralsAndSFRs [1.0 151229]
+	com.microchip.mplab.mdbcore.streamingdataprocessing [1.0 151229]
+	com.microchip.mplab.mdbcore.CodeGuardMediator [1.0 151229]
+	com.microchip.mplab.mdbcore.RealICETool [1.0 151229]
+	com.microchip.mplab.mdbcore.skde [1.0 151229]
+	org.jdesktop.layout/1 [1.30.1 20151229-unknown-revn]
+	com.microchip.mplab.nbide.embedded [1.1 151229]
+	com.microchip.mplab.nbide.embedded.utils [1.0 151229]
+	com.microchip.mplab.nbide.streamingdatacontroller [1.0 151229]
+	com.microchip.mplab.nbide.embedded.makeproject/1 [1.3 141202 151229]
+	com.microchip.mplab.nbide.toolchainCommon [1.0 151229]
+	org.laczik.toolchainSDCC/1 [1.1.0 160227]
+	org.eclipse.mylyn.commons.xmlrpc [3.10.0 3.10.0.20130704-2116]
+	org.eclipse.mylyn.commons.repositories.core [1.2.0 1.2.0.20130704-2116]
+	org.eclipse.mylyn.commons.core [3.10.0 3.10.0.20130926-1710]
+	org.eclipse.equinox.security [1.1.1 1.1.1.R37x_v20110822-1018]
+	org.eclipse.equinox.registry [3.5.200 3.5.200.v20120522-1841]
+	org.eclipse.equinox.preferences [3.4.2 3.4.2.v20120111-2020]
+	org.eclipse.equinox.app [1.3.100 1.3.100.v20110321]
+	org.eclipse.core.runtime.compatibility.auth [3.2.200 3.2.200.v20110110]
+	org.eclipse.core.net [1.2.100 1.2.100.I20110511-0800]
+	org.eclipse.core.contenttype [3.4.100 3.4.100.v20110423-0524]
+	org.apache.xmlrpc [3.0.0 3.0.0]
+	org.apache.ws.commons.util [1.0.1 1.0.1]
+	org.apache.commons.lang [2.4.0 2.4.0]
+	org.apache.commons.codec [1.3.0 1.3.0]
+	javaewah.dummy [0.7.9 0.7.9]
+	com.microchip.mplab.libs.SwingX_1_0 [1.0 151229]
+	com.microchip.mplab.wikibar [1.0 151229]
+	com.microchip.mplab.sso [1.0 151229]
+	com.microchip.mplab.note [1.0 151229]
+	com.microchip.mplab.nbide.devtoolsstore [1.0 151229]
+	com.microchip.mplab.nbide.welcome [1.0 151229]
+	com.microchip.mplab.nbide.updatecenters [1.0 151229]
+	com.microchip.mplab.nbide.toolchainhitech [1.0 151229]
+	com.microchip.mplab.nbide.toolchainXC8 [1.1 151229]
+	com.microchip.mplab.nbide.toolchainXC32 [1.0 151229]
+	com.microchip.mplab.nbide.toolchainXC16 [1.1 151229]
+	com.microchip.mplab.nbide.toolchainMPASMWIN [1.0 151229]
+	com.microchip.mplab.nbide.toolchainGeneric [1.0 151229]
+	com.microchip.mplab.nbide.toolchainC32 [1.0 151229]
+	com.microchip.mplab.nbide.toolchainC30 [1.0 151229]
+	com.microchip.mplab.nbide.toolchainC18 [1.0 151229]
+	com.microchip.mplab.nbide.toolchainASM30 [1.0 151229]
+	com.microchip.mplab.nbide.toolchain.license [1.0 151229]
+	com.microchip.mplab.mdbcore.checksum [1.0 151229]
+	com.microchip.mplab.nbide.loader [1.0 151229]
+	com.microchip.mplab.mdbcore.simulator [1.0 151229]
+	com.microchip.mplab.jfreechart [1.0 151229]
+	com.microchip.mplab.nbide.simdisplays [1.0 151229]
+	com.microchip.mplab.nbide.projectenv [1.0 151229]
+	com.microchip.mplab.mdbcore.PICKit3Tool [1.0 151229]
+	com.microchip.mplab.nbide.platformToolPICkit3 [1.0 151229]
+	com.microchip.mplab.nbide.periphlibs32 [1.0 151229]
+	com.microchip.mplab.nbide.mplabsoftwareupdate [1.0.16 151229]
+	com.microchip.mplab.nbide.mplabcommon [1.0 151229]
+	com.microchip.mplab.nbide.messagecenter [1.0 151229]
+	com.microchip.mplab.nbide.embedded.editor [1.0 151229]
+	com.microchip.mplab.nbide.embedded.asm/1 [1.1 151229]
+	com.microchip.mplab.nbide.displays [1.0 151229]
+	com.microchip.mplab.nbide.dislist [1.0 151229]
+	com.microchip.mplab.nbide.csmbridge/1 [1.0.1.1 1 151229]
+	com.microchip.mplab.nbide.SelfTest [1.0 151229]
+	com.microchip.mplab.nbide.MessageMediatorIDE [1.0 151229]
+	com.microchip.mplab.nbide.FWBrowseDisplay [1.0 151229]
+	com.microchip.mplab.menufilter [1.0 151229]
+	com.microchip.mplab.mdbcore.sqtpenv [1.0 151229]
+	com.microchip.mplab.mdbcore.powerdataprocessing [1.0 151229]
+	com.microchip.mplab.mdbcore.pkobskde [1.0 151229]
+	com.microchip.mplab.mdbcore.pkoblicdbgr [1.0 151229]
+	com.microchip.mplab.mdbcore.pk3ob [1.0 151229]
+	com.microchip.mplab.mdbcore.pickit2 [1.0 151229]
+	com.microchip.mplab.libs.RI4ToolsController [1.0 151229]
+	com.microchip.mplab.mdbcore.RI4Tool [1.0 151229]
+	com.microchip.mplab.mdbcore.PM3 [1.0 151229]
+	com.microchip.mplab.mdbcore.ICD4Tool [1.0 151229]
+	com.microchip.mplab.mdbcore.ICD3Tool [1.0 151229]
+	com.microchip.mplab.libs.PK4FileWrapper [1.0 151229]
+	com.microchip.mplab.libs.PK2FileWrapper [1.0 151229]
+	com.microchip.mplab.libs.ICD4FileWrapper [1.0 151229]
+	com.microchip.mplab.help [1.0 151229]
+	com.microchip.mplab.exclusive [1.0 151229]
+	com.microchip.mplab.debugger.mdb [1.1 151229]
+	com.jcraft.jzlib [1.0.7 1.0.7]
+INFO [org.netbeans.core.netigso.Netigso]: bundle org.eclipse.mylyn.wikitext.textile.core@1.9.0.20131007-2055 resolved
+INFO [org.netbeans.core.netigso.Netigso]: bundle org.eclipse.mylyn.wikitext.confluence.core@1.9.0.20131007-2055 resolved
+INFO [org.netbeans.core.netigso.Netigso]: bundle org.eclipse.jgit.java7@3.4.1.201406201815-r resolved
+INFO [org.netbeans.core.netigso.Netigso]: bundle org.eclipse.osgi@3.9.1.v20140110-1610 started
+INFO [org.netbeans.core.network.proxy.NetworkProxyReloader]: System network proxy resolver: Windows
+INFO [org.netbeans.core.network.proxy.windows.WindowsNetworkProxy]: Windows system proxy resolver: auto detect
+INFO [org.netbeans.core.network.proxy.NetworkProxyReloader]: System network proxy reloading succeeded.
+INFO [org.netbeans.core.network.proxy.NetworkProxyReloader]: System network proxy - mode: direct
+INFO [org.netbeans.core.network.proxy.NetworkProxyReloader]: System network proxy: fell to default (correct if direct mode went before)
+WARNING [org.openide.filesystems.Ordering]: Not all children in Toolbars/ marked with the position attribute: [Status Flags], but some are: [File, Clipboard, UndoRedo, Build, Debug, Memory, Standard.xml, Debugging.xml, MPLAB X Store, How Do I?]
+WARNING [org.openide.filesystems.Ordering]: Found same position 350 for both Toolbars/Build/com-microchip-mplab-debugger-mdb-actions-DebugMainProjectAction.shadow and Toolbars/Build/org-netbeans-modules-debugger-ui-actions-DebugMainProjectAction.shadow
+WARNING [org.openide.filesystems.Ordering]: Found same position 100 for both Toolbars/Build/com-microchip-mplab-nbide-embedded-makeproject-api-actions-BuildMainProjectAction.shadow and Toolbars/Build/org-netbeans-modules-project-ui-BuildMainProject.shadow
+WARNING [org.openide.filesystems.Ordering]: Found same position 200 for both Toolbars/Build/com-microchip-mplab-nbide-embedded-makeproject-api-actions-RebuildMainProjectAction.shadow and Toolbars/Build/org-netbeans-modules-project-ui-RebuildMainProject.shadow
+INFO [org.netbeans.ui.metrics.laf]: USG_LOOK_AND_FEEL
+WARNING [org.openide.filesystems.Ordering]: Not all children in Windows2/Modes/editor/ marked with the position attribute: [BrowserTopComponent.wstcref, PopUpTopComponent.wstcref], but some are: [Welcome.wstcref, StoreFrontTopComponent.wstcref]
+WARNING [org.openide.filesystems.Ordering]: Not all children in Windows2/Modes/navigator/ marked with the position attribute: [ProjectEnvironmentView.wstcref], but some are: [navigatorTC.wstcref, NavigatorTopComponent.wstcref]
+WARNING [org.openide.filesystems.Ordering]: Found same position 108 for both Windows2/Modes/output/StimulusTopComponent.wstcref and Windows2/Modes/output/MCHPAppIOView.wstcref
+WARNING [org.openide.filesystems.Ordering]: Not all children in Windows2/Modes/output/ marked with the position attribute: [chipMemoryView.wstcref], but some are: [MessageCenterTopComponent.wstcref, watchesView.wstcref, TraceMCHPView.wstcref, StopwatchTopComponent.wstcref, MCHPAppIOView.wstcref, StimulusTopComponent.wstcref, PCSamplingViewTopComponent.wstcref, ConsoleTopComponent.wstcref, AnalyzerTopComponent.wstcref, NotificationCenterTopComponent.wstcref, IOPinTopComponent.wstcref, localsView.wstcref, resultsView.wstcref, callstackView.wstcref, watches.wstcref, breakpointsView.wstcref, EvaluationWindow.wstcref, sources.wstcref, sessionsView.wstcref, locals.wstcref, threadsView.wstcref, bookmarks.wstcref, sessions.wstcref, threads.wstcref, MacroExpansionTopComponent.wstcref, DocViewTopComponent.wstcref, MemoryWindow.wstcref, RegistersWindow.wstcref, versioning_output.wstcref, search-results.wstcref, gsf-testrunner-results.wstcref, refactoring-preview.wstcref, find-usages.wstcref, CallGraphTopComponent.wstcref, TerminalContainerTopComponent.wstcref, output.wstcref, svnversioning.wstcref, hgversioningTC.wstcref, GitVersioning.wstcref, GitRepositories.wstcref, TaskListTopComponent.wstcref, AnalysisResultTopComponent.wstcref]
+WARNING [org.netbeans.ProxyClassLoader]: Will not load class org.jdesktop.swingx.painter.BusyPainter arbitrarily from one of ModuleCL@161a819[org.netbeans.libs.swingx] and ModuleCL@6cacd[com.microchip.mplab.libs.SwingX_1_0] starting from SystemClassLoader[437 modules]; see http://wiki.netbeans.org/DevFaqModuleCCE
+WARNING [org.netbeans.TopSecurityManager]: use of system property netbeans.home has been obsoleted in favor of InstalledFileLocator/Places at com.microchip.mplab.nbide.embedded.api.LanguageToolchainManager.getGlobProps(LanguageToolchainManager.java:519)
+WARNING [org.netbeans.TopSecurityManager]: use of system property netbeans.user has been obsoleted in favor of InstalledFileLocator/Places at com.microchip.mplab.nbide.welcome.content.RSSFeed.initCacheStore(RSSFeed.java:160)
+Diagnostic information
+Input arguments:
+	-Dnetbeans.logger.console=true
+	-ea
+	-Xdebug
+	-Xrunjdwp:transport=dt_socket,suspend=y,server=n,address=127.0.0.1:58465
+	-Djdk.home=C:\Program Files (x86)\Java\jdk1.8.0_71
+	-Dnetbeans.home=C:\Program Files (x86)\Microchip\MPLABX\v3.20\mplab_ide\platform
+	-Dnetbeans.user=C:\Projekter\hayes\toolchainSDCC\build\testuserdir
+	-Dnetbeans.default_userdir_root=
+	-XX:+HeapDumpOnOutOfMemoryError
+	-XX:HeapDumpPath=C:\Projekter\hayes\toolchainSDCC\build\testuserdir\var\log\heapdump.hprof
+	-Dsun.awt.keepWorkingSetOnMinimize=true
+	-Dnetbeans.dirs=C:\Projekter\hayes\toolchainSDCC\build\cluster;C:\Program Files (x86)\Microchip\MPLABX\v3.20\mplab_ide\cnd;C:\Program Files (x86)\Microchip\MPLABX\v3.20\mplab_ide\dlight;C:\Program Files (x86)\Microchip\MPLABX\v3.20\mplab_ide\harness;C:\Program Files (x86)\Microchip\MPLABX\v3.20\mplab_ide\ide;C:\Program Files (x86)\Microchip\MPLABX\v3.20\mplab_ide\mdbcore;C:\Program Files (x86)\Microchip\MPLABX\v3.20\mplab_ide\mplablibs;C:\Program Files (x86)\Microchip\MPLABX\v3.20\mplab_ide\mplab_ide;C:\Program Files (x86)\Microchip\MPLABX\v3.20\mplab_ide\nb;C:\Program Files (x86)\Microchip\MPLABX\v3.20\mplab_ide\platform
+	exit
+Compiler: HotSpot Tiered Compilers
+Heap memory usage: initial 64,0MB maximum 622,2MB
+Non heap memory usage: initial 2,2MB maximum -1b
+Garbage collector: PS Scavenge (Collections=12 Total time spent=0s)
+Garbage collector: PS MarkSweep (Collections=2 Total time spent=0s)
+Classes: loaded=6675 total loaded=6675 unloaded 0
+INFO [org.netbeans.core.ui.warmup.DiagnosticTask]: Total memory 8.476.975.104
+INFO [null]: Total physical memory 8.476.975.104
+WARNING [org.openide.filesystems.Ordering]: Found same position 1.900 for both Menu/RunProject/Separator4.instance and Menu/RunProject/org-netbeans-modules-debugger-ui-actions-FixAction.shadow
+WARNING [org.openide.filesystems.Ordering]: Not all children in Menu/Tools/ marked with the position attribute: [Embedded, Licenses], but some are: [org-openide-actions-ToolsAction.shadow, Separator1.instance, org-netbeans-modules-templates-actions-TemplatesAction.shadow, org-netbeans-modules-xml-catalog-CatalogAction.shadow, Separator2.instance, org-netbeans-modules-autoupdate-ui-actions-PluginManagerAction.shadow, com-microchip-mplab-nbide-updatecenters-download-PluginsDownload.shadow, org-netbeans-modules-options-OptionsWindowAction-separatorBefore.instance, org-netbeans-modules-options-OptionsWindowAction.shadow]
+WARNING [org.openide.filesystems.Ordering]: Not all children in Menu/Window/Debug/ marked with the position attribute: [Output], but some are: [org-netbeans-modules-debugger-ui-actions-LocalsViewAction.shadow, org-netbeans-modules-debugger-ui-actions-WatchesViewAction.shadow, org-netbeans-modules-debugger-ui-actions-CallStackViewAction.shadow, org-netbeans-modules-debugger-ui-actions-BreakpointsViewAction.shadow, org-netbeans-modules-debugger-ui-actions-SessionsViewAction.shadow, org-netbeans-modules-debugger-ui-actions-SourcesViewAction.shadow, Separator910.instance, com-microchip-mplab-debugger-mdb-actions-DisassemblyAction.shadow, com-microchip-mplab-debugger-mdb-actions-AppIOAction.shadow, TraceMCHPViewAction.shadow, com-microchip-mplab-debugger-mdb-actions-StopwatchAction.shadow, com-microchip-mplab-debugger-mdb-actions-PCSamplingAction.shadow, Separator1210.instance, com-microchip-mplab-debugger-mdb-actions-TriggerAction.shadow, ConsoleAction.shadow, Separator1590.instance]
+WARNING [org.openide.filesystems.Ordering]: Found same position 300 for both Menu/Help/Tool Help Contents and Menu/Help/netbeans-kb.url
+INFO [org.netbeans.modules.autoupdate.updateprovider.AutoupdateCatalogParser]: Unpaired license C6F266AE without any module.
+INFO [org.netbeans.modules.autoupdate.updateprovider.AutoupdateCatalogParser]: Unpaired license CCF76ADC without any module.
+INFO [org.netbeans.modules.autoupdate.updateprovider.AutoupdateCatalogParser]: Unpaired license AD9FBBC9 without any module.
+INFO [org.netbeans.modules.autoupdate.updateprovider.AutoupdateCatalogParser]: Unpaired license 1C25DF38 without any module.
+INFO [org.netbeans.modules.autoupdate.updateprovider.AutoupdateCatalogParser]: Unpaired license A2C7A562 without any module.
+INFO [org.netbeans.modules.autoupdate.updateprovider.AutoupdateCatalogParser]: Unpaired license 1670E63E without any module.
+INFO [org.netbeans.modules.autoupdate.updateprovider.AutoupdateCatalogParser]: Unpaired license 42365B3E without any module.
+INFO [org.netbeans.modules.autoupdate.updateprovider.AutoupdateCatalogParser]: Unpaired license 5CA1E216 without any module.
+INFO [org.netbeans.modules.autoupdate.updateprovider.AutoupdateCatalogParser]: Unpaired license 6828C6E without any module.
+INFO [org.netbeans.modules.autoupdate.updateprovider.AutoupdateCatalogParser]: Unpaired license 1A25A897 without any module.
+INFO [org.netbeans.modules.autoupdate.updateprovider.AutoupdateCatalogParser]: Unpaired license CCF76ADC without any module.
+INFO [org.netbeans.modules.autoupdate.updateprovider.AutoupdateCatalogParser]: Unpaired license C6F266AE without any module.
+INFO [org.netbeans.modules.autoupdate.updateprovider.AutoupdateCatalogParser]: Unpaired license AD9FBBC9 without any module.
+INFO [org.netbeans.modules.autoupdate.updateprovider.AutoupdateCatalogParser]: Unpaired license 1C25DF38 without any module.
+INFO [org.netbeans.modules.autoupdate.updateprovider.AutoupdateCatalogParser]: Unpaired license A2C7A562 without any module.
+INFO [org.netbeans.modules.autoupdate.updateprovider.AutoupdateCatalogParser]: Unpaired license 1670E63E without any module.
+INFO [org.netbeans.modules.autoupdate.updateprovider.AutoupdateCatalogParser]: Unpaired license 42365B3E without any module.
+INFO [org.netbeans.modules.autoupdate.updateprovider.AutoupdateCatalogParser]: Unpaired license 5CA1E216 without any module.
+INFO [org.netbeans.modules.autoupdate.updateprovider.AutoupdateCatalogParser]: Unpaired license 6828C6E without any module.
+INFO [org.netbeans.modules.autoupdate.updateprovider.AutoupdateCatalogParser]: Unpaired license 1A25A897 without any module.
+INFO [org.netbeans.modules.autoupdate.updateprovider.AutoupdateCatalogParser]: Unpaired license CCF76ADC without any module.
+INFO [org.netbeans.modules.autoupdate.updateprovider.AutoupdateCatalogParser]: Unpaired license C6F266AE without any module.
+INFO [org.netbeans.modules.autoupdate.updateprovider.AutoupdateCatalogParser]: Unpaired license AD9FBBC9 without any module.
+INFO [org.netbeans.modules.autoupdate.updateprovider.AutoupdateCatalogParser]: Unpaired license 1C25DF38 without any module.
+INFO [org.netbeans.modules.autoupdate.updateprovider.AutoupdateCatalogParser]: Unpaired license A2C7A562 without any module.
+INFO [org.netbeans.modules.autoupdate.updateprovider.AutoupdateCatalogParser]: Unpaired license 1670E63E without any module.
+INFO [org.netbeans.modules.autoupdate.updateprovider.AutoupdateCatalogParser]: Unpaired license 42365B3E without any module.
+INFO [org.netbeans.modules.autoupdate.updateprovider.AutoupdateCatalogParser]: Unpaired license 5CA1E216 without any module.
+INFO [org.netbeans.modules.autoupdate.updateprovider.AutoupdateCatalogParser]: Unpaired license 6828C6E without any module.
+INFO [org.netbeans.modules.autoupdate.updateprovider.AutoupdateCatalogParser]: Unpaired license 1A25A897 without any module.
+INFO [org.netbeans.modules.sampler.InternalSampler]: Slowness detector disabled - running in debug mode
+Add duplicated ConfigurationAuxObject id=PICkit3PlatformTool
+INFO [org.netbeans.modules.cnd.api.project.NativeProjectRegistry]: Open native project plugintest C:\Users\Patrick\MPLABXProjects\plugintest\plugintest.X
+INFO [org.netbeans.ui.metrics.projects]: USG_PROJECT_OPEN
+INFO [org.netbeans.ui.indexing]: Indexing started, time from last indexing 0 ms.
+INFO [org.netbeans.modules.parsing.impl.indexing.RepositoryUpdater]: Resolving dependencies took: 102 ms
+INFO [org.netbeans.modules.parsing.impl.indexing.RepositoryUpdater]: Complete indexing of 0 binary roots took: 1 ms
+WARNING [org.openide.filesystems.Ordering]: Found same position 1.150 for both org-netbeans-modules-cnd-callgraph-impl-CallGraphPopupAction.shadow and SeparatorBeforeSetPC.instance
+INFO [org.netbeans.modules.parsing.impl.indexing.RepositoryUpdater]: Indexing of: C:\Users\Patrick\MPLABXProjects\plugintest\plugintest.X took: 3.960 ms (New or modified files: 23, Deleted files: 0) [Adding listeners took: 114 ms]
+INFO [org.netbeans.modules.parsing.impl.indexing.RepositoryUpdater]: Complete indexing of 1 source roots took: 3.960 ms (New or modified files: 23, Deleted files: 0) [Adding listeners took: 114 ms]
+INFO [org.netbeans.ui.indexing]: Indexing finished, indexing took 6.275 ms.
+INFO [com.microchip.mplab.nbide.toolchain.license.monitor.LicenseMonitor]: Checking Toolchain License(s) 02/28/2016 00:54:13
+WARNING [org.netbeans.TopSecurityManager]: use of system property netbeans.home has been obsoleted in favor of InstalledFileLocator/Places at com.microchip.mplab.nbide.toolchainCommon.icon.license.LicenseUtil.<clinit>(LicenseUtil.java:27)
+INFO [com.microchip.mplab.nbide.toolchain.license.monitor.LicenseMonitor]: XC8: no license exists
+INFO [com.microchip.mplab.nbide.toolchain.license.monitor.LicenseMonitor]: XC16: no license exists
+INFO [com.microchip.mplab.nbide.toolchain.license.monitor.LicenseMonitor]: XC32: no license exists
+INFO [org.netbeans.modules.autoupdate.pluginimporter.Installer]: importing from null
+INFO [org.netbeans.ui.indexing]: Indexing started, time from last indexing 39.061 ms.
+INFO [org.netbeans.ui.indexing]: Indexing finished, indexing took 235 ms.
+INFO [org.netbeans.ui.indexing]: Indexing started, time from last indexing 0 ms.
+INFO [org.netbeans.ui.indexing]: Indexing finished, indexing took 344 ms.
+INFO [org.netbeans.ui.indexing]: Indexing started, time from last indexing 1.000 ms.
+INFO [org.netbeans.ui.indexing]: Indexing finished, indexing took 109 ms.
+INFO [org.netbeans.ui.indexing]: Indexing started, time from last indexing 38.667 ms.
+INFO [org.netbeans.ui.indexing]: Indexing finished, indexing took 78 ms.
+INFO [org.netbeans.ui.indexing]: Indexing started, time from last indexing 0 ms.
+INFO [org.netbeans.ui.indexing]: Indexing finished, indexing took 125 ms.
+INFO [org.netbeans.ui.indexing]: Indexing started, time from last indexing 1.328 ms.
+INFO [org.netbeans.ui.indexing]: Indexing finished, indexing took 110 ms.
+INFO [org.netbeans.ui.indexing]: Indexing started, time from last indexing 0 ms.
+INFO [org.netbeans.ui.indexing]: Indexing finished, indexing took 93 ms.
+INFO [nativeexecution.support.logger]: [92955 ms.] Don't call getHostInfo() from the UI thread while info is not known. Use quick isHostInfoAvailable() to detect whether info is available or not and go out of EDT if not
+java.lang.Exception: Don't call getHostInfo() from the UI thread while info is not known. Use quick isHostInfoAvailable() to detect whether info is available or not and go out of EDT if not
+	at org.netbeans.modules.nativeexecution.support.Logger.assertNonUiThread(Logger.java:112)
+	at org.netbeans.modules.nativeexecution.api.util.HostInfoUtils.getHostInfo(HostInfoUtils.java:212)
+	at org.netbeans.modules.cnd.api.utils.PlatformInfo.<init>(PlatformInfo.java:83)
+	at org.netbeans.modules.cnd.api.utils.PlatformInfo.getDefault(PlatformInfo.java:392)
+	at com.microchip.mplab.nbide.embedded.makeproject.api.configurations.MakeConfiguration.getPlatformInfo(MakeConfiguration.java:467)
+	at com.microchip.mplab.nbide.embedded.makeproject.MakeActionProvider.addTarget(MakeActionProvider.java:644)
+	at com.microchip.mplab.nbide.embedded.makeproject.MakeActionProvider.addAction(MakeActionProvider.java:573)
+	at com.microchip.mplab.nbide.embedded.makeproject.MakeActionProvider$1.runImpl(MakeActionProvider.java:431)
+	at com.microchip.mplab.nbide.embedded.makeproject.MakeActionProvider$CancellableTask.run(MakeActionProvider.java:1833)
+	at com.microchip.mplab.nbide.embedded.makeproject.MakeActionProvider.runActionWorker(MakeActionProvider.java:446)
+	at com.microchip.mplab.nbide.embedded.makeproject.MakeActionProvider.invokeAction(MakeActionProvider.java:441)
+	at org.netbeans.modules.project.ui.actions.ProjectAction$2.run(ProjectAction.java:187)
+	at org.openide.util.Mutex.doEvent(Mutex.java:1356)
+	at org.openide.util.Mutex.writeAccess(Mutex.java:462)
+	at org.netbeans.modules.project.ui.actions.ProjectAction.runSequentially(ProjectAction.java:184)
+	at org.netbeans.modules.project.ui.actions.MainProjectAction$1$1.run(MainProjectAction.java:140)
+	at java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:311)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:756)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:726)
+	at org.netbeans.core.TimableEventQueue.dispatchEvent(TimableEventQueue.java:159)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+WARNING [org.netbeans.TopSecurityManager]: use of system property netbeans.user has been obsoleted in favor of InstalledFileLocator/Places at org.netbeans.modules.nativeexecution.support.hostinfo.impl.HostInfoFactory.getNBKey(HostInfoFactory.java:417)
+WARNING [org.netbeans.TopSecurityManager]: use of system property netbeans.home has been obsoleted in favor of InstalledFileLocator/Places at com.microchip.mplab.nbide.productreleaseprompt.Util.getIDEVersion(Util.java:71)
+INFO [com.microchip.mplab.nbide.productreleaseprompt.ProductRelease]: Current MPLABX version is 3.20
+INFO [com.microchip.mplab.nbide.productreleaseprompt.ProductRelease]: There are 7 toolchain(s) installed on this computer
+INFO [com.microchip.mplab.nbide.productreleaseprompt.ProductRelease]:   mpasmwin: version is "5.65" but dont care this langtool
+INFO [com.microchip.mplab.nbide.productreleaseprompt.ProductRelease]:   mpasmwin: version is "5.54" but dont care this langtool
+INFO [com.microchip.mplab.nbide.productreleaseprompt.ProductRelease]:   sdcc: version is "3.5.0" but dont care this langtool
+INFO [com.microchip.mplab.nbide.productreleaseprompt.ProductRelease]:   c18: version is "3.47" but dont care this langtool
+INFO [com.microchip.mplab.nbide.productreleaseprompt.ProductRelease]:   xc32: LATEST becomes "1.40"
+INFO [com.microchip.mplab.nbide.productreleaseprompt.ProductRelease]:   xc8: LATEST becomes "1.35"
+INFO [com.microchip.mplab.nbide.productreleaseprompt.ProductRelease]:   xc16: LATEST becomes "1.25"
+WARNING [org.netbeans.TopSecurityManager]: use of system property netbeans.user has been obsoleted in favor of InstalledFileLocator/Places at com.microchip.mplab.nbide.productreleaseprompt.ProductsAvailable.initCacheStore(ProductsAvailable.java:286)
+INFO [com.microchip.mplab.nbide.productreleaseprompt.ProductRelease]: Reload found 15 Items...
+INFO [com.microchip.mplab.nbide.productreleaseprompt.ProductRelease]: Product: xc32
+INFO [com.microchip.mplab.nbide.productreleaseprompt.ProductRelease]: Installed Version: 1.40
+INFO [com.microchip.mplab.nbide.productreleaseprompt.ProductRelease]: No newer version available
+INFO [com.microchip.mplab.nbide.productreleaseprompt.ProductRelease]: Product: mplabx
+INFO [com.microchip.mplab.nbide.productreleaseprompt.ProductRelease]: Installed Version: 3.20
+INFO [com.microchip.mplab.nbide.productreleaseprompt.ProductRelease]: Found newer version available online: 3.25
+INFO [com.microchip.mplab.nbide.productreleaseprompt.ProductRelease]: Product: xc16
+INFO [com.microchip.mplab.nbide.productreleaseprompt.ProductRelease]: Installed Version: 1.25
+INFO [com.microchip.mplab.nbide.productreleaseprompt.ProductRelease]: No newer version available
+INFO [com.microchip.mplab.nbide.productreleaseprompt.ProductRelease]: Product: xc8
+INFO [com.microchip.mplab.nbide.productreleaseprompt.ProductRelease]: Installed Version: 1.35
+INFO [com.microchip.mplab.nbide.productreleaseprompt.ProductRelease]: Found newer version available online: 1.36
+INFO [org.netbeans.ui.indexing]: Indexing started, time from last indexing 16.118 ms.
+INFO [org.netbeans.ui.indexing]: Indexing finished, indexing took 0 ms.
+INFO [org.netbeans.core.netigso.Netigso]: bundle org.eclipse.osgi@3.9.1.v20140110-1610 256
+INFO [org.netbeans.core.netigso.Netigso]: bundle org.eclipse.osgi@3.9.1.v20140110-1610 stopped
+INFO [org.netbeans.core.netigso.Netigso]: bundle org.eclipse.osgi@3.9.1.v20140110-1610 stopped
+INFO [org.netbeans.modules.cnd.api.project.NativeProjectRegistry]: Close native project plugintest C:\Users\Patrick\MPLABXProjects\plugintest\plugintest.X

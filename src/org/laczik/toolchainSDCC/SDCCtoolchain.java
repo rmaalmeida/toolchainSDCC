@@ -17,10 +17,6 @@
 */
 package org.laczik.toolchainSDCC;
 
-/**
- *
- * @author rmaalmeida and zjlaczik
- */
 public class SDCCtoolchain {
 
 }
