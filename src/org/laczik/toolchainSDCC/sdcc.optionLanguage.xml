@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
     SDCC Toolchain allows MPLABX to compile with SDCC+GPUtils for pic 16/18
-    Copyright (C) 2011 RMA de Almeida and 2015 ZJ Laczik
+    Copyright (C) 2011 RMA de Almeida, 2015 ZJ Laczik and 2016 P Hayes.
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -118,6 +118,9 @@
     <opt:stringOption opt:id="stack-loc"                 opt:name="stack-loc" opt:emissionprefix="--stack-loc " opt:validatorclass="com.microchip.mplab.nbide.toolchainCommon.opt.validation.CSyntaxNumberValidator" opt:unsuppressif="${is.pic16}">
         Specify constant using C syntax (0x for hex 0 for octal). Example: 0x10 is the same as 020 or 16
     </opt:stringOption>
+    <opt:stringOption opt:id="ivt-loc"                   opt:name="Intr vect loc" opt:emissionprefix="--ivt-loc=" opt:validatorclass="com.microchip.mplab.nbide.toolchainCommon.opt.validation.CSyntaxNumberValidator" opt:unsuppressif="${is.pic16}">
+        Place the interrupt vector table at address n. Useful for bootloaders. Specify constant using C syntax (0x for hex 0 for octal). Example: 0x10 is the same as 020 or 16
+    </opt:stringOption>
     <opt:booleanOption opt:id="pno-banksel"              opt:name="No BANKSEL" opt:trueemission="--pno-banksel" opt:unsuppressif="${is.pic16}">
         Do not generate BANKSEL assembler directives.
     </opt:booleanOption>
@@ -150,6 +153,15 @@
     <opt:booleanOption opt:id="pcode-verbose"            opt:name="Output p-code debug info" opt:trueemission="--pcode-verbose" opt:unsuppressif="${is.pic16}">
         Enable pcode debugging information in translation.
     </opt:booleanOption>
+    <opt:booleanOption opt:id="nodefaultlibs"            opt:name="No default librarys" opt:trueemission="--nodefaultlibs" opt:unsuppressif="${is.pic16}">
+        Do not link default libraries when linking.
+    </opt:booleanOption>
+    <opt:booleanOption opt:id="no-crt"                   opt:name="No runtime library" opt:trueemission="--no-crt" opt:unsuppressif="${is.pic16}">
+        Don’t link the default run-time modules.
+    </opt:booleanOption>
+    <opt:stringOption opt:id="use-crt"                   opt:name="Custom runtime library" opt:emissionprefix="--use-crt=" opt:unsuppressif="${is.pic16}">
+        Use a custom run-time module instead of the default (crt0i).
+    </opt:stringOption>
   </opt:optionCategory> 
   
   <opt:enablePattern opt:idref="use-non-free" opt:expr="--use-non-free"/>
@@ -184,6 +196,8 @@
   <opt:enablePattern opt:idref="debug-ralloc" opt:expr="--debug-ralloc"/>
   <opt:submatchPattern opt:idref="pstack-model" opt:expr="--pstack-model=([Ss][Mm][Aa][Ll][Ll])"/>
   <opt:submatchPattern opt:idref="pstack-model" opt:expr="--pstack-model=([Ll][Aa][Rr][Gg][Ee])"/>
+  <opt:submatchPattern opt:idref="--stack-loc" opt:expr="--stack-loc (\d)"/>
+  <opt:submatchPattern opt:idref="ivt-loc" opt:expr="--ivt-loc=(\d)"/>
   <opt:enablePattern opt:idref="pno-banksel" opt:expr="--pno-banksel"/>
   <opt:enablePattern opt:idref="extended" opt:expr="--extended"/>
   <opt:submatchPattern opt:idref="obanksel" opt:expr="--obanksel=(\d)"/>
@@ -192,4 +206,7 @@
   <opt:enablePattern opt:idref="optimize-df" opt:expr="--optimize-df"/>
   <opt:enablePattern opt:idref="debug-xtra16" opt:expr="--debug-xtra"/>
   <opt:enablePattern opt:idref="pcode-verbose" opt:expr="--pcode-verbose"/>
+  <opt:enablePattern opt:idref="nodefaultlibs" opt:expr="--nodefaultlibs"/>
+  <opt:enablePattern opt:idref="no-crt" opt:expr="--no-crt"/>
+  <opt:submatchPattern opt:idref="use-crt" opt:expr="--use-crt=(.+)"/>
 </opt:optionLanguage>
