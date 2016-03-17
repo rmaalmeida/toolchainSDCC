@@ -1,6 +1,6 @@
 /*
     SDCC Toolchain allows MPLABX to compile with SDCC+GPUtils for pic 16/18
-    Copyright (C) 2011 RMA de Almeida and 2015 ZJ Laczik
+    Copyright (C) 2011 RMA de Almeida, 2015 ZJ Laczik and 2016 P Hayes.
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
