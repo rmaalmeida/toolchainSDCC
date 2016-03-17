@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
     SDCC Toolchain allows MPLABX to compile with SDCC+GPUtils for pic 16/18
-    Copyright (C) 2011 RMA de Almeida and 2015 ZJ Laczik
+    Copyright (C) 2011 RMA de Almeida, 2015 ZJ Laczik and 2016 P Hayes.
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -60,11 +60,11 @@
       <mp:makeRule mp:id="link" mp:target="${FINAL_IMAGE_NAME}" mp:prerequisites="${CURRENT_OBJECT_FILES}" mp:runtimepropertiesclass="org.laczik.toolchainSDCC.SDCCCompilerProperties">
             <mp:textEmitter mp:text="${MKDIR} ${FINAL_TARGET_DIR} ${NEWLINE}"/>
             <mp:textEmitter mp:text="${MP_CC} "/>
-            <mp:textEmitter mp:text=" -Wl-c -Wl-m "/>
+            <mp:textEmitter mp:text="-Wl-c -Wl-m "/>
             <mp:optionEmitter mp:idref="sdcc-config" mp:separator=" "/>
             <mp:textEmitter mp:text=" -m${PROCESSOR_FAMILY}"/>
             <mp:textEmitter mp:text=" -p${PROCESSOR_NAME}"/>
-            <mp:textEmitter mp:text=" ${CURRENT_OBJECT_FILES} " mp:separator=" "/>
+            <mp:textEmitter mp:text=" ${CURRENT_OBJECT_FILES}" mp:separator=" "/>
             <mp:textEmitter mp:text=" -o${FINAL_IMAGE_NAME} "/>
       </mp:makeRule>
   </mp:makefileWriter>
