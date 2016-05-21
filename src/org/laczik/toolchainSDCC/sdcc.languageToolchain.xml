@@ -105,13 +105,15 @@ sort | \
 sed 's/^.*/PIC\U\0/' | \
 sed 's#.*#            <mp:device mp:name="\0" mp:support="beta"/>#'
 -->
-<!-- SDCC : mcs51/z80/z180/r2k/r3ka/gbz80/tlcs90/ds390/pic16/pic14/TININative/ds400/hc08/s08/stm8
-     3.4.0 #8981 (Jan 10 2015) (Linux) published under GNU General Public License (GPL) -->
+<!-- SDCC : mcs51/z80/z180/r2k/r3ka/gbz80/tlcs90/ds390/pic16/pic14/TININative/ds400/hc08/s08/stm8 3.5.0 #9253 (Dec 26 2015) (Mac OS X x86_64) published under GNU General Public License (GPL) -->
             <mp:device mp:name="PIC10F320" mp:support="beta"/>
             <mp:device mp:name="PIC10F322" mp:support="beta"/>
             <mp:device mp:name="PIC10LF320" mp:support="beta"/>
             <mp:device mp:name="PIC10LF322" mp:support="beta"/>
             <mp:device mp:name="PIC12F1501" mp:support="beta"/>
+            <mp:device mp:name="PIC12F1571" mp:support="beta"/>
+            <mp:device mp:name="PIC12F1572" mp:support="beta"/>
+            <mp:device mp:name="PIC12F1612" mp:support="beta"/>
             <mp:device mp:name="PIC12F1822" mp:support="beta"/>
             <mp:device mp:name="PIC12F1840" mp:support="beta"/>
             <mp:device mp:name="PIC12F609" mp:support="beta"/>
@@ -126,6 +128,9 @@ sed 's#.*#            <mp:device mp:name="\0" mp:support="beta"/>#'
             <mp:device mp:name="PIC12HV615" mp:support="beta"/>
             <mp:device mp:name="PIC12LF1501" mp:support="beta"/>
             <mp:device mp:name="PIC12LF1552" mp:support="beta"/>
+            <mp:device mp:name="PIC12LF1571" mp:support="beta"/>
+            <mp:device mp:name="PIC12LF1572" mp:support="beta"/>
+            <mp:device mp:name="PIC12LF1612" mp:support="beta"/>
             <mp:device mp:name="PIC12LF1822" mp:support="beta"/>
             <mp:device mp:name="PIC12LF1840" mp:support="beta"/>
             <mp:device mp:name="PIC16C432" mp:support="beta"/>
@@ -181,8 +186,18 @@ sed 's#.*#            <mp:device mp:name="\0" mp:support="beta"/>#'
             <mp:device mp:name="PIC16F1519" mp:support="beta"/>
             <mp:device mp:name="PIC16F1526" mp:support="beta"/>
             <mp:device mp:name="PIC16F1527" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1613" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1703" mp:support="beta"/>
             <mp:device mp:name="PIC16F1704" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1705" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1707" mp:support="beta"/>
             <mp:device mp:name="PIC16F1708" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1709" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1713" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1716" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1717" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1718" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1719" mp:support="beta"/>
             <mp:device mp:name="PIC16F1782" mp:support="beta"/>
             <mp:device mp:name="PIC16F1783" mp:support="beta"/>
             <mp:device mp:name="PIC16F1784" mp:support="beta"/>
@@ -295,8 +310,20 @@ sed 's#.*#            <mp:device mp:name="\0" mp:support="beta"/>#'
             <mp:device mp:name="PIC16LF1519" mp:support="beta"/>
             <mp:device mp:name="PIC16LF1526" mp:support="beta"/>
             <mp:device mp:name="PIC16LF1527" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1554" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1559" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1613" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1703" mp:support="beta"/>
             <mp:device mp:name="PIC16LF1704" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1705" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1707" mp:support="beta"/>
             <mp:device mp:name="PIC16LF1708" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1709" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1713" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1716" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1717" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1718" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1719" mp:support="beta"/>
             <mp:device mp:name="PIC16LF1782" mp:support="beta"/>
             <mp:device mp:name="PIC16LF1783" mp:support="beta"/>
             <mp:device mp:name="PIC16LF1784" mp:support="beta"/>
@@ -349,8 +376,7 @@ sort | \
 sed 's/^p.*/PIC\U\0/' | \
 sed 's#PIC.*#            <mp:device mp:name="\0" mp:support="beta"/>#'
 -->
-<!-- SDCC : mcs51/z80/z180/r2k/r3ka/gbz80/tlcs90/ds390/pic16/pic14/TININative/ds400/hc08/s08/stm8
-     3.4.0 #8981 (Jan 10 2015) (Linux) published under GNU General Public License (GPL) -->
+<!-- SDCC : mcs51/z80/z180/r2k/r3ka/gbz80/tlcs90/ds390/pic16/pic14/TININative/ds400/hc08/s08/stm8 3.5.0 #9253 (Dec 26 2015) (Mac OS X x86_64) published under GNU General Public License (GPL) -->
             <mp:device mp:name="PIC18F1220" mp:support="beta"/>
             <mp:device mp:name="PIC18F1230" mp:support="beta"/>
             <mp:device mp:name="PIC18F1320" mp:support="beta"/>
