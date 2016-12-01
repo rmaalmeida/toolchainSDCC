@@ -49,6 +49,7 @@
 	  <!-- this is the beginning of the compiler line -->
             <mp:textEmitter mp:text="${MP_CC} "/>
             <mp:optionEmitter mp:idref="sdcc-config" mp:separator=" "/>
+            <mp:textEmitter mp:onlydebug="true" mp:text=" --debug"/>
             <mp:textEmitter mp:text=" -c"/>
             <mp:textEmitter mp:text=" -m${PROCESSOR_FAMILY}"/>
             <mp:textEmitter mp:text=" -p${PROCESSOR_NAME}"/>
