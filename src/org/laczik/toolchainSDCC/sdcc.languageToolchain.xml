@@ -21,31 +21,29 @@
                       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                       xsi:schemaLocation="http://crownking/mplab mplab/languageToolchain.xsd"
                       mp:id="SDCC"
-                      mp:name="SDCC Toolchain"
+                      mp:name="SDCC Compiler"
                       mp:hostplatforms="windows,linux,mac,none"
                       mp:class="org.laczik.toolchainSDCC.SDCCtoolchain">
 
   <mp:versionProvider mp:class="org.laczik.toolchainSDCC.SDCCVersionProvider"/>
   
-  <mp:configurationObject mp:id="sdcc-config" mp:idref="sdcc-config" opt:src="sdcc.optionLanguage.xml" opt:runtimepropertiesclass="org.laczik.toolchainSDCC.SDCCRuntimeProperties"/>
+  <mp:configurationObject mp:id="sdcc-config" mp:idref="SDCC" opt:src="sdcc.optionLanguage.xml" opt:runtimepropertiesclass="org.laczik.toolchainSDCC.SDCCRuntimeProperties"/>
 
-  <mp:customizerNode mp:idref="SDCC" mp:name="SDCC Toolchain">
-    <mp:customizerNode mp:idref="sdcc-config" mp:name="SDCC Compiler" mp:class="org.laczik.toolchainSDCC.SDCCCustomizerNode"/>
-  </mp:customizerNode>
+  <mp:customizerNode mp:idref="sdcc-config" mp:name="SDCC Compiler" mp:class="org.laczik.toolchainSDCC.SDCCCustomizerNode"/>
 
   <mp:makefileWriter>
       <mp:inputToOutputExtensionMap mp:src="c" mp:dst="o"/>
       <mp:inputToOutputExtensionMap mp:src="C" mp:dst="o"/>
-      <mp:build mp:buildtype="standalone" mp:debuggableextension="cof">
-          <mp:outputFilenameSuffixProvider mp:class="org.laczik.toolchainSDCC.SDCCOutputFilenameSuffixProvider"/>
+      <mp:build mp:buildtype="standalone" mp:outputextension="hex" mp:debuggableextension="cof">
+          <!--mp:outputFilenameSuffixProvider mp:class="org.laczik.toolchainSDCC.SDCCOutputFilenameSuffixProvider"/-->
           <mp:buildStep mp:idref="compile"/>
           <mp:buildStep mp:idref="link"/>
       </mp:build>
       <mp:makeRule mp:id="compile" mp:prerequisites=".*[cC]$" mp:runtimepropertiesclass="org.laczik.toolchainSDCC.SDCCCompilerProperties">
 	  <!-- this following line makes sure the directory where we will compile exists -->
-            <mp:textEmitter mp:text="${MKDIR} ${CURRENT_OBJECT_DIR} ${NEWLINE}"/>
+            <mp:textEmitter mp:text="${MKDIR} ${CURRENT_QUOTED_IF_SPACED_OBJECT_DIR_UNIX_SLASHES} ${NEWLINE}"/>
 	  <!-- this following line erases the dependency files created in the last compiler -->
-            <mp:textEmitter mp:text="${RM} ${CURRENT_OBJECT_FILE} ${NEWLINE}"/>
+            <mp:textEmitter mp:text="${RM} ${CURRENT_QUOTED_IF_SPACED_OBJECT_FILE} ${NEWLINE}"/>
 	  <!-- this is the beginning of the compiler line -->
             <mp:textEmitter mp:text="${MP_CC} "/>
             <mp:optionEmitter mp:idref="sdcc-config" mp:separator=" "/>
@@ -53,8 +51,8 @@
             <mp:textEmitter mp:text=" -c"/>
             <mp:textEmitter mp:text=" -m${PROCESSOR_FAMILY}"/>
             <mp:textEmitter mp:text=" -p${PROCESSOR_NAME}"/>
-            <mp:textEmitter mp:text=" ${CURRENT_SOURCE_FILE} "/>
-            <mp:textEmitter mp:text=" -o${CURRENT_OBJECT_FILE}"/>
+            <mp:textEmitter mp:text=" ${CURRENT_QUOTED_IF_SPACED_SOURCE_FILE} "/>
+            <mp:textEmitter mp:text=" -o${CURRENT_QUOTED_IF_SPACED_OBJECT_FILE}"/>
             <mp:textEmitter mp:text="${NEWLINE}"/>
       </mp:makeRule>
 
@@ -65,7 +63,7 @@
             <mp:optionEmitter mp:idref="sdcc-config" mp:separator=" "/>
             <mp:textEmitter mp:text=" -m${PROCESSOR_FAMILY}"/>
             <mp:textEmitter mp:text=" -p${PROCESSOR_NAME}"/>
-            <mp:textEmitter mp:text=" ${CURRENT_OBJECT_FILES}" mp:separator=" "/>
+            <mp:textEmitter mp:text=" ${CURRENT_QUOTED_IF_SPACED_OBJECT_FILES}" mp:separator=" "/>
             <mp:textEmitter mp:text=" -o${FINAL_IMAGE_NAME} "/>
       </mp:makeRule>
   </mp:makefileWriter>
@@ -81,7 +79,7 @@
   <mp:defaultLocation mp:hostplatform="mac" mp:dir="/*SDCC/bin"/>
 
 
-  <mp:cCompiler mp:file="sdcc" mp:name="SDCC Compiler for 8-bit Devices">
+  <mp:cCompiler mp:file="SDCC" mp:name="SDCC Compiler for 8-bit Devices">
     <mp:versionProvider mp:class="org.laczik.toolchainSDCC.SDCCVersionProvider"/>
     <mp:builtinProvider mp:class="org.laczik.toolchainSDCC.SDCCBuiltinProvider"/>
     <mp:systemIncludeProvider mp:class="org.laczik.toolchainSDCC.SDCCSystemIncludeProvider"/>

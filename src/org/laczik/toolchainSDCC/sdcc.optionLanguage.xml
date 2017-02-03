@@ -19,21 +19,21 @@
 <opt:optionLanguage xmlns:opt="http://crownking/opt" 
                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
                     xsi:schemaLocation="http://crownking/opt opt/optionLanguage.xsd" 
-                    opt:id="sdcc" 
-                    opt:name="SDCC C Compiler for 8-bit Devices">
+                    opt:id="SDCC" 
+                    opt:name="SDCC Compiler">
   <opt:optionCategory opt:id="general" opt:name="General">
     <opt:booleanOption opt:id="use-non-free"             opt:name="Use non free libraries/header" opt:trueemission="--use-non-free" opt:booldefault="true">
-        Search / include non-free licensed libraries and header files, located under the non-free directory.
+        <opt:xhtml>Search / include non-free licensed libraries and header files, located under the non-free directory.</opt:xhtml>
     </opt:booleanOption>
     <opt:booleanOption opt:id="Werror"                   opt:name="Treat all warnings as errors." opt:trueemission="--Werror"/>
     <opt:booleanOption opt:id="no-c-code-in-asm"         opt:name="Hide C code from ASM" opt:trueemission="--no-c-code-in-asm">
-        Hides your ugly and inefficient c-code from the asm file, so you can always blame the compiler :)
+        <opt:xhtml>Hides your ugly and inefficient c-code from the asm file, so you can always blame the compiler :)</opt:xhtml>
     </opt:booleanOption>
     <opt:booleanOption opt:id="verbose"                  opt:name="Verbose actions" opt:trueemission="--verbose">
-        Shows the various actions the compiler is performing.
+        <opt:xhtml>Shows the various actions the compiler is performing.</opt:xhtml>
     </opt:booleanOption>
     <opt:booleanOption opt:id="V-show-commands-compiler" opt:name="Verbose commands" opt:trueemission="-V">
-        Shows the actual commands the compiler is executing.
+        <opt:xhtml>Shows the actual commands the compiler is executing.</opt:xhtml>
     </opt:booleanOption>
     <opt:stringListOption opt:id="user-defines"          opt:name="Preprocessor macro definitions" opt:emissionprefix="-D" opt:emissionseparator=" -D" opt:expr="[A-Za-z_][A-Za-z_0-9]*(=.+)?"/>
     <opt:stringListOption opt:id="user-includes"         opt:name="Include directories" opt:emissionprefix="-I" opt:emissionseparator=" -I" opt:slashnormalization="unix" opt:isdirectory="true" opt:isbrowsable="true"/>
@@ -41,126 +41,126 @@
 
   <opt:optionCategory opt:id="optimize" opt:name="Optimization">
     <opt:booleanOption opt:id="nogcse"                   opt:name="No global common subexpression elimination" opt:trueemission="--nogcse" opt:booldefault="false">
-        Will not do global common subexpression elimination. It is recommended that this option NOT be used, #pragma nogcse can be used to turn off global subexpression elimination for a given function only.
+        <opt:xhtml>Will not do global common subexpression elimination. It is recommended that this option NOT be used, #pragma nogcse can be used to turn off global subexpression elimination for a given function only.</opt:xhtml>
     </opt:booleanOption>
     <opt:booleanOption opt:id="noinvariant"              opt:name="No loop invariant optimizations" opt:trueemission="--noinvariant" opt:booldefault="false">
-        Will not do loop invariant optimizations. It is recommended that this option NOT be used, #pragma noinvariant can be used to turn off invariant optimizations for a given function only.
+        <opt:xhtml>Will not do loop invariant optimizations. It is recommended that this option NOT be used, #pragma noinvariant can be used to turn off invariant optimizations for a given function only.</opt:xhtml>
     </opt:booleanOption>    
     <opt:booleanOption opt:id="noinduction"              opt:name="No loop induction optimizations" opt:trueemission="--noinduction" opt:booldefault="false">
-        Will not do loop induction optimizations. It is recommended that this option is NOT used, #pragma noinduction can be used to turn off induction optimizations for a given function only.
+        <opt:xhtml>Will not do loop induction optimizations. It is recommended that this option is NOT used, #pragma noinduction can be used to turn off induction optimizations for a given function only.</opt:xhtml>
     </opt:booleanOption>
     <opt:booleanOption opt:id="nojtbound"                opt:name="No jump-table boundary condition check" opt:trueemission="--nojtbound" opt:booldefault="false">
-        Will not generate jump-table boundary condition check. It is recommended that this option is NOT used, #pragma nojtbound can be used to turn off boundary checking for jump tables for a given function only.
+        <opt:xhtml>Will not generate jump-table boundary condition check. It is recommended that this option is NOT used, #pragma nojtbound can be used to turn off boundary checking for jump tables for a given function only.</opt:xhtml>
     </opt:booleanOption>
     <opt:booleanOption opt:id="noloopreverse"            opt:name="No loop reversal optimization" opt:trueemission="--noloopreverse" opt:booldefault="false">
-        Will not do loop reversal optimization
+        <opt:xhtml>Will not do loop reversal optimization.</opt:xhtml>
     </opt:booleanOption>
     <opt:booleanOption opt:id="nolabelopt"               opt:name="No label optimization" opt:trueemission="--nolabelopt" opt:booldefault="false">
-        Will not optimize labels. Makes the dumpfiles more readable.
+        <opt:xhtml>Will not optimize labels. Makes the dumpfiles more readable.</opt:xhtml>
     </opt:booleanOption>
     <opt:booleanOption opt:id="no-xinit-opt"             opt:name="No initialized data from code" opt:trueemission="--no-xinit-opt" opt:booldefault="false">
-        Will not memcpy initialized data from code space into xdata space. This saves a few bytes in code space if you don’t have initialized data.
+        <opt:xhtml>Will not memcpy initialized data from code space into xdata space. This saves a few bytes in code space if you don’t have initialized data.</opt:xhtml>
     </opt:booleanOption>
     <opt:booleanOption opt:id="nooverlay"                opt:name="No overlays" opt:trueemission="--nooverlay" opt:booldefault="false">
-        Will not overlay parameters and local variables of any function.
+        <opt:xhtml>Will not overlay parameters and local variables of any function.</opt:xhtml>
     </opt:booleanOption>
     <opt:booleanOption opt:id="no-peep"                  opt:name="No peep-hole optimization" opt:trueemission="--no-peep" opt:booldefault="false">
-        Disable peep-hole optimization with built-in rules.
+        <opt:xhtml>Disable peep-hole optimization with built-in rules.</opt:xhtml>
     </opt:booleanOption>
     <opt:booleanOption opt:id="peep-asm"                 opt:name="Peep-hole optimize inline asm code" opt:trueemission="--peep-asm" opt:booldefault="false">
-        Pass the inline assembler code through the peep hole optimizer. This can cause unexpected changes to inline assembler code.
+        <opt:xhtml>Pass the inline assembler code through the peep hole optimizer. This can cause unexpected changes to inline assembler code.</opt:xhtml>
     </opt:booleanOption>
     <opt:booleanOption opt:id="peep-return"              opt:name="Peep-hole optimize returns" opt:trueemission="--peep-return" opt:booldefault="false">
-        Peep-hole optimizer on return optimizations. This is the default without --debug.
+        <opt:xhtml>Peep-hole optimizer on return optimizations. This is the default without --debug.</opt:xhtml>
     </opt:booleanOption>
     <opt:booleanOption opt:id="no-peep-return"           opt:name="No peep-hole optimize returns" opt:trueemission="--no-peep-return" opt:booldefault="false">
-        No peep-hole optimizer on return optimizations. This is the default with --debug.
+        <opt:xhtml>No peep-hole optimizer on return optimizations. This is the default with --debug.</opt:xhtml>
     </opt:booleanOption>
     <opt:booleanOption opt:id="opt-code-speed"           opt:name="Optimize for speed" opt:trueemission="--opt-code-speed" opt:booldefault="false">
-        The compiler will optimize code generation towards fast code, possibly at the expense of code size.
+        <opt:xhtml>The compiler will optimize code generation towards fast code, possibly at the expense of code size.</opt:xhtml>
     </opt:booleanOption>
     <opt:booleanOption opt:id="opt-code-size"            opt:name="Optimize for size" opt:trueemission="--opt-code-size" opt:booldefault="false">
-        The compiler will optimize code generation towards compact code, possibly at the expense of code speed.
+        <opt:xhtml>The compiler will optimize code generation towards compact code, possibly at the expense of code speed.</opt:xhtml>
     </opt:booleanOption>
     <opt:booleanOption opt:id="nolospre"                 opt:name="Disable lospre" opt:trueemission="--nolospre" opt:booldefault="false">
-        Lospre is an advanced redundancy elimination technique, essentially an improved variant of global subexpression elimination.
+        <opt:xhtml>Lospre is an advanced redundancy elimination technique, essentially an improved variant of global subexpression elimination.</opt:xhtml>
     </opt:booleanOption>
     <opt:booleanOption opt:id="allow-unsafe-read"        opt:name="Allow unsafe reads" opt:trueemission="--allow-unsafe-read" opt:booldefault="false">
-        Allow optimizations to generate unsafe reads. This will enable additional optimizations, but can result in spurious reads from undefined memory addresse.
+        <opt:xhtml>Allow optimizations to generate unsafe reads. This will enable additional optimizations, but can result in spurious reads from undefined memory addresse.</opt:xhtml>
     </opt:booleanOption>
   </opt:optionCategory>
 
   <opt:optionCategory opt:id="pic14" opt:name="PIC14 exclusive options" opt:showif="${is.pic14}">
     <opt:booleanOption opt:id="debug-xtra14"             opt:name="Output more debug info" opt:trueemission="--debug-xtra" opt:unsuppressif="${is.pic14}">
-        Emit debug info in assembly output.
+        <opt:xhtml>Emit debug info in assembly output.</opt:xhtml>
     </opt:booleanOption>
     <opt:booleanOption opt:id="no-pcode-opt"             opt:name="Disable pCode optimazion" opt:trueemission="--no-pcode-opt" opt:unsuppressif="${is.pic14}">
-        Disable (slightly faulty) optimization on pCode.
+        <opt:xhtml>Disable (slightly faulty) optimization on pCode.</opt:xhtml>
     </opt:booleanOption>
     <opt:booleanOption opt:id="no-extended-instr"        opt:name="No extended instructions" opt:trueemission="--no-extended-instructions" opt:unsuppressif="${is.pic14}">
-        Forbid use of the extended instruction set.
+        <opt:xhtml>Forbid use of the extended instruction set.</opt:xhtml>
     </opt:booleanOption>
   </opt:optionCategory> 
 
   <opt:optionCategory opt:id="pic16" opt:name="PIC16 exclusive options" opt:showif="${is.pic16}">
     <opt:booleanOption opt:id="debug-ralloc"             opt:name="Force register allocator to dump *.d files with debugging information." opt:trueemission="--debug-ralloc" opt:booldefault="false" opt:unsuppressif="${is.pic16}">
-        Output debugging information.
+        <opt:xhtml>Output debugging information.</opt:xhtml>
     </opt:booleanOption>
     <opt:enumOption opt:id="pstack-model"                opt:name="Stack-size" opt:textdefault="small" opt:emissionprefix="--pstack-model=" opt:emitswhendefault="false" opt:unsuppressif="${is.pic16}">
-        Defines the stack model to be used.
+        <opt:xhtml>Defines the stack model to be used.</opt:xhtml>
       <opt:selection opt:text="small"                       opt:name="Small">
-          Selects small stack model. 8 bit stack and frame pointers. Supports 256 bytes stack size.
+          <opt:xhtml>Selects small stack model. 8 bit stack and frame pointers. Supports 256 bytes stack size.</opt:xhtml>
       </opt:selection>
       <opt:selection opt:text="large"                       opt:name="Large">
-          Selects large stack model. 16 bit stack and frame pointers. Supports 65536 bytes stack size.
+          <opt:xhtml>Selects large stack model. 16 bit stack and frame pointers. Supports 65536 bytes stack size.</opt:xhtml>
       </opt:selection>
     </opt:enumOption>
     <opt:stringOption opt:id="stack-loc"                 opt:name="stack-loc" opt:emissionprefix="--stack-loc " opt:validatorclass="com.microchip.mplab.nbide.toolchainCommon.opt.validation.CSyntaxNumberValidator" opt:unsuppressif="${is.pic16}">
-        Specify constant using C syntax (0x for hex 0 for octal). Example: 0x10 is the same as 020 or 16
+        <opt:xhtml>Specify constant using C syntax (0x for hex 0 for octal). Example: 0x10 is the same as 020 or 16</opt:xhtml>
     </opt:stringOption>
     <opt:stringOption opt:id="ivt-loc"                   opt:name="Intr vect loc" opt:emissionprefix="--ivt-loc=" opt:validatorclass="com.microchip.mplab.nbide.toolchainCommon.opt.validation.CSyntaxNumberValidator" opt:unsuppressif="${is.pic16}">
-        Place the interrupt vector table at address n. Useful for bootloaders. Specify constant using C syntax (0x for hex 0 for octal). Example: 0x10 is the same as 020 or 16
+        <opt:xhtml>Place the interrupt vector table at address n. Useful for bootloaders. Specify constant using C syntax (0x for hex 0 for octal). Example: 0x10 is the same as 020 or 16</opt:xhtml>
     </opt:stringOption>
     <opt:booleanOption opt:id="pno-banksel"              opt:name="No BANKSEL" opt:trueemission="--pno-banksel" opt:unsuppressif="${is.pic16}">
-        Do not generate BANKSEL assembler directives.
+        <opt:xhtml>Do not generate BANKSEL assembler directives.</opt:xhtml>
     </opt:booleanOption>
     <opt:booleanOption opt:id="extended"                 opt:name="Extended intructions" opt:trueemission="--extended" opt:unsuppressif="${is.pic16}">
-        Enable extended instruction set/literal offset addressing mode. Use with care!
+        <opt:xhtml>Enable extended instruction set/literal offset addressing mode. Use with care!</opt:xhtml>
     </opt:booleanOption>
     <opt:enumOption opt:id="obanksel"                    opt:name="Location of constants" opt:textdefault="0" opt:emissionprefix="--obanksel=" opt:emitswhendefault="false" opt:unsuppressif="${is.pic16}">
       <opt:selection opt:text="0"                           opt:name="No optimazion">
-          No optimization.
+          <opt:xhtml>No optimization.</opt:xhtml>
       </opt:selection>
       <opt:selection opt:text="1"                           opt:name="Level 1">
-          Checks previous used register and if it is the same then does not emit BANKSEL, accounts only for labels.
+          <opt:xhtml>Checks previous used register and if it is the same then does not emit BANKSEL, accounts only for labels.</opt:xhtml>
       </opt:selection>
       <opt:selection opt:text="2"                           opt:name="Level 2">
-          Tries to check the location of (even different) symbols and removes BANKSELs if they are in the same bank.
+          <opt:xhtml>Tries to check the location of (even different) symbols and removes BANKSELs if they are in the same bank.</opt:xhtml>
       </opt:selection>
     </opt:enumOption>
     <opt:booleanOption opt:id="no-optimize-goto"         opt:name="Don't optimize goto's" opt:trueemission="--no-optimize-goto" opt:unsuppressif="${is.pic16}">
-        Do not use (conditional) BRA instead of GOTO.
+        <opt:xhtml>Do not use (conditional) BRA instead of GOTO.</opt:xhtml>
     </opt:booleanOption>
     <opt:booleanOption opt:id="optimize-cmp"             opt:name="Compare optimize" opt:trueemission="--optimize-cmp" opt:unsuppressif="${is.pic16}">
-        Try to optimize some compares.
+        <opt:xhtml>Try to optimize some compares.</opt:xhtml>
     </opt:booleanOption>
     <opt:booleanOption opt:id="optimize-df"              opt:name="Dataflow optimize" opt:trueemission="--optimize-df" opt:unsuppressif="${is.pic16}">
-        Analyze the dataflow of the generated code and improve it.
+        <opt:xhtml>Analyze the dataflow of the generated code and improve it.</opt:xhtml>
     </opt:booleanOption>
     <opt:booleanOption opt:id="debug-xtra16"             opt:name="Output more debug info" opt:trueemission="--debug-xtra" opt:unsuppressif="${is.pic16}">
-        Similar to --debug, but dumps more information.
+        <opt:xhtml>Similar to --debug, but dumps more information.</opt:xhtml>
     </opt:booleanOption>
     <opt:booleanOption opt:id="pcode-verbose"            opt:name="Output p-code debug info" opt:trueemission="--pcode-verbose" opt:unsuppressif="${is.pic16}">
-        Enable pcode debugging information in translation.
+        <opt:xhtml>Enable pcode debugging information in translation.</opt:xhtml>
     </opt:booleanOption>
     <opt:booleanOption opt:id="nodefaultlibs"            opt:name="No default librarys" opt:trueemission="--nodefaultlibs" opt:unsuppressif="${is.pic16}">
-        Do not link default libraries when linking.
+        <opt:xhtml>Do not link default libraries when linking.</opt:xhtml>
     </opt:booleanOption>
     <opt:booleanOption opt:id="no-crt"                   opt:name="No runtime library" opt:trueemission="--no-crt" opt:unsuppressif="${is.pic16}">
-        Don’t link the default run-time modules.
+        <opt:xhtml>Don’t link the default run-time modules.</opt:xhtml>
     </opt:booleanOption>
     <opt:stringOption opt:id="use-crt"                   opt:name="Custom runtime library" opt:emissionprefix="--use-crt=" opt:unsuppressif="${is.pic16}">
-        Use a custom run-time module instead of the default (crt0i).
+        <opt:xhtml>Use a custom run-time module instead of the default (crt0i).</opt:xhtml>
     </opt:stringOption>
   </opt:optionCategory> 
   
