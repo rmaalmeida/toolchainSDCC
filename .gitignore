@@ -7,3 +7,6 @@ nbproject/private/*
 *.class
 *.jar
 key.txt
+
+#SVN
+.svn/*
