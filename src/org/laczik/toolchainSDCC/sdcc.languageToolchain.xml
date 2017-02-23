@@ -35,7 +35,6 @@
       <mp:inputToOutputExtensionMap mp:src="c" mp:dst="o"/>
       <mp:inputToOutputExtensionMap mp:src="C" mp:dst="o"/>
       <mp:build mp:buildtype="standalone" mp:outputextension="hex" mp:debuggableextension="cof">
-          <!--mp:outputFilenameSuffixProvider mp:class="org.laczik.toolchainSDCC.SDCCOutputFilenameSuffixProvider"/-->
           <mp:buildStep mp:idref="compile"/>
           <mp:buildStep mp:idref="link"/>
       </mp:build>
