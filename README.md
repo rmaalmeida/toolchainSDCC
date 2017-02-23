@@ -2,7 +2,7 @@
 
 # Supports
 ## SDCC from v3.5.0
-## MPLABX from v3.20 
+## MPLABX from v3.40 
 
 # Features
 * **System Includes** IDE recognise SDCC system includes like <pic16regs.h>
