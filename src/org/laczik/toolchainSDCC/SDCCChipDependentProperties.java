@@ -46,5 +46,4 @@ public class SDCCChipDependentProperties {
             return "pic14";
         return "none";
     }
-
 }

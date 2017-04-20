@@ -66,8 +66,4 @@ public class SDCCSystemDefineProvider implements DefineProvider {
         String ver = LTUtils.getVersion(makeConf);
         return ver.replace(".", "");
     }
-    
-//    public static String getCompilerRevision() {
-//        return "9253";
-//    }
 }
