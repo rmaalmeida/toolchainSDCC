@@ -97,6 +97,9 @@
     <opt:booleanOption opt:id="no-pcode-opt"             opt:name="Disable pCode optimazion" opt:trueemission="--no-pcode-opt" opt:unsuppressif="${is.pic14}">
         <opt:xhtml>Disable (slightly faulty) optimization on pCode.</opt:xhtml>
     </opt:booleanOption>
+    <opt:stringOption opt:id="stack-size14"                 opt:name="Stack size" opt:emissionprefix="--stack-size " opt:validatorclass="com.microchip.mplab.nbide.toolchainCommon.opt.validation.CSyntaxNumberValidator" opt:unsuppressif="${is.pic14}">
+        <opt:xhtml>Sets the size if the argument passing stack (default: 16, minimum: 4)</opt:xhtml>
+    </opt:stringOption>
     <opt:booleanOption opt:id="no-extended-instr"        opt:name="No extended instructions" opt:trueemission="--no-extended-instructions" opt:unsuppressif="${is.pic14}">
         <opt:xhtml>Forbid use of the extended instruction set.</opt:xhtml>
     </opt:booleanOption>
@@ -138,6 +141,9 @@
           <opt:xhtml>Tries to check the location of (even different) symbols and removes BANKSELs if they are in the same bank.</opt:xhtml>
       </opt:selection>
     </opt:enumOption>
+    <opt:booleanOption opt:id="denable-peeps"         opt:name="Enable peepholes" opt:trueemission="--denable-peeps" opt:unsuppressif="${is.pic16}">
+        <opt:xhtml>Explicit enable of peepholes</opt:xhtml>
+    </opt:booleanOption>
     <opt:booleanOption opt:id="no-optimize-goto"         opt:name="Don't optimize goto's" opt:trueemission="--no-optimize-goto" opt:unsuppressif="${is.pic16}">
         <opt:xhtml>Do not use (conditional) BRA instead of GOTO.</opt:xhtml>
     </opt:booleanOption>
@@ -147,6 +153,20 @@
     <opt:booleanOption opt:id="optimize-df"              opt:name="Dataflow optimize" opt:trueemission="--optimize-df" opt:unsuppressif="${is.pic16}">
         <opt:xhtml>Analyze the dataflow of the generated code and improve it.</opt:xhtml>
     </opt:booleanOption>
+    <opt:enumOption opt:id="preplace-udata-with"         opt:name="Location of constants" opt:textdefault="" opt:emissionprefix="--preplace-udata-with=" opt:emitswhendefault="false" opt:unsuppressif="${is.pic16}">
+      <opt:selection opt:text=""                       opt:name="No replace">
+          <opt:xhtml>No replace.</opt:xhtml>
+      </opt:selection>
+      <opt:selection opt:text="udata_acs"              opt:name="udata_acs">
+          <opt:xhtml>udata_acs</opt:xhtml>
+      </opt:selection>
+      <opt:selection opt:text="udata_ovr"              opt:name="udata_ovr">
+          <opt:xhtml>udata_ovr</opt:xhtml>
+      </opt:selection>
+      <opt:selection opt:text="udata_shr"              opt:name="udata_shr">
+          <opt:xhtml>udata_shr</opt:xhtml>
+      </opt:selection>
+    </opt:enumOption>    
     <opt:booleanOption opt:id="debug-xtra16"             opt:name="Output more debug info" opt:trueemission="--debug-xtra" opt:unsuppressif="${is.pic16}">
         <opt:xhtml>Similar to --debug, but dumps more information.</opt:xhtml>
     </opt:booleanOption>
@@ -155,6 +175,12 @@
     </opt:booleanOption>
     <opt:booleanOption opt:id="nodefaultlibs"            opt:name="No default librarys" opt:trueemission="--nodefaultlibs" opt:unsuppressif="${is.pic16}">
         <opt:xhtml>Do not link default libraries when linking.</opt:xhtml>
+    </opt:booleanOption>
+    <opt:booleanOption opt:id="calltree"            opt:name="Dump call tree" opt:trueemission="--calltree" opt:unsuppressif="${is.pic16}">
+        <opt:xhtml>Dump call tree in .calltree file.</opt:xhtml>
+    </opt:booleanOption>
+    <opt:booleanOption opt:id="gstack"            opt:name="Trace stack pointer push/pop" opt:trueemission="--gstack" opt:unsuppressif="${is.pic16}">
+        <opt:xhtml>Trace stack pointer push/pop to overflow.</opt:xhtml>
     </opt:booleanOption>
     <opt:booleanOption opt:id="no-crt"                   opt:name="No runtime library" opt:trueemission="--no-crt" opt:unsuppressif="${is.pic16}">
         <opt:xhtml>Don’t link the default run-time modules.</opt:xhtml>
@@ -190,6 +216,7 @@
   <opt:enablePattern opt:idref="allow-unsafe-read" opt:expr="--allow-unsafe-read"/>
   
   <opt:enablePattern opt:idref="debug-xtra14" opt:expr="--debug-xtra"/>
+  <opt:submatchPattern opt:idref="stack-size14" opt:expr="--stack-size (\d)"/>
   <opt:enablePattern opt:idref="no-pcode-opt" opt:expr="--no-pcode-opt"/>
   <opt:enablePattern opt:idref="no-extended-instr" opt:expr="--no-extended-instructions"/>
 
@@ -204,9 +231,12 @@
   <opt:enablePattern opt:idref="no-optimize-goto" opt:expr="--no-optimize-goto"/>
   <opt:enablePattern opt:idref="optimize-cmp" opt:expr="--optimize-cmp"/>
   <opt:enablePattern opt:idref="optimize-df" opt:expr="--optimize-df"/>
+  <opt:submatchPattern opt:idref="preplace-udata-with" opt:expr="--preplace-udata-with=(udata_acs|udata_ovr|udata_shr)"/>
   <opt:enablePattern opt:idref="debug-xtra16" opt:expr="--debug-xtra"/>
   <opt:enablePattern opt:idref="pcode-verbose" opt:expr="--pcode-verbose"/>
   <opt:enablePattern opt:idref="nodefaultlibs" opt:expr="--nodefaultlibs"/>
+  <opt:enablePattern opt:idref="calltree" opt:expr="--calltree"/>
+  <opt:enablePattern opt:idref="gstack" opt:expr="--gstack"/>
   <opt:enablePattern opt:idref="no-crt" opt:expr="--no-crt"/>
   <opt:submatchPattern opt:idref="use-crt" opt:expr="--use-crt=(.+)"/>
 </opt:optionLanguage>
