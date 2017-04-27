@@ -78,7 +78,7 @@
   <mp:defaultLocation mp:hostplatform="mac" mp:dir="/*SDCC/bin"/>
 
 
-  <mp:cCompiler mp:file="SDCC" mp:name="SDCC Compiler for 8-bit Devices">
+  <mp:cCompiler mp:file="sdcc" mp:name="SDCC Compiler">
     <mp:versionProvider mp:class="org.laczik.toolchainSDCC.SDCCVersionProvider"/>
     <mp:builtinProvider mp:class="org.laczik.toolchainSDCC.SDCCBuiltinProvider"/>
     <mp:systemIncludeProvider mp:class="org.laczik.toolchainSDCC.SDCCSystemIncludeProvider"/>
