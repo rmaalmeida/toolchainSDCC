@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE filesystem PUBLIC "-//NetBeans//DTD Filesystem 1.2//EN" "http://www.netbeans.org/dtds/filesystem-1_2.dtd">
+<filesystem>
+    <folder name="Embedded">
+        <folder name="LanguageToolchain">
+            <file name="sdcc.languageToolchain.xml" url="sdcc.languageToolchain.xml">
+                <attr name="position" intvalue="7100"/>
+            </file>
+        </folder>
+    </folder>
+    <folder name="Templates">
+        <folder name="Microchip Embedded">
+            <folder name="SDCC Compiler">
+                <file name="main_pic16f.c" url="templates/pic16f_main-c.template">
+                    <attr name="SystemFileSystem.localizingBundle" stringvalue="org.laczik.toolchainSDCC.Bundle"/>
+                    <attr name="position" intvalue="300"/>
+                    <attr name="template" boolvalue="true"/>
+                    <attr name="templateWizardURL" urlvalue="nbresloc:/org.laczik.toolchainSDCC/resources/pic16f_main-c.html"/>
+                    <attr name="templateWizardIterator" newvalue="com.microchip.mplab.nbide.embedded.editor.filecreation.CCFSrcFileIterator"/>
+                    <attr name="templateCategory" stringvalue="c-types"/>
+                </file>
+                <file name="main_pic18f.c" url="templates/pic18f_main-c.template">
+                    <attr name="SystemFileSystem.localizingBundle" stringvalue="org.laczik.toolchainSDCC.Bundle"/>
+                    <attr name="position" intvalue="300"/>
+                    <attr name="template" boolvalue="true"/>
+                    <attr name="templateWizardURL" urlvalue="nbresloc:/org.laczik.toolchainSDCC/resources/pic18f_main-c.html"/>
+                    <attr name="templateWizardIterator" newvalue="com.microchip.mplab.nbide.embedded.editor.filecreation.CCFSrcFileIterator"/>
+                    <attr name="templateCategory" stringvalue="c-types"/>
+                </file>
+                <file name="example.h" url="templates/example-h.template">
+                    <attr name="SystemFileSystem.localizingBundle" stringvalue="org.laczik.toolchainSDCC.Bundle"/>
+                    <attr name="position" intvalue="300"/>
+                    <attr name="template" boolvalue="true"/>
+                    <attr name="templateWizardURL" urlvalue="nbresloc:/org.laczik.toolchainSDCC/resources/example-h.html"/>
+                    <attr name="templateWizardIterator" newvalue="com.microchip.mplab.nbide.embedded.editor.filecreation.CCFSrcFileIterator"/>
+                    <attr name="templateCategory" stringvalue="c-types"/>
+                </file>
+            </folder>
+        </folder>
+    </folder>
+</filesystem>

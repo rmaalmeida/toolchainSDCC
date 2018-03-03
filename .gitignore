@@ -1,0 +1,12 @@
+#NetBeans 
+test/*
+build/*
+nbproject/private/*
+
+#Java
+*.class
+*.jar
+key.txt
+
+#SVN
+.svn/*

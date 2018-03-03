@@ -1,0 +1,858 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    SDCC Toolchain allows MPLABX to compile with SDCC+GPUtils for pic 16/18
+    Copyright (C) 2011 RMA de Almeida, 2015 ZJ Laczik and 2016 P Hayes.
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<mp:languageToolchain xmlns:mp="http://crownking/mplab"
+                      xmlns:opt="http://crownking/opt"
+                      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                      xsi:schemaLocation="http://crownking/mplab mplab/languageToolchain.xsd"
+                      mp:id="SDCC"
+                      mp:name="SDCC Compiler"
+                      mp:hostplatforms="windows,linux,mac,none"
+                      mp:class="org.laczik.toolchainSDCC.SDCCtoolchain">
+
+  <mp:versionProvider mp:class="org.laczik.toolchainSDCC.SDCCVersionProvider"/>
+  
+  <mp:configurationObject mp:id="sdcc-config" mp:idref="SDCC" opt:src="sdcc.optionLanguage.xml" opt:runtimepropertiesclass="org.laczik.toolchainSDCC.SDCCRuntimeProperties"/>
+
+  <mp:customizerNode mp:idref="sdcc-config" mp:name="SDCC Compiler" mp:class="org.laczik.toolchainSDCC.SDCCCustomizerNode"/>
+
+  <mp:makefileWriter>
+      <mp:inputToOutputExtensionMap mp:src="c" mp:dst="o"/>
+      <mp:inputToOutputExtensionMap mp:src="C" mp:dst="o"/>
+      <mp:build mp:buildtype="standalone" mp:outputextension="hex" mp:debuggableextension="cof">
+          <mp:buildStep mp:idref="compile"/>
+          <mp:buildStep mp:idref="link"/>
+      </mp:build>
+      <mp:makeRule mp:id="compile" mp:prerequisites=".*[cC]$" mp:runtimepropertiesclass="org.laczik.toolchainSDCC.SDCCCompilerProperties">
+	  <!-- this following line makes sure the directory where we will compile exists -->
+            <mp:textEmitter mp:text="${MKDIR} ${CURRENT_QUOTED_IF_SPACED_OBJECT_DIR_UNIX_SLASHES} ${NEWLINE}"/>
+	  <!-- this following line erases the dependency files created in the last compiler -->
+            <mp:textEmitter mp:text="${RM} ${CURRENT_QUOTED_IF_SPACED_OBJECT_FILE} ${NEWLINE}"/>
+	  <!-- this is the beginning of the compiler line -->
+            <mp:textEmitter mp:text="${MP_CC} "/>
+            <mp:optionEmitter mp:idref="sdcc-config" mp:separator=" "/>
+            <mp:textEmitter mp:onlydebug="true" mp:text=" --debug"/>
+            <mp:textEmitter mp:text=" -c"/>
+            <mp:textEmitter mp:text=" -m${PROCESSOR_FAMILY}"/>
+            <mp:textEmitter mp:text=" -p${PROCESSOR_NAME}"/>
+            <mp:textEmitter mp:text=" ${CURRENT_QUOTED_IF_SPACED_SOURCE_FILE} "/>
+            <mp:textEmitter mp:text=" -o${CURRENT_QUOTED_IF_SPACED_OBJECT_FILE}"/>
+            <mp:textEmitter mp:text="${NEWLINE}"/>
+      </mp:makeRule>
+
+      <mp:makeRule mp:id="link" mp:target="${FINAL_IMAGE_NAME}" mp:prerequisites="${CURRENT_OBJECT_FILES}" mp:runtimepropertiesclass="org.laczik.toolchainSDCC.SDCCCompilerProperties">
+            <mp:textEmitter mp:text="${MKDIR} ${FINAL_TARGET_DIR} ${NEWLINE}"/>
+            <mp:textEmitter mp:text="${MP_CC} "/>
+            <mp:textEmitter mp:text="-Wl-c -Wl-m "/>
+            <mp:optionEmitter mp:idref="sdcc-config" mp:separator=" "/>
+            <mp:textEmitter mp:text=" -m${PROCESSOR_FAMILY}"/>
+            <mp:textEmitter mp:text=" -p${PROCESSOR_NAME}"/>
+            <mp:textEmitter mp:text=" ${CURRENT_QUOTED_IF_SPACED_OBJECT_FILES}" mp:separator=" "/>
+            <mp:textEmitter mp:text=" -o${FINAL_IMAGE_NAME} "/>
+      </mp:makeRule>
+  </mp:makefileWriter>
+
+  <mp:logicalFolder mp:id="SourceFiles"/>
+  <mp:logicalFolder mp:id="HeaderFiles"/>
+  <mp:logicalFolder mp:id="ObjectFiles"/>
+  <mp:logicalFolder mp:id="LibraryFiles"/>
+  <mp:logicalFolder mp:id="LinkerScript"/>
+
+  <mp:defaultLocation mp:hostplatform="windows" mp:dir="C:/*/SDCC/bin/"/>
+  <mp:defaultLocation mp:hostplatform="linux" mp:dir="/usr/bin"/>
+  <mp:defaultLocation mp:hostplatform="mac" mp:dir="/*SDCC/bin"/>
+
+
+  <mp:cCompiler mp:file="sdcc" mp:name="SDCC Compiler">
+    <mp:versionProvider mp:class="org.laczik.toolchainSDCC.SDCCVersionProvider"/>
+    <mp:builtinProvider mp:class="org.laczik.toolchainSDCC.SDCCBuiltinProvider"/>
+    <mp:systemIncludeProvider mp:class="org.laczik.toolchainSDCC.SDCCSystemIncludeProvider"/>
+    <mp:systemDefineProvider mp:class="org.laczik.toolchainSDCC.SDCCSystemDefineProvider"/>
+    <mp:userIncludeProvider mp:class="org.laczik.toolchainSDCC.SDCCUserIncludeProvider"/>
+    <mp:userIncludeModifier mp:class="org.laczik.toolchainSDCC.SDCCUserIncludeModifier"/>
+    <mp:userDefineProvider mp:class="org.laczik.toolchainSDCC.SDCCUserDefineProvider"/>
+    <mp:userDefineModifier mp:class="org.laczik.toolchainSDCC.SDCCUserDefineModifier"/>
+  </mp:cCompiler>
+  
+  <mp:deviceSupport>
+      <mp:family mp:family="16x">
+<!-- list below generated by
+sdcc -v
+touch dummy.c
+{ sdcc -mpic14 -phelp dummy.c  2>&1; } | \
+sed -n '1,/^PIC14 processors supported/d; p' | \
+sed ':a; s/  / /g; ta' | \
+sed 's/ $//' | \
+sed ':a; s/ /\n/g; ta' | \
+sort | \
+sed 's/^.*/PIC\U\0/' | \
+sed 's#.*#            <mp:device mp:name="\0" mp:support="beta"/>#'
+-->
+<!-- SDCC : mcs51/z80/z180/r2k/r3ka/gbz80/tlcs90/ds390/pic16/pic14/TININative/ds400/hc08/s08/stm8 3.6.0 #9615 (June 20 2016) (Mac OS X x86_64) published under GNU General Public License (GPL) -->
+            <mp:device mp:name="PIC10F320" mp:support="beta"/>
+            <mp:device mp:name="PIC10F322" mp:support="beta"/>
+            <mp:device mp:name="PIC10LF320" mp:support="beta"/>
+            <mp:device mp:name="PIC10LF322" mp:support="beta"/>
+            <mp:device mp:name="PIC12F1501" mp:support="beta"/>
+            <mp:device mp:name="PIC12F1571" mp:support="beta"/>
+            <mp:device mp:name="PIC12F1572" mp:support="beta"/>
+            <mp:device mp:name="PIC12F1612" mp:support="beta"/>
+            <mp:device mp:name="PIC12F1822" mp:support="beta"/>
+            <mp:device mp:name="PIC12F1840" mp:support="beta"/>
+            <mp:device mp:name="PIC12F609" mp:support="beta"/>
+            <mp:device mp:name="PIC12F615" mp:support="beta"/>
+            <mp:device mp:name="PIC12F617" mp:support="beta"/>
+            <mp:device mp:name="PIC12F629" mp:support="beta"/>
+            <mp:device mp:name="PIC12F635" mp:support="beta"/>
+            <mp:device mp:name="PIC12F675" mp:support="beta"/>
+            <mp:device mp:name="PIC12F683" mp:support="beta"/>
+            <mp:device mp:name="PIC12F752" mp:support="beta"/>
+            <mp:device mp:name="PIC12HV609" mp:support="beta"/>
+            <mp:device mp:name="PIC12HV615" mp:support="beta"/>
+            <mp:device mp:name="PIC12HV752" mp:support="beta"/>
+            <mp:device mp:name="PIC12LF1501" mp:support="beta"/>
+            <mp:device mp:name="PIC12LF1552" mp:support="beta"/>
+            <mp:device mp:name="PIC12LF1571" mp:support="beta"/>
+            <mp:device mp:name="PIC12LF1572" mp:support="beta"/>
+            <mp:device mp:name="PIC12LF1612" mp:support="beta"/>
+            <mp:device mp:name="PIC12LF1822" mp:support="beta"/>
+            <mp:device mp:name="PIC12LF1840" mp:support="beta"/>
+            <mp:device mp:name="PIC12LF1840T39A" mp:support="beta"/>
+            <mp:device mp:name="PIC12LF1840T48A" mp:support="beta"/>
+            <mp:device mp:name="PIC16C432" mp:support="beta"/>
+            <mp:device mp:name="PIC16C433" mp:support="beta"/>
+            <mp:device mp:name="PIC16C554" mp:support="beta"/>
+            <mp:device mp:name="PIC16C557" mp:support="beta"/>
+            <mp:device mp:name="PIC16C558" mp:support="beta"/>
+            <mp:device mp:name="PIC16C62" mp:support="beta"/>
+            <mp:device mp:name="PIC16C620" mp:support="beta"/>
+            <mp:device mp:name="PIC16C620A" mp:support="beta"/>
+            <mp:device mp:name="PIC16C621" mp:support="beta"/>
+            <mp:device mp:name="PIC16C621A" mp:support="beta"/>
+            <mp:device mp:name="PIC16C622" mp:support="beta"/>
+            <mp:device mp:name="PIC16C622A" mp:support="beta"/>
+            <mp:device mp:name="PIC16C63A" mp:support="beta"/>
+            <mp:device mp:name="PIC16C65B" mp:support="beta"/>
+            <mp:device mp:name="PIC16C71" mp:support="beta"/>
+            <mp:device mp:name="PIC16C710" mp:support="beta"/>
+            <mp:device mp:name="PIC16C711" mp:support="beta"/>
+            <mp:device mp:name="PIC16C715" mp:support="beta"/>
+            <mp:device mp:name="PIC16C717" mp:support="beta"/>
+            <mp:device mp:name="PIC16C72" mp:support="beta"/>
+            <mp:device mp:name="PIC16C73B" mp:support="beta"/>
+            <mp:device mp:name="PIC16C745" mp:support="beta"/>
+            <mp:device mp:name="PIC16C74B" mp:support="beta"/>
+            <mp:device mp:name="PIC16C765" mp:support="beta"/>
+            <mp:device mp:name="PIC16C770" mp:support="beta"/>
+            <mp:device mp:name="PIC16C771" mp:support="beta"/>
+            <mp:device mp:name="PIC16C773" mp:support="beta"/>
+            <mp:device mp:name="PIC16C774" mp:support="beta"/>
+            <mp:device mp:name="PIC16C781" mp:support="beta"/>
+            <mp:device mp:name="PIC16C782" mp:support="beta"/>
+            <mp:device mp:name="PIC16C925" mp:support="beta"/>
+            <mp:device mp:name="PIC16C926" mp:support="beta"/>
+            <mp:device mp:name="PIC16CR620A" mp:support="beta"/>
+            <mp:device mp:name="PIC16CR73" mp:support="beta"/>
+            <mp:device mp:name="PIC16CR74" mp:support="beta"/>
+            <mp:device mp:name="PIC16CR76" mp:support="beta"/>
+            <mp:device mp:name="PIC16CR77" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1454" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1455" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1458" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1459" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1503" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1507" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1508" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1509" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1512" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1513" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1516" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1517" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1518" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1519" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1526" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1527" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1574" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1575" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1578" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1579" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1613" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1614" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1615" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1618" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1619" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1703" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1704" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1705" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1707" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1708" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1709" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1713" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1716" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1717" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1718" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1719" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1764" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1765" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1768" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1769" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1773" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1776" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1777" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1778" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1779" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1782" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1783" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1784" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1786" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1787" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1788" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1789" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1823" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1824" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1825" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1826" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1827" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1828" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1829" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1829LIN" mp:support="beta"/>
+            <mp:device mp:name="PIC16F18313" mp:support="beta"/>
+            <mp:device mp:name="PIC16F18323" mp:support="beta"/>
+            <mp:device mp:name="PIC16F18324" mp:support="beta"/>
+            <mp:device mp:name="PIC16F18325" mp:support="beta"/>
+            <mp:device mp:name="PIC16F18344" mp:support="beta"/>
+            <mp:device mp:name="PIC16F18345" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1847" mp:support="beta"/>
+            <mp:device mp:name="PIC16F18855" mp:support="beta"/>
+            <mp:device mp:name="PIC16F18875" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1933" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1934" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1936" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1937" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1938" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1939" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1946" mp:support="beta"/>
+            <mp:device mp:name="PIC16F1947" mp:support="beta"/>
+            <mp:device mp:name="PIC16F610" mp:support="beta"/>
+            <mp:device mp:name="PIC16F616" mp:support="beta"/>
+            <mp:device mp:name="PIC16F627" mp:support="beta"/>
+            <mp:device mp:name="PIC16F627A" mp:support="beta"/>
+            <mp:device mp:name="PIC16F628" mp:support="beta"/>
+            <mp:device mp:name="PIC16F628A" mp:support="beta"/>
+            <mp:device mp:name="PIC16F630" mp:support="beta"/>
+            <mp:device mp:name="PIC16F631" mp:support="beta"/>
+            <mp:device mp:name="PIC16F636" mp:support="beta"/>
+            <mp:device mp:name="PIC16F639" mp:support="beta"/>
+            <mp:device mp:name="PIC16F648" mp:support="beta"/>
+            <mp:device mp:name="PIC16F648A" mp:support="beta"/>
+            <mp:device mp:name="PIC16F676" mp:support="beta"/>
+            <mp:device mp:name="PIC16F677" mp:support="beta"/>
+            <mp:device mp:name="PIC16F684" mp:support="beta"/>
+            <mp:device mp:name="PIC16F685" mp:support="beta"/>
+            <mp:device mp:name="PIC16F687" mp:support="beta"/>
+            <mp:device mp:name="PIC16F688" mp:support="beta"/>
+            <mp:device mp:name="PIC16F689" mp:support="beta"/>
+            <mp:device mp:name="PIC16F690" mp:support="beta"/>
+            <mp:device mp:name="PIC16F707" mp:support="beta"/>
+            <mp:device mp:name="PIC16F716" mp:support="beta"/>
+            <mp:device mp:name="PIC16F72" mp:support="beta"/>
+            <mp:device mp:name="PIC16F720" mp:support="beta"/>
+            <mp:device mp:name="PIC16F721" mp:support="beta"/>
+            <mp:device mp:name="PIC16F722" mp:support="beta"/>
+            <mp:device mp:name="PIC16F722A" mp:support="beta"/>
+            <mp:device mp:name="PIC16F723" mp:support="beta"/>
+            <mp:device mp:name="PIC16F723A" mp:support="beta"/>
+            <mp:device mp:name="PIC16F724" mp:support="beta"/>
+            <mp:device mp:name="PIC16F726" mp:support="beta"/>
+            <mp:device mp:name="PIC16F727" mp:support="beta"/>
+            <mp:device mp:name="PIC16F73" mp:support="beta"/>
+            <mp:device mp:name="PIC16F737" mp:support="beta"/>
+            <mp:device mp:name="PIC16F74" mp:support="beta"/>
+            <mp:device mp:name="PIC16F747" mp:support="beta"/>
+            <mp:device mp:name="PIC16F753" mp:support="beta"/>
+            <mp:device mp:name="PIC16F76" mp:support="beta"/>
+            <mp:device mp:name="PIC16F767" mp:support="beta"/>
+            <mp:device mp:name="PIC16F77" mp:support="beta"/>
+            <mp:device mp:name="PIC16F777" mp:support="beta"/>
+            <mp:device mp:name="PIC16F785" mp:support="beta"/>
+            <mp:device mp:name="PIC16F818" mp:support="beta"/>
+            <mp:device mp:name="PIC16F819" mp:support="beta"/>
+            <mp:device mp:name="PIC16F84" mp:support="beta"/>
+            <mp:device mp:name="PIC16F84A" mp:support="beta"/>
+            <mp:device mp:name="PIC16F87" mp:support="beta"/>
+            <mp:device mp:name="PIC16F870" mp:support="beta"/>
+            <mp:device mp:name="PIC16F871" mp:support="beta"/>
+            <mp:device mp:name="PIC16F872" mp:support="beta"/>
+            <mp:device mp:name="PIC16F873" mp:support="beta"/>
+            <mp:device mp:name="PIC16F873A" mp:support="beta"/>
+            <mp:device mp:name="PIC16F874" mp:support="beta"/>
+            <mp:device mp:name="PIC16F874A" mp:support="beta"/>
+            <mp:device mp:name="PIC16F876" mp:support="beta"/>
+            <mp:device mp:name="PIC16F876A" mp:support="beta"/>
+            <mp:device mp:name="PIC16F877" mp:support="beta"/>
+            <mp:device mp:name="PIC16F877A" mp:support="beta"/>
+            <mp:device mp:name="PIC16F88" mp:support="beta"/>
+            <mp:device mp:name="PIC16F882" mp:support="beta"/>
+            <mp:device mp:name="PIC16F883" mp:support="beta"/>
+            <mp:device mp:name="PIC16F884" mp:support="beta"/>
+            <mp:device mp:name="PIC16F886" mp:support="beta"/>
+            <mp:device mp:name="PIC16F887" mp:support="beta"/>
+            <mp:device mp:name="PIC16F913" mp:support="beta"/>
+            <mp:device mp:name="PIC16F914" mp:support="beta"/>
+            <mp:device mp:name="PIC16F916" mp:support="beta"/>
+            <mp:device mp:name="PIC16F917" mp:support="beta"/>
+            <mp:device mp:name="PIC16F946" mp:support="beta"/>
+            <mp:device mp:name="PIC16HV610" mp:support="beta"/>
+            <mp:device mp:name="PIC16HV616" mp:support="beta"/>
+            <mp:device mp:name="PIC16HV753" mp:support="beta"/>
+            <mp:device mp:name="PIC16HV785" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1454" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1455" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1458" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1459" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1503" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1507" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1508" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1509" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1512" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1513" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1516" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1517" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1518" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1519" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1526" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1527" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1554" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1559" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1566" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1567" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1574" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1575" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1578" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1579" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1613" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1614" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1615" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1618" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1619" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1703" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1704" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1705" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1707" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1708" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1709" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1713" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1716" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1717" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1718" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1719" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1764" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1765" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1768" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1769" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1773" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1776" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1777" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1778" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1779" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1782" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1783" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1784" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1786" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1787" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1788" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1789" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1823" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1824" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1824T39A" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1825" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1826" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1827" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1828" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1829" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF18313" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF18323" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF18324" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF18325" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF18344" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF18345" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1847" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF18855" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF18875" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1902" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1903" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1904" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1906" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1907" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1933" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1934" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1936" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1937" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1938" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1939" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1946" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF1947" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF627" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF627A" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF628" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF628A" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF648A" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF707" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF720" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF721" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF722" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF722A" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF723" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF723A" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF724" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF726" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF727" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF74" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF747" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF76" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF767" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF77" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF777" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF818" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF819" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF84" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF84A" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF87" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF870" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF871" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF872" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF873" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF873A" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF874" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF874A" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF876" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF876A" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF877" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF877A" mp:support="beta"/>
+            <mp:device mp:name="PIC16LF88" mp:support="beta"/>
+      </mp:family>
+
+      <mp:family mp:family="18x">
+<!-- list below generated by
+sdcc -v
+{ sdcc -mpic16 -phelp dummy.c  2>&1; } | \
+sed -n '1,/^Valid devices are/d; p' | \
+sed ':a; s/  / /g; ta' | \
+sed 's/ $//' | \
+sed ':a; s/ /\n/g; ta' | \
+sort | \
+sed 's/^p.*/PIC\U\0/' | \
+sed 's#PIC.*#            <mp:device mp:name="\0" mp:support="beta"/>#'
+-->
+<!-- SDCC : mcs51/z80/z180/r2k/r3ka/gbz80/tlcs90/ds390/pic16/pic14/TININative/ds400/hc08/s08/stm8 3.6.0 #9615 (June 20 2016) (Mac OS X x86_64) published under GNU General Public License (GPL) -->
+            <mp:device mp:name="PIC18F1220" mp:support="beta"/>
+            <mp:device mp:name="PIC18F1230" mp:support="beta"/>
+            <mp:device mp:name="PIC18F1320" mp:support="beta"/>
+            <mp:device mp:name="PIC18F1330" mp:support="beta"/>
+            <mp:device mp:name="PIC18F13K22" mp:support="beta"/>
+            <mp:device mp:name="PIC18F13K50" mp:support="beta"/>
+            <mp:device mp:name="PIC18F14K22" mp:support="beta"/>
+            <mp:device mp:name="PIC18F14K50" mp:support="beta"/>
+            <mp:device mp:name="PIC18F2220" mp:support="beta"/>
+            <mp:device mp:name="PIC18F2221" mp:support="beta"/>
+            <mp:device mp:name="PIC18F2320" mp:support="beta"/>
+            <mp:device mp:name="PIC18F2321" mp:support="beta"/>
+            <mp:device mp:name="PIC18F2331" mp:support="beta"/>
+            <mp:device mp:name="PIC18F23K20" mp:support="beta"/>
+            <mp:device mp:name="PIC18F23K22" mp:support="beta"/>
+            <mp:device mp:name="PIC18F2410" mp:support="beta"/>
+            <mp:device mp:name="PIC18F242" mp:support="beta"/>
+            <mp:device mp:name="PIC18F2420" mp:support="beta"/>
+            <mp:device mp:name="PIC18F2423" mp:support="beta"/>
+            <mp:device mp:name="PIC18F2431" mp:support="beta"/>
+            <mp:device mp:name="PIC18F2439" mp:support="beta"/>
+            <mp:device mp:name="PIC18F2450" mp:support="beta"/>
+            <mp:device mp:name="PIC18F2455" mp:support="beta"/>
+            <mp:device mp:name="PIC18F2458" mp:support="beta"/>
+            <mp:device mp:name="PIC18F248" mp:support="beta"/>
+            <mp:device mp:name="PIC18F2480" mp:support="beta"/>
+            <mp:device mp:name="PIC18F24J10" mp:support="beta"/>
+            <mp:device mp:name="PIC18F24J11" mp:support="beta"/>
+            <mp:device mp:name="PIC18F24J50" mp:support="beta"/>
+            <mp:device mp:name="PIC18F24K20" mp:support="beta"/>
+            <mp:device mp:name="PIC18F24K22" mp:support="beta"/>
+            <mp:device mp:name="PIC18F24K50" mp:support="beta"/>
+            <mp:device mp:name="PIC18F2510" mp:support="beta"/>
+            <mp:device mp:name="PIC18F2515" mp:support="beta"/>
+            <mp:device mp:name="PIC18F252" mp:support="beta"/>
+            <mp:device mp:name="PIC18F2520" mp:support="beta"/>
+            <mp:device mp:name="PIC18F2523" mp:support="beta"/>
+            <mp:device mp:name="PIC18F2525" mp:support="beta"/>
+            <mp:device mp:name="PIC18F2539" mp:support="beta"/>
+            <mp:device mp:name="PIC18F2550" mp:support="beta"/>
+            <mp:device mp:name="PIC18F2553" mp:support="beta"/>
+            <mp:device mp:name="PIC18F258" mp:support="beta"/>
+            <mp:device mp:name="PIC18F2580" mp:support="beta"/>
+            <mp:device mp:name="PIC18F2585" mp:support="beta"/>
+            <mp:device mp:name="PIC18F25J10" mp:support="beta"/>
+            <mp:device mp:name="PIC18F25J11" mp:support="beta"/>
+            <mp:device mp:name="PIC18F25J50" mp:support="beta"/>
+            <mp:device mp:name="PIC18F25K20" mp:support="beta"/>
+            <mp:device mp:name="PIC18F25K22" mp:support="beta"/>
+            <mp:device mp:name="PIC18F25K50" mp:support="beta"/>
+            <mp:device mp:name="PIC18F25K80" mp:support="beta"/>
+            <mp:device mp:name="PIC18F2610" mp:support="beta"/>
+            <mp:device mp:name="PIC18F2620" mp:support="beta"/>
+            <mp:device mp:name="PIC18F2680" mp:support="beta"/>
+            <mp:device mp:name="PIC18F2682" mp:support="beta"/>
+            <mp:device mp:name="PIC18F2685" mp:support="beta"/>
+            <mp:device mp:name="PIC18F26J11" mp:support="beta"/>
+            <mp:device mp:name="PIC18F26J13" mp:support="beta"/>
+            <mp:device mp:name="PIC18F26J50" mp:support="beta"/>
+            <mp:device mp:name="PIC18F26J53" mp:support="beta"/>
+            <mp:device mp:name="PIC18F26K20" mp:support="beta"/>
+            <mp:device mp:name="PIC18F26K22" mp:support="beta"/>
+            <mp:device mp:name="PIC18F26K80" mp:support="beta"/>
+            <mp:device mp:name="PIC18F27J13" mp:support="beta"/>
+            <mp:device mp:name="PIC18F27J53" mp:support="beta"/>
+            <mp:device mp:name="PIC18F4220" mp:support="beta"/>
+            <mp:device mp:name="PIC18F4221" mp:support="beta"/>
+            <mp:device mp:name="PIC18F4320" mp:support="beta"/>
+            <mp:device mp:name="PIC18F4321" mp:support="beta"/>
+            <mp:device mp:name="PIC18F4331" mp:support="beta"/>
+            <mp:device mp:name="PIC18F43K20" mp:support="beta"/>
+            <mp:device mp:name="PIC18F43K22" mp:support="beta"/>
+            <mp:device mp:name="PIC18F4410" mp:support="beta"/>
+            <mp:device mp:name="PIC18F442" mp:support="beta"/>
+            <mp:device mp:name="PIC18F4420" mp:support="beta"/>
+            <mp:device mp:name="PIC18F4423" mp:support="beta"/>
+            <mp:device mp:name="PIC18F4431" mp:support="beta"/>
+            <mp:device mp:name="PIC18F4439" mp:support="beta"/>
+            <mp:device mp:name="PIC18F4450" mp:support="beta"/>
+            <mp:device mp:name="PIC18F4455" mp:support="beta"/>
+            <mp:device mp:name="PIC18F4458" mp:support="beta"/>
+            <mp:device mp:name="PIC18F448" mp:support="beta"/>
+            <mp:device mp:name="PIC18F4480" mp:support="beta"/>
+            <mp:device mp:name="PIC18F44J10" mp:support="beta"/>
+            <mp:device mp:name="PIC18F44J11" mp:support="beta"/>
+            <mp:device mp:name="PIC18F44J50" mp:support="beta"/>
+            <mp:device mp:name="PIC18F44K20" mp:support="beta"/>
+            <mp:device mp:name="PIC18F44K22" mp:support="beta"/>
+            <mp:device mp:name="PIC18F4510" mp:support="beta"/>
+            <mp:device mp:name="PIC18F4515" mp:support="beta"/>
+            <mp:device mp:name="PIC18F452" mp:support="beta"/>
+            <mp:device mp:name="PIC18F4520" mp:support="beta"/>
+            <mp:device mp:name="PIC18F4523" mp:support="beta"/>
+            <mp:device mp:name="PIC18F4525" mp:support="beta"/>
+            <mp:device mp:name="PIC18F4539" mp:support="beta"/>
+            <mp:device mp:name="PIC18F4550" mp:support="beta"/>
+            <mp:device mp:name="PIC18F4553" mp:support="beta"/>
+            <mp:device mp:name="PIC18F458" mp:support="beta"/>
+            <mp:device mp:name="PIC18F4580" mp:support="beta"/>
+            <mp:device mp:name="PIC18F4585" mp:support="beta"/>
+            <mp:device mp:name="PIC18F45J10" mp:support="beta"/>
+            <mp:device mp:name="PIC18F45J11" mp:support="beta"/>
+            <mp:device mp:name="PIC18F45J50" mp:support="beta"/>
+            <mp:device mp:name="PIC18F45K20" mp:support="beta"/>
+            <mp:device mp:name="PIC18F45K22" mp:support="beta"/>
+            <mp:device mp:name="PIC18F45K50" mp:support="beta"/>
+            <mp:device mp:name="PIC18F45K80" mp:support="beta"/>
+            <mp:device mp:name="PIC18F4610" mp:support="beta"/>
+            <mp:device mp:name="PIC18F4620" mp:support="beta"/>
+            <mp:device mp:name="PIC18F4680" mp:support="beta"/>
+            <mp:device mp:name="PIC18F4682" mp:support="beta"/>
+            <mp:device mp:name="PIC18F4685" mp:support="beta"/>
+            <mp:device mp:name="PIC18F46J11" mp:support="beta"/>
+            <mp:device mp:name="PIC18F46J13" mp:support="beta"/>
+            <mp:device mp:name="PIC18F46J50" mp:support="beta"/>
+            <mp:device mp:name="PIC18F46J53" mp:support="beta"/>
+            <mp:device mp:name="PIC18F46K20" mp:support="beta"/>
+            <mp:device mp:name="PIC18F46K22" mp:support="beta"/>
+            <mp:device mp:name="PIC18F46K80" mp:support="beta"/>
+            <mp:device mp:name="PIC18F47J13" mp:support="beta"/>
+            <mp:device mp:name="PIC18F47J53" mp:support="beta"/>
+            <mp:device mp:name="PIC18F6310" mp:support="beta"/>
+            <mp:device mp:name="PIC18F6390" mp:support="beta"/>
+            <mp:device mp:name="PIC18F6393" mp:support="beta"/>
+            <mp:device mp:name="PIC18F63J11" mp:support="beta"/>
+            <mp:device mp:name="PIC18F63J90" mp:support="beta"/>
+            <mp:device mp:name="PIC18F6410" mp:support="beta"/>
+            <mp:device mp:name="PIC18F6490" mp:support="beta"/>
+            <mp:device mp:name="PIC18F6493" mp:support="beta"/>
+            <mp:device mp:name="PIC18F64J11" mp:support="beta"/>
+            <mp:device mp:name="PIC18F64J90" mp:support="beta"/>
+            <mp:device mp:name="PIC18F6520" mp:support="beta"/>
+            <mp:device mp:name="PIC18F6525" mp:support="beta"/>
+            <mp:device mp:name="PIC18F6527" mp:support="beta"/>
+            <mp:device mp:name="PIC18F6585" mp:support="beta"/>
+            <mp:device mp:name="PIC18F65J10" mp:support="beta"/>
+            <mp:device mp:name="PIC18F65J11" mp:support="beta"/>
+            <mp:device mp:name="PIC18F65J15" mp:support="beta"/>
+            <mp:device mp:name="PIC18F65J50" mp:support="beta"/>
+            <mp:device mp:name="PIC18F65J90" mp:support="beta"/>
+            <mp:device mp:name="PIC18F65J94" mp:support="beta"/>
+            <mp:device mp:name="PIC18F65K22" mp:support="beta"/>
+            <mp:device mp:name="PIC18F65K80" mp:support="beta"/>
+            <mp:device mp:name="PIC18F65K90" mp:support="beta"/>
+            <mp:device mp:name="PIC18F6620" mp:support="beta"/>
+            <mp:device mp:name="PIC18F6621" mp:support="beta"/>
+            <mp:device mp:name="PIC18F6622" mp:support="beta"/>
+            <mp:device mp:name="PIC18F6627" mp:support="beta"/>
+            <mp:device mp:name="PIC18F6628" mp:support="beta"/>
+            <mp:device mp:name="PIC18F6680" mp:support="beta"/>
+            <mp:device mp:name="PIC18F66J10" mp:support="beta"/>
+            <mp:device mp:name="PIC18F66J11" mp:support="beta"/>
+            <mp:device mp:name="PIC18F66J15" mp:support="beta"/>
+            <mp:device mp:name="PIC18F66J16" mp:support="beta"/>
+            <mp:device mp:name="PIC18F66J50" mp:support="beta"/>
+            <mp:device mp:name="PIC18F66J55" mp:support="beta"/>
+            <mp:device mp:name="PIC18F66J60" mp:support="beta"/>
+            <mp:device mp:name="PIC18F66J65" mp:support="beta"/>
+            <mp:device mp:name="PIC18F66J90" mp:support="beta"/>
+            <mp:device mp:name="PIC18F66J93" mp:support="beta"/>
+            <mp:device mp:name="PIC18F66J94" mp:support="beta"/>
+            <mp:device mp:name="PIC18F66J99" mp:support="beta"/>
+            <mp:device mp:name="PIC18F66K22" mp:support="beta"/>
+            <mp:device mp:name="PIC18F66K80" mp:support="beta"/>
+            <mp:device mp:name="PIC18F66K90" mp:support="beta"/>
+            <mp:device mp:name="PIC18F6720" mp:support="beta"/>
+            <mp:device mp:name="PIC18F6722" mp:support="beta"/>
+            <mp:device mp:name="PIC18F6723" mp:support="beta"/>
+            <mp:device mp:name="PIC18F67J10" mp:support="beta"/>
+            <mp:device mp:name="PIC18F67J11" mp:support="beta"/>
+            <mp:device mp:name="PIC18F67J50" mp:support="beta"/>
+            <mp:device mp:name="PIC18F67J60" mp:support="beta"/>
+            <mp:device mp:name="PIC18F67J90" mp:support="beta"/>
+            <mp:device mp:name="PIC18F67J93" mp:support="beta"/>
+            <mp:device mp:name="PIC18F67J94" mp:support="beta"/>
+            <mp:device mp:name="PIC18F67K22" mp:support="beta"/>
+            <mp:device mp:name="PIC18F67K90" mp:support="beta"/>
+            <mp:device mp:name="PIC18F8310" mp:support="beta"/>
+            <mp:device mp:name="PIC18F8390" mp:support="beta"/>
+            <mp:device mp:name="PIC18F8393" mp:support="beta"/>
+            <mp:device mp:name="PIC18F83J11" mp:support="beta"/>
+            <mp:device mp:name="PIC18F83J90" mp:support="beta"/>
+            <mp:device mp:name="PIC18F8410" mp:support="beta"/>
+            <mp:device mp:name="PIC18F8490" mp:support="beta"/>
+            <mp:device mp:name="PIC18F8493" mp:support="beta"/>
+            <mp:device mp:name="PIC18F84J11" mp:support="beta"/>
+            <mp:device mp:name="PIC18F84J90" mp:support="beta"/>
+            <mp:device mp:name="PIC18F8520" mp:support="beta"/>
+            <mp:device mp:name="PIC18F8525" mp:support="beta"/>
+            <mp:device mp:name="PIC18F8527" mp:support="beta"/>
+            <mp:device mp:name="PIC18F8585" mp:support="beta"/>
+            <mp:device mp:name="PIC18F85J10" mp:support="beta"/>
+            <mp:device mp:name="PIC18F85J11" mp:support="beta"/>
+            <mp:device mp:name="PIC18F85J15" mp:support="beta"/>
+            <mp:device mp:name="PIC18F85J50" mp:support="beta"/>
+            <mp:device mp:name="PIC18F85J90" mp:support="beta"/>
+            <mp:device mp:name="PIC18F85J94" mp:support="beta"/>
+            <mp:device mp:name="PIC18F85K22" mp:support="beta"/>
+            <mp:device mp:name="PIC18F85K90" mp:support="beta"/>
+            <mp:device mp:name="PIC18F8620" mp:support="beta"/>
+            <mp:device mp:name="PIC18F8621" mp:support="beta"/>
+            <mp:device mp:name="PIC18F8622" mp:support="beta"/>
+            <mp:device mp:name="PIC18F8627" mp:support="beta"/>
+            <mp:device mp:name="PIC18F8628" mp:support="beta"/>
+            <mp:device mp:name="PIC18F8680" mp:support="beta"/>
+            <mp:device mp:name="PIC18F86J10" mp:support="beta"/>
+            <mp:device mp:name="PIC18F86J11" mp:support="beta"/>
+            <mp:device mp:name="PIC18F86J15" mp:support="beta"/>
+            <mp:device mp:name="PIC18F86J16" mp:support="beta"/>
+            <mp:device mp:name="PIC18F86J50" mp:support="beta"/>
+            <mp:device mp:name="PIC18F86J55" mp:support="beta"/>
+            <mp:device mp:name="PIC18F86J60" mp:support="beta"/>
+            <mp:device mp:name="PIC18F86J65" mp:support="beta"/>
+            <mp:device mp:name="PIC18F86J72" mp:support="beta"/>
+            <mp:device mp:name="PIC18F86J90" mp:support="beta"/>
+            <mp:device mp:name="PIC18F86J93" mp:support="beta"/>
+            <mp:device mp:name="PIC18F86J94" mp:support="beta"/>
+            <mp:device mp:name="PIC18F86J99" mp:support="beta"/>
+            <mp:device mp:name="PIC18F86K22" mp:support="beta"/>
+            <mp:device mp:name="PIC18F86K90" mp:support="beta"/>
+            <mp:device mp:name="PIC18F8720" mp:support="beta"/>
+            <mp:device mp:name="PIC18F8722" mp:support="beta"/>
+            <mp:device mp:name="PIC18F8723" mp:support="beta"/>
+            <mp:device mp:name="PIC18F87J10" mp:support="beta"/>
+            <mp:device mp:name="PIC18F87J11" mp:support="beta"/>
+            <mp:device mp:name="PIC18F87J50" mp:support="beta"/>
+            <mp:device mp:name="PIC18F87J60" mp:support="beta"/>
+            <mp:device mp:name="PIC18F87J72" mp:support="beta"/>
+            <mp:device mp:name="PIC18F87J90" mp:support="beta"/>
+            <mp:device mp:name="PIC18F87J93" mp:support="beta"/>
+            <mp:device mp:name="PIC18F87J94" mp:support="beta"/>
+            <mp:device mp:name="PIC18F87K22" mp:support="beta"/>
+            <mp:device mp:name="PIC18F87K90" mp:support="beta"/>
+            <mp:device mp:name="PIC18F95J94" mp:support="beta"/>
+            <mp:device mp:name="PIC18F96J60" mp:support="beta"/>
+            <mp:device mp:name="PIC18F96J65" mp:support="beta"/>
+            <mp:device mp:name="PIC18F96J94" mp:support="beta"/>
+            <mp:device mp:name="PIC18F96J99" mp:support="beta"/>
+            <mp:device mp:name="PIC18F97J60" mp:support="beta"/>
+            <mp:device mp:name="PIC18F97J94" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF1220" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF1230" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF1320" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF1330" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF13K22" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF13K50" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF14K22" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF14K50" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF2220" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF2221" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF2320" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF2321" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF2331" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF23K22" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF2410" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF242" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF2420" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF2423" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF2431" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF2439" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF2450" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF2455" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF2458" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF248" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF2480" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF24J10" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF24J11" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF24J50" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF24K22" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF24K50" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF2510" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF2515" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF252" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF2520" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF2523" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF2525" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF2539" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF2550" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF2553" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF258" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF2580" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF2585" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF25J10" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF25J11" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF25J50" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF25K22" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF25K50" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF25K80" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF2610" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF2620" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF2680" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF2682" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF2685" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF26J11" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF26J13" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF26J50" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF26J53" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF26K22" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF26K80" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF27J13" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF27J53" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF4220" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF4221" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF4320" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF4321" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF4331" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF43K22" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF4410" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF442" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF4420" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF4423" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF4431" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF4439" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF4450" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF4455" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF4458" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF448" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF4480" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF44J10" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF44J11" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF44J50" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF44K22" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF4510" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF4515" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF452" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF4520" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF4523" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF4525" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF4539" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF4550" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF4553" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF458" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF4580" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF4585" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF45J10" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF45J11" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF45J50" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF45K22" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF45K50" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF45K80" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF4610" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF4620" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF4680" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF4682" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF4685" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF46J11" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF46J13" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF46J50" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF46J53" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF46K22" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF46K80" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF47J13" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF47J53" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF6310" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF6390" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF6393" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF6410" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF6490" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF6493" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF6520" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF6525" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF6527" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF6585" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF65K80" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF6620" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF6621" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF6622" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF6627" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF6628" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF6680" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF66K80" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF6720" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF6722" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF6723" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF8310" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF8390" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF8393" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF8410" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF8490" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF8493" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF8520" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF8525" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF8527" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF8585" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF8620" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF8621" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF8622" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF8627" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF8628" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF8680" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF8720" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF8722" mp:support="beta"/>
+            <mp:device mp:name="PIC18LF8723" mp:support="beta"/>
+      </mp:family>
+  </mp:deviceSupport>
+</mp:languageToolchain>
