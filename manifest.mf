@@ -3,5 +3,5 @@ AutoUpdate-Show-In-Client: true
 OpenIDE-Module: org.laczik.toolchainSDCC
 OpenIDE-Module-Layer: org/laczik/toolchainSDCC/layer.xml
 OpenIDE-Module-Localizing-Bundle: org/laczik/toolchainSDCC/Bundle.properties
-OpenIDE-Module-Specification-Version: 2.0.6
+OpenIDE-Module-Specification-Version: 2.0.7
 

@@ -23,10 +23,12 @@ import java.util.List;
 import org.netbeans.api.project.Project;
 import org.netbeans.spi.project.ProjectConfiguration;
 import com.microchip.mplab.nbide.embedded.makeproject.api.configurations.MakeConfiguration;
-import com.microchip.mplab.nbide.toolchainCommon.LTUtils;
+import com.microchip.mplab.nbide.toolchainCommon.properties.CommonLanguageToolchainPropertiesUtils;
 import java.util.Arrays;
 
 public class SDCCSystemDefineProvider implements DefineProvider {
+
+    private final CommonLanguageToolchainPropertiesUtils utils = new CommonLanguageToolchainPropertiesUtils();
 
     private static final String[] PREDEFINED_MACROS = {
         "__asm nop __endasm",
@@ -57,13 +59,13 @@ public class SDCCSystemDefineProvider implements DefineProvider {
         return res;
     }
     
-    public static String getCompilerVersion(MakeConfiguration makeConf) {
-        String ver = LTUtils.getVersion(makeConf);
+    public String getCompilerVersion(MakeConfiguration makeConf) {
+        String ver = utils.getVersion(makeConf);
         return ver.replace(".", "_");
     }
 
-    public static String getCompilerVersion2(MakeConfiguration makeConf) {
-        String ver = LTUtils.getVersion(makeConf);
+    public String getCompilerVersion2(MakeConfiguration makeConf) {
+        String ver = utils.getVersion(makeConf);
         return ver.replace(".", "");
     }
 }

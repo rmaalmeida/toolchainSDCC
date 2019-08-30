@@ -19,7 +19,7 @@ package org.laczik.toolchainSDCC;
 
 import com.microchip.mplab.nbide.embedded.spi.IncludeProvider;
 import com.microchip.mplab.nbide.embedded.makeproject.api.configurations.MakeConfiguration;
-import com.microchip.mplab.nbide.toolchainCommon.LTUtils;
+import com.microchip.mplab.nbide.toolchainCommon.properties.CommonLanguageToolchainPropertiesUtils;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +27,8 @@ import org.netbeans.api.project.Project;
 import org.netbeans.spi.project.ProjectConfiguration;
 
 public class SDCCSystemIncludeProvider implements IncludeProvider {
+
+    private final CommonLanguageToolchainPropertiesUtils utils = new CommonLanguageToolchainPropertiesUtils();
 
     public SDCCSystemIncludeProvider() {
     }
@@ -37,7 +39,7 @@ public class SDCCSystemIncludeProvider implements IncludeProvider {
         String ProcessorFamily = SDCCChipDependentProperties.getProcessorFamilyForCompiler(makeConf);
        
         final List<String> ret = new ArrayList<>();
-        final String pathToBin = LTUtils.pathToBin(projectConf);
+        final String pathToBin = utils.pathToBin(projectConf);
         ret.add(pathToBin + File.separator + ".." + File.separator + "include" + File.separator + ProcessorFamily);
         ret.add(pathToBin + File.separator + ".." + File.separator + "include");
         ret.add(pathToBin + File.separator + ".." + File.separator + "non-free" + File.separator + "include" + File.separator  + ProcessorFamily);
